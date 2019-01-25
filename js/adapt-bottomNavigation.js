@@ -4,8 +4,8 @@ define([
     './view',
     './lib/adaptModelExtension'
 ], function(Adapt, Model, View) {
-    
-    return Adapt.register("quicknav", {
+
+    return Adapt.register("bottomnavigation", {
         model: Model,
         view: View
     });

@@ -1,7 +1,7 @@
-adapt-quicknav
+adapt-bottomNavigation
 ================
 
-<img src="demo.gif" alt="the quicknav extension in action" align="right">
+<img src="demo.gif" alt="the bottomnavigation extension in action" align="right">
 
 Navigation bar component which can contain some or all of the following buttons:
 - _returnToPreviousLocation (takes you back to the previous location - not back in history, just the last routed location)

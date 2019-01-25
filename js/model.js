@@ -62,10 +62,10 @@ define([
                 var buttonModel = buttonTypeModels[attrName];
 
                 if (attrName === "_sibling") {
-                    
+
                     // Skip if only one sibling
                     if (buttonModel.length <= 1) continue;
-                    
+
                     // Generate sibling entries
                     _.each(buttonModel, function(model, index) {
 
@@ -147,9 +147,9 @@ define([
         },
 
         getSiblingPages: function() {
-            
+
             var currentMenu = this.getCurrentMenu();
-            var siblingModels = currentMenu.getAllDescendantsQuickNav(true);
+            var siblingModels = currentMenu.getAllDescendantModels(true);
 
             siblingModels = _.filter(siblingModels, function(model) {
                 return (model.get("_type") === "page" && model.get("_isAvailable"));
@@ -228,14 +228,14 @@ define([
             switch (loopStyle) {
                 case "allPages":
                     loop = true;
-                    descendants = Adapt.course.getAllDescendantsQuickNav(true);
+                    descendants = Adapt.course.getAllDescendantModels(true);
                     break;
                 case "siblings":
                     loop = true;
                     /* falls through */
                 default:
                     var currentMenu = this.getCurrentMenu();
-                    descendants = currentMenu.getAllDescendantsQuickNav(true);
+                    descendants = currentMenu.getAllDescendantModels(true);
             }
 
             if (loop) {

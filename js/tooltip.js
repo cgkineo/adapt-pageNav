@@ -3,7 +3,7 @@ define([
 ], function(Adapt) {
 
     var Tooltip = Backbone.View.extend({
-        
+
         className: "tooltip",
 
         initialize: function(options) {
@@ -11,7 +11,7 @@ define([
             this.removeOtherTooltips();
             this.setupEventListeners();
             this.setupData(options);
-            
+
             this.render();
 
         },
@@ -51,7 +51,7 @@ define([
 
         render: function() {
 
-            var template = Handlebars.templates["quicknav-tooltip"];
+            var template = Handlebars.templates["bottomnavigation-tooltip"];
 
             this.$el.html(template(this.model.toJSON()));
             _.defer(this.postRender);
@@ -97,9 +97,9 @@ define([
 
             var isOverflowingRight = (position.right > parentRight);
             var isOverflowingLeft = (position.left <= parentLeft);
-            
+
             var leftOffset = isOverflowingRight ? overflowRight : isOverflowingLeft ? overflowLeft : 0;
-            
+
             this.$el.css({
                 top: position.top,
                 left: position.left - leftOffset - 1

@@ -3,7 +3,7 @@
         "_id": "c-04",
         "_parentId": "b-04",
         "_type": "component",
-        "_component": "quicknav",
+        "_component": "bottomnavigation",
         "_classes": "",
         "_layout": "full",
         "title": "",
