@@ -1,0 +1,71 @@
+// Prevents Quicknav tooltip from triggering render and potential overflow-x in IE11
+.ie.version-11-0 #wrapper {
+    overflow-x: visible;
+}
+
+.quicknav .tooltip {
+    visibility: hidden;
+
+    .button-text;
+    //font-family: @font-family;
+
+    position: absolute;
+    text-align: left;
+
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
+
+    &.show {
+        visibility: visible;
+    }
+    
+    .text {
+        background-color: @primary-color;
+        // Uncomment for tooltip border around text
+        // border: 1px solid black;
+        color: @primary-color-inverted;
+        border-radius: 5px;
+        padding: 10px 20px;
+        text-align: left;
+    }
+
+    .triangle {
+        position: relative;
+        width: 0;
+        height: 0;
+        display: inline-block;
+        margin-left: 22px;
+
+        &:before,
+        &:after {
+            content: "";
+            top: -20px;
+            position: absolute;
+            display: block;
+            width: 0;
+            z-index: 10;
+
+            @media (max-width: @device-width-small) {
+                top: -16px;
+            }
+        }
+
+        &:before {
+            // Remove display none for border around triangle
+            display: none;
+            left: -11px;
+            border-width: 22px 11px 0 11px; /* vary these values to change the angle of the vertex */
+            border-style: solid;
+            border-color: black transparent transparent transparent;
+        }
+
+        &:after {
+            left: -10px;
+            border-width: 20px 10px 0 10px; /* vary these values to change the angle of the vertex */
+            border-style: solid;
+            border-color: @primary-color transparent transparent transparent;
+        }
+    }
+    
+}
+

@@ -1,0 +1,48 @@
+.quicknav {
+    .quicknav-widget {
+        font-size: 0;
+        text-align: center;
+    }
+
+    button {
+        line-height: inherit;
+        margin: 3px;
+        min-height: inherit;
+        padding: 20px;
+        vertical-align: top;
+        
+        .icon {
+            color: @button-text-color;
+            display: inline-block;
+            vertical-align: top;
+
+            &:before {
+                line-height: 1;
+            }
+        }
+
+        &.selected {
+            background-color: @button-color-hover;
+            border-color: @button-border-color-hover;
+            color: @button-text-color-hover;
+        }
+
+        &.disabled {
+            cursor: not-allowed;
+        }
+
+        .text {
+            .button-text;
+            display: inline-block;
+            //font-family: @font-family;
+            line-height: 135%;
+            min-width: 24px;
+
+            @media all and (max-width: @device-width-small) {
+                line-height: 24px;
+                min-height: 24px;
+            }
+        }
+    }
+}
+

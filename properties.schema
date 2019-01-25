@@ -1,0 +1,669 @@
+{
+  "type": "object",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "id": "http://jsonschema.net",
+  "$ref": "http://localhost/plugins/content/component/model.schema",
+  "properties": {
+    "_supportedLayout": {
+      "type": "string",
+      "default": "full-width",
+      "enum": [
+        "full-width",
+        "half-width",
+        "both"
+      ],
+      "editorOnly": true
+    },
+    "instruction": {
+      "type": "string",
+      "required": false,
+      "default": "",
+      "inputType": "Text",
+      "validators": [],
+      "help": "This is the instruction text",
+      "translatable": true
+    },
+    "_loopStyle": {
+      "type": "string",
+      "required": true,
+      "title": "Is Continuous",
+      "enum": ["allPages", "siblings", "none"],
+      "inputType": {
+        "type": "Select",
+        "options": ["allPages", "siblings", "none"]
+      },
+      "default": "none",
+      "help": "allPages = loop sequentially through all pages in course, siblings = loop sequentially through all pages in current parent object, none = disable previous and next buttons at start and end of the pages in the current parent object",
+      "validators": []
+    },
+    "_buttons": {
+      "type": "object",
+      "required": true,
+      "title": "Buttons settings",
+      "properties": {
+        "_returnToPreviousLocation": {
+          "type": "object",
+          "required": true,
+          "title": "Return to previous location button",
+          "properties": {
+            "_isEnabled": {
+              "type": "boolean",
+              "required": true,
+              "title": "Show",
+              "default": false,
+              "inputType": "Checkbox",
+              "validators": []
+            },
+            "_order": {
+              "type": "number",
+              "required": true,
+              "default": 0,
+              "title": "Order",
+              "inputType": "Number",
+              "validators": ["required", "number"],
+              "help": "Button display order"
+            },
+            "_classes": {
+              "type": "string",
+              "required": false,
+              "title": "Classes",
+              "default": "",
+              "inputType": "Text",
+              "validators": []
+            },
+            "_iconClass": {
+              "type": "string",
+              "required": false,
+              "title": "Icon class",
+              "default": "",
+              "inputType": "Text",
+              "validators": []
+            },
+            "_alignIconRight": {
+              "type": "boolean",
+              "required": true,
+              "title": "Align icon right",
+              "default": false,
+              "inputType": "Checkbox",
+              "validators": []
+            },
+            "text": {
+              "type": "string",
+              "required": true,
+              "default": "< Return",
+              "inputType": "Text",
+              "validators": [],
+              "translatable": true
+            },
+            "ariaLabel": {
+              "type": "string",
+              "required": true,
+              "title": "ARIA label",
+              "default": "Return to previous location",
+              "inputType": "Text",
+              "validators": [],
+              "translatable": true
+            },
+            "_showTooltip": {
+              "type": "boolean",
+              "required": true,
+              "title": "Show tool tip",
+              "default": true,
+              "inputType": "Checkbox",
+              "validators": []
+            },
+            "tooltip": {
+              "type": "string",
+              "required": false,
+              "title": "Tool tip",
+              "default": "{{displayTitle}}",
+              "inputType": "Text",
+              "validators": [],
+              "translatable": true
+            }
+          }
+        },
+        "_previous": {
+          "type": "object",
+          "required": true,
+          "title": "Previous button",
+          "properties": {
+            "_isEnabled": {
+              "type": "boolean",
+              "required": true,
+              "title": "Show",
+              "default": true,
+              "inputType": "Checkbox",
+              "validators": []
+            },
+            "_order": {
+              "type": "number",
+              "required": true,
+              "default": 0,
+              "title": "Order",
+              "inputType": "Number",
+              "validators": ["required", "number"],
+              "help": "Button display order"
+            },
+            "_classes": {
+              "type": "string",
+              "required": false,
+              "title": "Classes",
+              "default": "",
+              "inputType": "Text",
+              "validators": []
+            },
+            "_iconClass": {
+              "type": "string",
+              "required": false,
+              "title": "Icon class",
+              "default": "",
+              "inputType": "Text",
+              "validators": []
+            },
+            "_alignIconRight": {
+              "type": "boolean",
+              "required": true,
+              "title": "Align icon right",
+              "default": false,
+              "inputType": "Checkbox",
+              "validators": []
+            },
+            "text": {
+              "type": "string",
+              "required": true,
+              "default": "< Previous",
+              "inputType": "Text",
+              "validators": [],
+              "translatable": true
+            },
+            "ariaLabel": {
+              "type": "string",
+              "required": true,
+              "title": "ARIA label",
+              "default": "Previous Page",
+              "inputType": "Text",
+              "validators": [],
+              "translatable": true
+            },
+            "_showTooltip": {
+              "type": "boolean",
+              "required": true,
+              "title": "Show tool tip",
+              "default": true,
+              "inputType": "Checkbox",
+              "validators": []
+            },
+            "tooltip": {
+              "type": "string",
+              "required": false,
+              "title": "Tool tip",
+              "default": "{{displayTitle}}",
+              "inputType": "Text",
+              "validators": [],
+              "translatable": true
+            },
+            "_customRouteId": {
+              "type": "string",
+              "required": true,
+              "title": "Override the route id",
+              "default": "",
+              "inputType": "Text",
+              "validators": []
+            }
+          }
+        },
+        "_root": {
+          "type": "object",
+          "required": true,
+          "title": "Root button",
+          "properties": {
+            "_isEnabled": {
+              "type": "boolean",
+              "required": true,
+              "title": "Show",
+              "default": true,
+              "inputType": "Checkbox",
+              "validators": []
+            },
+            "_order": {
+              "type": "number",
+              "required": true,
+              "default": 0,
+              "title": "Order",
+              "inputType": "Number",
+              "validators": ["required", "number"],
+              "help": "Button display order"
+            },
+            "_classes": {
+              "type": "string",
+              "required": false,
+              "title": "Classes",
+              "default": "",
+              "inputType": "Text",
+              "validators": []
+            },
+            "_iconClass": {
+              "type": "string",
+              "required": false,
+              "title": "Icon class",
+              "default": "",
+              "inputType": "Text",
+              "validators": []
+            },
+            "_alignIconRight": {
+              "type": "boolean",
+              "required": true,
+              "title": "Align icon right",
+              "default": false,
+              "inputType": "Checkbox",
+              "validators": []
+            },
+            "text": {
+              "type": "string",
+              "required": true,
+              "default": "Go to main menu",
+              "inputType": "Text",
+              "validators": [],
+              "translatable": true
+            },
+            "ariaLabel": {
+              "type": "string",
+              "required": true,
+              "title": "ARIA label",
+              "default": "Go to main menu",
+              "inputType": "Text",
+              "validators": [],
+              "translatable": true
+            },
+            "_showTooltip": {
+              "type": "boolean",
+              "required": true,
+              "title": "Show tool tip",
+              "default": true,
+              "inputType": "Checkbox",
+              "validators": []
+            },
+            "tooltip": {
+              "type": "string",
+              "required": false,
+              "title": "Tool tip",
+              "default": "{{displayTitle}}",
+              "inputType": "Text",
+              "validators": [],
+              "translatable": true
+            },
+            "_customRouteId": {
+              "type": "string",
+              "required": true,
+              "title": "Override the route id",
+              "default": "",
+              "inputType": "Text",
+              "validators": []
+            }
+          }
+        },
+        "_up": {
+          "type": "object",
+          "required": true,
+          "title": "Up button",
+          "properties": {
+            "_isEnabled": {
+              "type": "boolean",
+              "required": true,
+              "title": "Show",
+              "default": true,
+              "inputType": "Checkbox",
+              "validators": []
+            },
+            "_order": {
+              "type": "number",
+              "required": true,
+              "default": 0,
+              "title": "Order",
+              "inputType": "Number",
+              "validators": ["required", "number"],
+              "help": "Button display order"
+            },
+            "_classes": {
+              "type": "string",
+              "required": false,
+              "title": "Classes",
+              "default": "",
+              "inputType": "Text",
+              "validators": []
+            },
+            "_iconClass": {
+              "type": "string",
+              "required": false,
+              "title": "Icon class",
+              "default": "",
+              "inputType": "Text",
+              "validators": []
+            },
+            "_alignIconRight": {
+              "type": "boolean",
+              "required": true,
+              "title": "Align icon right",
+              "default": false,
+              "inputType": "Checkbox",
+              "validators": []
+            },
+            "text": {
+              "type": "string",
+              "required": true,
+              "default": "Back to menu",
+              "inputType": "Text",
+              "validators": [],
+              "translatable": true
+            },
+            "ariaLabel": {
+              "type": "string",
+              "required": true,
+              "title": "ARIA label",
+              "default": "Back to menu",
+              "inputType": "Text",
+              "validators": [],
+              "translatable": true
+            },
+            "_showTooltip": {
+              "type": "boolean",
+              "required": true,
+              "title": "Show tool tip",
+              "default": true,
+              "inputType": "Checkbox",
+              "validators": []
+            },
+            "tooltip": {
+              "type": "string",
+              "required": false,
+              "title": "Tool tip",
+              "default": "{{displayTitle}}",
+              "inputType": "Text",
+              "validators": [],
+              "translatable": true
+            },
+            "_customRouteId": {
+              "type": "string",
+              "required": true,
+              "title": "Override the route id",
+              "default": "",
+              "inputType": "Text",
+              "validators": []
+            }
+          }
+        },
+        "_next": {
+          "type": "object",
+          "required": true,
+          "title": "Next button",
+          "properties": {
+            "_isEnabled": {
+              "type": "boolean",
+              "required": true,
+              "title": "Show",
+              "default": true,
+              "inputType": "Checkbox",
+              "validators": []
+            },
+            "_order": {
+              "type": "number",
+              "required": true,
+              "default": 0,
+              "title": "Order",
+              "inputType": "Number",
+              "validators": ["required", "number"],
+              "help": "Button display order"
+            },
+            "_classes": {
+              "type": "string",
+              "required": false,
+              "title": "Classes",
+              "default": "",
+              "inputType": "Text",
+              "validators": []
+            },
+            "_iconClass": {
+              "type": "string",
+              "required": false,
+              "title": "Icon class",
+              "default": "",
+              "inputType": "Text",
+              "validators": []
+            },
+            "_alignIconRight": {
+              "type": "boolean",
+              "required": true,
+              "title": "Align icon right",
+              "default": false,
+              "inputType": "Checkbox",
+              "validators": []
+            },
+            "text": {
+              "type": "string",
+              "required": true,
+              "default": "Next >",
+              "inputType": "Text",
+              "validators": [],
+              "translatable": true
+            },
+            "ariaLabel": {
+              "type": "string",
+              "required": true,
+              "title": "ARIA label",
+              "default": "Next Page",
+              "inputType": "Text",
+              "validators": [],
+              "translatable": true
+            },
+            "_showTooltip": {
+              "type": "boolean",
+              "required": true,
+              "title": "Show tool tip",
+              "default": true,
+              "inputType": "Checkbox",
+              "validators": []
+            },
+            "tooltip": {
+              "type": "string",
+              "required": false,
+              "title": "Tool tip",
+              "default": "{{displayTitle}}",
+              "inputType": "Text",
+              "validators": [],
+              "translatable": true
+            },
+            "_customRouteId": {
+              "type": "string",
+              "required": true,
+              "title": "Override the route id",
+              "default": "",
+              "inputType": "Text",
+              "validators": []
+            }
+          }
+        },
+        "_sibling": {
+          "type": "object",
+          "required": true,
+          "title": "Sibling buttons",
+          "properties": {
+            "_isEnabled": {
+              "type": "boolean",
+              "required": true,
+              "title": "Show",
+              "default": true,
+              "inputType": "Checkbox",
+              "validators": []
+            },
+            "_order": {
+              "type": "number",
+              "required": true,
+              "default": 0,
+              "title": "Order",
+              "inputType": "Number",
+              "validators": ["required", "number"],
+              "help": "Button display order"
+            },
+            "_classes": {
+              "type": "string",
+              "required": false,
+              "title": "Classes",
+              "default": "",
+              "inputType": "Text",
+              "validators": []
+            },
+            "_iconClass": {
+              "type": "string",
+              "required": false,
+              "title": "Icon class",
+              "default": "",
+              "inputType": "Text",
+              "validators": []
+            },
+            "_alignIconRight": {
+              "type": "boolean",
+              "required": true,
+              "title": "Align icon right",
+              "default": false,
+              "inputType": "Checkbox",
+              "validators": []
+            },
+            "text": {
+              "type": "string",
+              "required": true,
+              "default": "{{inc index}}",
+              "inputType": "Text",
+              "validators": [],
+              "translatable": true
+            },
+            "ariaLabel": {
+              "type": "string",
+              "required": true,
+              "title": "ARIA label",
+              "default": "Page {{inc index}}",
+              "inputType": "Text",
+              "validators": [],
+              "translatable": true
+            },
+            "_showTooltip": {
+              "type": "boolean",
+              "required": true,
+              "title": "Show tool tip",
+              "default": true,
+              "inputType": "Checkbox",
+              "validators": []
+            },
+            "tooltip": {
+              "type": "string",
+              "required": false,
+              "title": "Tool tip",
+              "default": "{{displayTitle}}",
+              "inputType": "Text",
+              "validators": [],
+              "translatable": true
+            },
+            "_customRouteId": {
+              "type": "string",
+              "required": true,
+              "title": "Override the route id",
+              "default": "",
+              "inputType": "Text",
+              "validators": []
+            }
+          }
+        },
+        "_close": {
+          "type": "object",
+          "required": true,
+          "title": "Close button",
+          "properties": {
+            "_isEnabled": {
+              "type": "boolean",
+              "required": true,
+              "title": "Show",
+              "default": true,
+              "inputType": "Checkbox",
+              "validators": []
+            },
+            "_order": {
+              "type": "number",
+              "required": true,
+              "default": 0,
+              "title": "Order",
+              "inputType": "Number",
+              "validators": ["required", "number"],
+              "help": "Button display order"
+            },
+            "_classes": {
+              "type": "string",
+              "required": false,
+              "title": "Classes",
+              "default": "",
+              "inputType": "Text",
+              "validators": []
+            },
+            "_iconClass": {
+              "type": "string",
+              "required": false,
+              "title": "Icon class",
+              "default": "",
+              "inputType": "Text",
+              "validators": []
+            },
+            "_alignIconRight": {
+              "type": "boolean",
+              "required": true,
+              "title": "Align icon right",
+              "default": false,
+              "inputType": "Checkbox",
+              "validators": []
+            },
+            "text": {
+              "type": "string",
+              "required": true,
+              "default": "Close",
+              "inputType": "Text",
+              "validators": [],
+              "translatable": true
+            },
+            "ariaLabel": {
+              "type": "string",
+              "required": true,
+              "title": "ARIA label",
+              "default": "Close window",
+              "inputType": "Text",
+              "validators": [],
+              "translatable": true
+            },
+            "_showTooltip": {
+              "type": "boolean",
+              "required": true,
+              "title": "Show tool tip",
+              "default": false,
+              "inputType": "Checkbox",
+              "validators": []
+            },
+            "tooltip": {
+              "type": "string",
+              "required": false,
+              "title": "Tool tip",
+              "default": "Close window",
+              "inputType": "Text",
+              "validators": [],
+              "translatable": true
+            },
+            "_customRouteId": {
+              "type": "string",
+              "required": true,
+              "title": "Override the route id",
+              "default": "",
+              "inputType": "Text",
+              "validators": []
+            }
+          }
+        }
+      }
+    }
+  }
+}
