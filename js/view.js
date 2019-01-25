@@ -86,7 +86,7 @@ define([
             var data = items[index];
 
             // rerender the button
-            var $buttonRendered = $(Handlebars.partials['bottomnavigation-item'](data));
+            var $buttonRendered = $(Handlebars.partials['bottomNavigation-item'](data));
             if ($buttonRendered.length === 0) {
                 $button.remove();
                 return;
