@@ -39,7 +39,7 @@ define([
 
         render: function() {
 
-            var template = Handlebars.templates["bottomnavigation"];
+            var template = Handlebars.templates["bottomNavigation"];
             var data = this.model.getData();
 
             this.$el.html(template(data));

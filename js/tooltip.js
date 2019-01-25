@@ -51,7 +51,7 @@ define([
 
         render: function() {
 
-            var template = Handlebars.templates["bottomnavigation-tooltip"];
+            var template = Handlebars.templates["bottomNavigation-tooltip"];
 
             this.$el.html(template(this.model.toJSON()));
             _.defer(this.postRender);

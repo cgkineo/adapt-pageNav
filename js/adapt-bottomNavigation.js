@@ -23,7 +23,7 @@ define([
         });
     }
 
-    return Adapt.register("bottomnavigation", {
+    return Adapt.register("bottomNavigation", {
         model: Model,
         view: View
     });
