@@ -4,7 +4,7 @@
     "type": "git",
     "url": "git://github.com/cgkineo/adapt-bottomnavigation"
   },
-  "framework": ">=2.3.0",
+  "framework": ">=2.3",
   "version": "1.0.0",
   "homepage": "https://github.com/cgkineo/adapt-bottomnavigation",
   "issues": "https://github.com/cgkineo/adapt-bottomnavigation/issues/",
