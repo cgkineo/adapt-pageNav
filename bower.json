@@ -1,8 +1,8 @@
 {
     "name": "adapt-bottomNavigation",
     "repository": "git://github.com/cgkineo/adapt-bottomNavigation.git",
-    "framework": "2.3.0",
-    "version": "1.0.1",
+    "framework": ">=2.3",
+    "version": "1.0.2",
     "homepage": "https://github.com/cgkineo/adapt-bottomNavigation",
     "issues": "https://github.com/cgkineo/adapt-bottomNavigation/issues/",
     "displayName": "Bottom navigation",
