@@ -3,7 +3,7 @@
         "_id": "c-04",
         "_parentId": "b-04",
         "_type": "component",
-        "_component": "bottomnavigation",
+        "_component": "bottomNavigation",
         "_classes": "",
         "_layout": "full",
         "title": "",
