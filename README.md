@@ -11,3 +11,8 @@ Navigation bar component which can contain some or all of the following buttons:
 - _next (navigates directly to the next page, if exists, without having to navigate via the menu)
 - _sibling (1,2,3,4 etc buttons representing each sibling page)
 - _close (closes the course window - only possible if the course was launched in a popup window)
+
+
+
+### When to use
+Only if your AAT had the old quicknav extension and now needs to use the quicknav component. It is not possible to have both the extension and the component installed with the same name.
