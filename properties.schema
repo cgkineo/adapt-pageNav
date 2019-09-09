@@ -54,6 +54,15 @@
               "inputType": "Checkbox",
               "validators": []
             },
+            "_lockUntilPageComplete": {
+              "type": "boolean",
+              "required": true,
+              "title": "Show",
+              "default": true,
+              "inputType": "Checkbox",
+              "validators": [],
+              "help": "For use when the standard Adapt locking system doesn't apply, such as in a start page before the main menu"
+            },
             "_order": {
               "type": "number",
               "required": true,
@@ -226,6 +235,15 @@
               "inputType": "Checkbox",
               "validators": []
             },
+            "_lockUntilPageComplete": {
+              "type": "boolean",
+              "required": true,
+              "title": "Show",
+              "default": true,
+              "inputType": "Checkbox",
+              "validators": [],
+              "help": "For use when the standard Adapt locking system doesn't apply, such as in a start page before the main menu"
+            },
             "_order": {
               "type": "number",
               "required": true,
@@ -315,6 +333,15 @@
               "default": true,
               "inputType": "Checkbox",
               "validators": []
+            },
+            "_lockUntilPageComplete": {
+              "type": "boolean",
+              "required": true,
+              "title": "Show",
+              "default": true,
+              "inputType": "Checkbox",
+              "validators": [],
+              "help": "For use when the standard Adapt locking system doesn't apply, such as in a start page before the main menu"
             },
             "_order": {
               "type": "number",
@@ -586,6 +613,15 @@
               "inputType": "Checkbox",
               "validators": []
             },
+            "_lockUntilPageComplete": {
+              "type": "boolean",
+              "required": true,
+              "title": "Show",
+              "default": true,
+              "inputType": "Checkbox",
+              "validators": [],
+              "help": "For use when the standard Adapt locking system doesn't apply, such as in a start page before the main menu"
+            },
             "_order": {
               "type": "number",
               "required": true,
@@ -652,14 +688,6 @@
               "inputType": "Text",
               "validators": [],
               "translatable": true
-            },
-            "_customRouteId": {
-              "type": "string",
-              "required": true,
-              "title": "Override the route id",
-              "default": "",
-              "inputType": "Text",
-              "validators": []
             }
           }
         }

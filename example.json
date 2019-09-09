@@ -10,13 +10,16 @@
         "displayTitle": "",
         "body": "",
         "instruction": "",
-        "_comment": "allPages = loop sequentially through all pages in course",
-        "_comment": "siblings = loop sequentially through all pages in current parent object",
-        "_comment": "none = disable previous and next buttons at start and end of the pages in the current parent object",
+        "_loopStyleComment": {
+            "allPages": "loop sequentially through all pages in course",
+            "siblings": "loop sequentially through all pages in current parent object",
+            "none": "disable previous and next buttons at start and end of the pages in the current parent object"
+        },
         "_loopStyle": "none",
         "_buttons": {
             "_returnToPreviousLocation": {
                 "_isEnabled": false,
+                "_lockUntilPageComplete": false,
                 "_order": 1,
                 "_classes": "",
                 "_iconClass": "",
@@ -28,6 +31,7 @@
             },
             "_previous": {
                 "_isEnabled": true,
+                "_lockUntilPageComplete": false,
                 "_order": 1,
                 "_classes": "",
                 "_iconClass": "",
@@ -40,6 +44,7 @@
             },
             "_root": {
                 "_isEnabled": true,
+                "_lockUntilPageComplete": false,
                 "_order": 1,
                 "_classes": "",
                 "_iconClass": "",
@@ -52,6 +57,7 @@
             },
             "_up": {
                 "_isEnabled": true,
+                "_lockUntilPageComplete": false,
                 "_order": 1,
                 "_classes": "",
                 "_iconClass": "",
@@ -64,6 +70,7 @@
             },
             "_next": {
                 "_isEnabled": true,
+                "_lockUntilPageComplete": false,
                 "_order": 1,
                 "_classes": "",
                 "_iconClass": "",
@@ -76,6 +83,7 @@
             },
             "_sibling": {
                 "_isEnabled": true,
+                "_lockUntilPageComplete": false,
                 "_order": 1,
                 "_classes": "",
                 "_iconClass": "",
@@ -88,6 +96,7 @@
             },
             "_close": {
                 "_isEnabled": true,
+                "_lockUntilPageComplete": false,
                 "_order": 1,
                 "_classes": "",
                 "_iconClass": "",
@@ -95,8 +104,7 @@
                 "text": "Close",
                 "ariaLabel": "Close window",
                 "_showTooltip": false,
-                "tooltip": "Close window",
-                "_customRouteId": ""
+                "tooltip": "Close window"
             }
         }
     },
