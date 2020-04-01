@@ -44,7 +44,7 @@
         "_returnToPreviousLocation": {
           "type": "object",
           "required": true,
-          "title": "Return to previous location button",
+          "legend": "Return to previous location button",
           "properties": {
             "_isEnabled": {
               "type": "boolean",
@@ -57,8 +57,8 @@
             "_lockUntilPageComplete": {
               "type": "boolean",
               "required": true,
-              "title": "Show",
-              "default": true,
+              "title": "Lock until page complete",
+              "default": false,
               "inputType": "Checkbox",
               "validators": [],
               "help": "For use when the standard Adapt locking system doesn't apply, such as in a start page before the main menu"
@@ -99,7 +99,7 @@
             "text": {
               "type": "string",
               "required": true,
-              "default": "< Return",
+              "default": "Return",
               "inputType": "Text",
               "validators": [],
               "translatable": true
@@ -117,7 +117,7 @@
               "type": "boolean",
               "required": true,
               "title": "Show tool tip",
-              "default": true,
+              "default": false,
               "inputType": "Checkbox",
               "validators": []
             },
@@ -135,15 +135,24 @@
         "_previous": {
           "type": "object",
           "required": true,
-          "title": "Previous button",
+          "legend": "Previous button",
           "properties": {
             "_isEnabled": {
               "type": "boolean",
               "required": true,
               "title": "Show",
-              "default": true,
+              "default": false,
               "inputType": "Checkbox",
               "validators": []
+            },
+            "_lockUntilPageComplete": {
+              "type": "boolean",
+              "required": true,
+              "title": "Lock until page complete",
+              "default": false,
+              "inputType": "Checkbox",
+              "validators": [],
+              "help": "For use when the standard Adapt locking system doesn't apply, such as in a start page before the main menu"
             },
             "_order": {
               "type": "number",
@@ -181,7 +190,7 @@
             "text": {
               "type": "string",
               "required": true,
-              "default": "< Previous",
+              "default": "Previous",
               "inputType": "Text",
               "validators": [],
               "translatable": true
@@ -199,7 +208,7 @@
               "type": "boolean",
               "required": true,
               "title": "Show tool tip",
-              "default": true,
+              "default": false,
               "inputType": "Checkbox",
               "validators": []
             },
@@ -225,21 +234,21 @@
         "_root": {
           "type": "object",
           "required": true,
-          "title": "Root button",
+          "legend": "Root button",
           "properties": {
             "_isEnabled": {
               "type": "boolean",
               "required": true,
               "title": "Show",
-              "default": true,
+              "default": false,
               "inputType": "Checkbox",
               "validators": []
             },
             "_lockUntilPageComplete": {
               "type": "boolean",
               "required": true,
-              "title": "Show",
-              "default": true,
+              "title": "Lock until page complete",
+              "default": false,
               "inputType": "Checkbox",
               "validators": [],
               "help": "For use when the standard Adapt locking system doesn't apply, such as in a start page before the main menu"
@@ -280,7 +289,7 @@
             "text": {
               "type": "string",
               "required": true,
-              "default": "Go to main menu",
+              "default": "Menu",
               "inputType": "Text",
               "validators": [],
               "translatable": true
@@ -298,7 +307,7 @@
               "type": "boolean",
               "required": true,
               "title": "Show tool tip",
-              "default": true,
+              "default": false,
               "inputType": "Checkbox",
               "validators": []
             },
@@ -324,21 +333,21 @@
         "_up": {
           "type": "object",
           "required": true,
-          "title": "Up button",
+          "legend": "Up button",
           "properties": {
             "_isEnabled": {
               "type": "boolean",
               "required": true,
               "title": "Show",
-              "default": true,
+              "default": false,
               "inputType": "Checkbox",
               "validators": []
             },
             "_lockUntilPageComplete": {
               "type": "boolean",
               "required": true,
-              "title": "Show",
-              "default": true,
+              "title": "Lock until page complete",
+              "default": false,
               "inputType": "Checkbox",
               "validators": [],
               "help": "For use when the standard Adapt locking system doesn't apply, such as in a start page before the main menu"
@@ -397,7 +406,7 @@
               "type": "boolean",
               "required": true,
               "title": "Show tool tip",
-              "default": true,
+              "default": false,
               "inputType": "Checkbox",
               "validators": []
             },
@@ -423,15 +432,24 @@
         "_next": {
           "type": "object",
           "required": true,
-          "title": "Next button",
+          "legend": "Next button",
           "properties": {
             "_isEnabled": {
               "type": "boolean",
               "required": true,
               "title": "Show",
-              "default": true,
+              "default": false,
               "inputType": "Checkbox",
               "validators": []
+            },
+            "_lockUntilPageComplete": {
+              "type": "boolean",
+              "required": true,
+              "title": "Lock until page complete",
+              "default": false,
+              "inputType": "Checkbox",
+              "validators": [],
+              "help": "For use when the standard Adapt locking system doesn't apply, such as in a start page before the main menu"
             },
             "_order": {
               "type": "number",
@@ -462,14 +480,14 @@
               "type": "boolean",
               "required": true,
               "title": "Align icon right",
-              "default": false,
+              "default": true,
               "inputType": "Checkbox",
               "validators": []
             },
             "text": {
               "type": "string",
               "required": true,
-              "default": "Next >",
+              "default": "Next",
               "inputType": "Text",
               "validators": [],
               "translatable": true
@@ -487,7 +505,7 @@
               "type": "boolean",
               "required": true,
               "title": "Show tool tip",
-              "default": true,
+              "default": false,
               "inputType": "Checkbox",
               "validators": []
             },
@@ -513,15 +531,24 @@
         "_sibling": {
           "type": "object",
           "required": true,
-          "title": "Sibling buttons",
+          "legend": "Sibling buttons",
           "properties": {
             "_isEnabled": {
               "type": "boolean",
               "required": true,
               "title": "Show",
-              "default": true,
+              "default": false,
               "inputType": "Checkbox",
               "validators": []
+            },
+            "_lockUntilPageComplete": {
+              "type": "boolean",
+              "required": true,
+              "title": "Lock until page complete",
+              "default": false,
+              "inputType": "Checkbox",
+              "validators": [],
+              "help": "For use when the standard Adapt locking system doesn't apply, such as in a start page before the main menu"
             },
             "_order": {
               "type": "number",
@@ -577,7 +604,7 @@
               "type": "boolean",
               "required": true,
               "title": "Show tool tip",
-              "default": true,
+              "default": false,
               "inputType": "Checkbox",
               "validators": []
             },
@@ -603,21 +630,21 @@
         "_close": {
           "type": "object",
           "required": true,
-          "title": "Close button",
+          "legend": "Close button",
           "properties": {
             "_isEnabled": {
               "type": "boolean",
               "required": true,
               "title": "Show",
-              "default": true,
+              "default": false,
               "inputType": "Checkbox",
               "validators": []
             },
             "_lockUntilPageComplete": {
               "type": "boolean",
               "required": true,
-              "title": "Show",
-              "default": true,
+              "title": "Lock until page complete",
+              "default": false,
               "inputType": "Checkbox",
               "validators": [],
               "help": "For use when the standard Adapt locking system doesn't apply, such as in a start page before the main menu"

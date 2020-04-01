@@ -1,71 +1,47 @@
-// Prevents Quicknav tooltip from triggering render and potential overflow-x in IE11
-.ie.version-11-0 #wrapper {
-    overflow-x: visible;
-}
-
-.bottomnavigation .tooltip {
-    visibility: hidden;
-
-    .button-text;
-    //font-family: @font-family;
-
+.bottomnavigation {
+  &__tooltip {
     position: absolute;
-    text-align: left;
+    .transform(translate(-50%, -100%));
+    visibility: hidden;
+    white-space: nowrap;
+  }
 
-    -webkit-transform: translateY(-100%);
-    transform: translateY(-100%);
+  &__tooltip.show {
+    visibility: visible;
+  }
 
-    &.show {
-        visibility: visible;
+  &__triangle {
+    position: relative;
+    .transform(translateX(-50%));
+    width: @item-padding;
+    height: @item-padding;
+
+    &:after {
+      content: "";
+      position: absolute;
+
+      border-width: @item-padding (@item-padding / 2) 0 (@item-padding / 2); /* vary these values to change the angle of the vertex */
+      border-style: solid;
+      border-color: red transparent transparent transparent;
     }
-
-    .text {
-        background-color: @primary-color;
-        // Uncomment for tooltip border around text
-        // border: 1px solid black;
-        color: @primary-color-inverted;
-        border-radius: 5px;
-        padding: 10px 20px;
-        text-align: left;
-    }
-
-    .triangle {
-        position: relative;
-        width: 0;
-        height: 0;
-        display: inline-block;
-        margin-left: 22px;
-
-        &:before,
-        &:after {
-            content: "";
-            top: -20px;
-            position: absolute;
-            display: block;
-            width: 0;
-            z-index: 10;
-
-            @media (max-width: @device-width-small) {
-                top: -16px;
-            }
-        }
-
-        &:before {
-            // Remove display none for border around triangle
-            display: none;
-            left: -11px;
-            border-width: 22px 11px 0 11px; /* vary these values to change the angle of the vertex */
-            border-style: solid;
-            border-color: black transparent transparent transparent;
-        }
-
-        &:after {
-            left: -10px;
-            border-width: 20px 10px 0 10px; /* vary these values to change the angle of the vertex */
-            border-style: solid;
-            border-color: @primary-color transparent transparent transparent;
-        }
-    }
-
+  }
 }
 
+// --------------------------------------------------
+// --------------------------------------------------
+// THEME
+// --------------------------------------------------
+// --------------------------------------------------
+
+.bottomnavigation {
+  &__tooltip-text {
+    padding: @item-padding / 2;
+    background-color: @item-color;
+    color: @item-color-inverted;
+    border-radius: @item-border-radius;
+  }
+
+  &__triangle:after {
+    border-color: @item-color transparent transparent transparent;
+  }
+}

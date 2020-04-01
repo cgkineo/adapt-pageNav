@@ -1,195 +1,196 @@
 
 define([
-    'core/js/adapt',
-    'core/js/views/componentView',
-    './tooltip'
+  'core/js/adapt',
+  'core/js/views/componentView',
+  './tooltip'
 ], function(Adapt, ComponentView, Tooltip) {
 
-    function getAttributes($node){
-        var attrs = {};
-        _.each($node[0].attributes, function (attribute) {
-            attrs[attribute.name] = attribute.value;
-        });
-        return attrs;
-    }
+  function getAttributes($node){
+    var attrs = {};
+    _.each($node[0].attributes, function (attribute) {
+      attrs[attribute.name] = attribute.value;
+    });
+    return attrs;
+  }
 
-    var View = ComponentView.extend({
+  var View = ComponentView.extend({
 
-        events: {
-            'click button': 'onButtonClick',
-            'mouseover button': 'onButtonTooltip'
-        },
+    events: {
+      'click .js-bottomnavigation-btn': 'onButtonClick',
+      'mouseover .js-bottomnavigation-btn': 'onButtonTooltip'
+    },
 
-        preRender: function() {
+    preRender: function() {
 
-            Adapt.trigger(this.constructor.type + 'View:preRender', this);
+      Adapt.trigger(this.constructor.type + 'View:preRender', this);
 
-            this.$el.addClass('bottomnavigation ' + this.model.get('_id'));
+      this.$el.addClass('bottomnavigation ' + this.model.get('_id'));
 
-            _.bindAll(this, 'postRender', 'checkButtonStates');
+      _.bindAll(this, 'postRender', 'checkButtonStates');
 
-            this.setCompletionStatus();
+      this.setCompletionStatus();
 
-            this.listenTo(Adapt, 'remove', this.remove);
-            this.listenTo(Adapt.contentObjects, {
-                'change:_isComplete change:_isLocked': this.onContentObjectComplete
-            });
+      this.listenTo(Adapt, 'remove', this.remove);
+      this.listenTo(Adapt.contentObjects, {
+        'change:_isComplete change:_isLocked': this.onContentObjectComplete
+      });
 
-        },
+    },
 
-        render: function() {
+    render: function() {
 
-            var template = Handlebars.templates.bottomNavigation;
-            var data = this.model.getData();
+      var template = Handlebars.templates.bottomNavigation;
+      var data = this.model.getData();
 
-            this.$el.html(template(data));
+      this.$el.html(template(data));
 
-            Adapt.trigger(this.constructor.type + 'View:render', this);
+      Adapt.trigger(this.constructor.type + 'View:render', this);
 
-            _.defer(this.postRender);
+      _.defer(this.postRender);
 
-        },
+    },
 
-        postRender: function() {
+    postRender: function() {
 
-            Adapt.trigger(this.constructor.type + 'View:postRender', this);
+      Adapt.trigger(this.constructor.type + 'View:postRender', this);
 
-            this.checkButtonStates();
-            this.setReadyStatus();
+      this.checkButtonStates();
+      this.setReadyStatus();
 
-        },
+    },
 
-        onContentObjectComplete: function() {
+    onContentObjectComplete: function() {
 
-            _.defer(this.checkButtonStates);
+      _.defer(this.checkButtonStates);
 
-        },
+    },
 
-        checkButtonStates: function() {
+    checkButtonStates: function() {
 
-            this.$('button').each(function(index, item) {
-                this.checkButtonState(item);
-            }.bind(this));
+      this.$('button').each(function(index, item) {
+        this.checkButtonState(item);
+      }.bind(this));
 
-        },
+    },
 
-        checkButtonState: function(button) {
+    checkButtonState: function(button) {
 
-            var $button = $(button);
-            var id = $button.attr('data-id');
-            var index = $button.attr('data-item-index');
+      var $button = $(button);
+      var id = $button.attr('data-id');
+      var index = $button.attr('data-item-index');
 
-            if (!id) return;
+      if (!id) return;
 
-            // get the button data
-            var items = this.model.getNavigationData();
-            var data = items[index];
+      // get the button data
+      var items = this.model.getNavigationData();
+      var data = items[index];
 
-            // rerender the button
-            var $buttonRendered = $(Handlebars.partials['bottomNavigation-item'](data));
-            if ($buttonRendered.length === 0) {
-                $button.remove();
-                return;
-            }
+      // rerender the button
+      var $buttonRendered = $(Handlebars.partials['bottomNavigation-item'](data));
+      if ($buttonRendered.length === 0) {
+        $button.remove();
+        return;
+      }
 
-            // get button attribute names from current and rerendered
-            var renderedAttrs = getAttributes($buttonRendered);
-            var attrs = getAttributes($button);
-            var renderedAttrNames = _.keys(renderedAttrs);
-            var attrNames = _.keys(attrs);
+      // get button attribute names from current and rerendered
+      var renderedAttrs = getAttributes($buttonRendered);
+      var attrs = getAttributes($button);
+      var renderedAttrNames = _.keys(renderedAttrs);
+      var attrNames = _.keys(attrs);
 
-            // remove redundant attributes
-            var removeAttrNames = _.difference(attrNames, renderedAttrNames);
-            removeAttrNames.forEach(function(name) {
-                $button.removeAttr(name);
-            });
+      // remove redundant attributes
+      var removeAttrNames = _.difference(attrNames, renderedAttrNames);
+      removeAttrNames.forEach(function(name) {
+        $button.removeAttr(name);
+      });
 
-            // update remaining attributes
-            $button.attr(renderedAttrs);
+      // update remaining attributes
+      $button.attr(renderedAttrs);
 
-            // update button text
-            $button.html($buttonRendered.html());
+      // update button text
+      $button.html($buttonRendered.html());
 
-        },
+    },
 
-        onButtonClick: function(event) {
+    onButtonClick: function(event) {
 
-            var $target = $(event.currentTarget);
-            var isLocked = $target.hasClass('locked');
-            var isSelected = $target.hasClass('selected');
+      var $target = $(event.currentTarget);
+      var isLocked = $target.hasClass('is-locked');
+      var isSelected = $target.hasClass('is-selected');
 
-            if (isLocked || isSelected) return;
+      if (isLocked || isSelected) return;
 
-            var id = $target.attr('data-id');
-            var index = $target.attr('data-item-index');
+      var id = $target.attr('data-id');
+      var index = $target.attr('data-item-index');
 
-            switch (id) {
-                case '':
-                    var data = this.model.getData();
-                    try {
-                        var execute = new Function(data._items[index]._onClick||'');
-                        execute();
-                    } catch (err) {
-                        Adapt.log.error(err);
-                    }
-                    break;
-                default:
-                    this.navigateTo(id);
-                    break;
-            }
-        },
+      switch (id) {
+        case '':
+          var data = this.model.getData();
+          try {
+            var execute = new Function(data._items[index]._onClick||'');
+            execute();
+          } catch (err) {
+            Adapt.log.error(err);
+          }
+          break;
+        default:
+          this.navigateTo(id);
+          break;
+      }
+    },
 
-        onButtonTooltip: function(event) {
+    onButtonTooltip: function(event) {
 
-            var $target = $(event.currentTarget);
+      var $target = $(event.currentTarget);
 
-            var id = $target.attr('data-id') || this.model.getCurrentPage().get('_id');
+      var id = $target.attr('data-id') || this.model.getCurrentPage().get('_id');
 
-            if (!id) {
-                return;
-            }
+      if (!id) {
+        return;
+      }
 
-            // If tooltip isn't defined allow the event to propogate down to the document
-            if (!$target.attr('tooltip')) {
-                return;
-            }
+      // If tooltip isn't defined allow the event to propogate down to the document
+      if (!$target.attr('tooltip')) {
+        return;
+      }
 
-            // Don't allow event to propogate, to stop the document over events
-            event.stopPropagation();
+      // Don't allow event to propogate, to stop the document over events
+      event.stopPropagation();
 
-            // If this tooltip is already rendered then skip
-            if (Adapt.tooltip) {
 
-                var type = $target.attr('data-type');
-                var index = $target.attr('data-index');
-                var isCurrentTooltip = (Adapt.tooltip.type === type) && (Adapt.tooltip.index === index);
+      // If this tooltip is already rendered then skip
+      if (Adapt.tooltip) {
 
-                if (isCurrentTooltip) {
-                    return;
-                }
+        var type = $target.attr('data-type');
+        var index = $target.attr('data-index');
+        var isCurrentTooltip = (Adapt.tooltip.type === type) && (Adapt.tooltip.index === index);
 
-            }
-
-            var tooltip = new Tooltip({
-                $target: $target,
-                model: Adapt.findById(id)
-            });
-
-            this.$('.bottomnavigation-inner').append(tooltip.$el);
-
-        },
-
-        navigateTo: function(id) {
-
-            var isCourse = (id === Adapt.course.get('_id'));
-            var hash = '#' + (isCourse ? '/' : '/id/' + id);
-
-            Backbone.history.navigate(hash, { trigger: true, replace: false });
-
+        if (isCurrentTooltip) {
+          return;
         }
 
-    });
+      }
 
-    return View;
+      var tooltip = new Tooltip({
+        $target: $target,
+        model: Adapt.findById(id)
+      });
+
+      this.$('.bottomnavigation__tooltip-container').append(tooltip.$el);
+
+    },
+
+    navigateTo: function(id) {
+
+      var isCourse = (id === Adapt.course.get('_id'));
+      var hash = '#' + (isCourse ? '/' : '/id/' + id);
+
+      Backbone.history.navigate(hash, { trigger: true, replace: false });
+
+    }
+
+  });
+
+  return View;
 
 });
