@@ -4,7 +4,7 @@
         "_id": "c-05",
         "_parentId": "b-05",
         "_type": "component",
-        "_component": "bottomNavigation",
+        "_component": "pageNav",
         "_classes": "",
         "_layout": "full",
         "title": "",

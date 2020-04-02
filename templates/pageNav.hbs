@@ -1,0 +1,17 @@
+<div class="component__inner pagenav__inner">
+
+  {{> component}}
+
+  <div class="component__widget pagenav__widget">
+
+    <div class="pagenav__tooltip-container"></div>
+
+    <div class="pagenav__btn-container">
+      {{#each _items}}
+      {{> pageNav-item this}}
+      {{/each}}
+    </div>
+
+  </div>
+
+</div>

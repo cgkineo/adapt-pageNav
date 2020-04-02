@@ -4,7 +4,7 @@ define([
 
   var Tooltip = Backbone.View.extend({
 
-    className: 'bottomnavigation__tooltip',
+    className: 'pagenav__tooltip',
 
     initialize: function(options) {
 
@@ -51,7 +51,7 @@ define([
 
     render: function() {
 
-      var template = Handlebars.templates['bottomNavigation-tooltip'];
+      var template = Handlebars.templates['pageNav-tooltip'];
 
       this.$el.html(template(this.model.toJSON()));
       _.defer(this.postRender);
@@ -100,7 +100,7 @@ define([
         left: tooltipCenter.left + leftOffset
       });
 
-      this.$el.find('.bottomnavigation__triangle').css({
+      this.$el.find('.pagenav__triangle').css({
         left: tooltipHalfWidth - leftOffset
       });
 

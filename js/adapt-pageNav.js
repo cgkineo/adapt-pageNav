@@ -4,7 +4,7 @@ define([
   './view'
 ], function(Adapt, Model, View) {
 
-  return Adapt.register('bottomNavigation', {
+  return Adapt.register('pageNav', {
     model: Model,
     view: View
   });

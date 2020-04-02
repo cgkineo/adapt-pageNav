@@ -1,15 +1,15 @@
-# adapt-bottomNavigation
+# adapt-pageNav
 
-**Bottom Navigation** is a *presentation component* that adds basic navigation controls to a page
+**PageNav** is a *presentation component* that adds basic navigation controls to a page
 
-<img src="demo.gif" alt="the bottom navigation extension in action" align="right">
+<img src="demo.gif" alt="the page nav extension in action" align="right">
 
 ### When to use
-Use **Bottom Navigation** as a replacement for the **Quicknav** component AND extension for both the Framework and the Authoring Tool going forwards.
+Use **PageNav** as a replacement for the **Quicknav** component AND extension for both the Framework and the Authoring Tool going forwards.
 
 ## Settings Overview
 
-The attributes listed below are used in *components.json* to configure **Bottom Navigation**, and are properly formatted as JSON in [*example.json*](https://github.com/cgkineo/adapt-bottomNavigation/blob/master/example.json).
+The attributes listed below are used in *components.json* to configure **PageNav**, and are properly formatted as JSON in [*example.json*](https://github.com/cgkineo/adapt-pageNav/blob/master/example.json).
 
 Navigation bar component which can contain some or all of the following buttons:
 
@@ -21,15 +21,15 @@ Navigation bar component which can contain some or all of the following buttons:
 - _sibling (1,2,3,4 etc buttons representing each sibling page)
 - _close (closes the course window - only possible if the course was launched in a popup window)
 
-The bottomNavigation buttons will respect any [locking](https://github.com/adaptlearning/adapt_framework/wiki/Locking-objects-with-'_isLocked'-and-'_lockType'#using-locking-with-menus) that has been configured in Adapt. In cases not covered by Adapt's locking system - such as a [start page](https://github.com/adaptlearning/adapt_framework/wiki/Content-starts-with-course.json#example-1) that appears immediately before the main menu - the setting `_lockUntilPageComplete` can be used to disable the button until the current page has been completed.
+The pageNav buttons will respect any [locking](https://github.com/adaptlearning/adapt_framework/wiki/Locking-objects-with-'_isLocked'-and-'_lockType'#using-locking-with-menus) that has been configured in Adapt. In cases not covered by Adapt's locking system - such as a [start page](https://github.com/adaptlearning/adapt_framework/wiki/Content-starts-with-course.json#example-1) that appears immediately before the main menu - the setting `_lockUntilPageComplete` can be used to disable the button until the current page has been completed.
 
 ### Attributes
 
 [**core model attributes**](https://github.com/adaptlearning/adapt_framework/wiki/Core-model-attributes): These are inherited by every Adapt component. [Read more](https://github.com/adaptlearning/adapt_framework/wiki/Core-model-attributes).
 
-**\_component** (string): This value must be: `bottomNavigation`. (One word.)
+**\_component** (string): This value must be: `pageNav`. (One word.)
 
-**\_classes** (string): CSS class name to be applied to **Bottom Navigation**’s containing `div`. The class must be predefined in one of the Less files. Separate multiple classes with a space.
+**\_classes** (string): CSS class name to be applied to **PageNav**’s containing `div`. The class must be predefined in one of the Less files. Separate multiple classes with a space.
 
 **\_layout** (string): This defines the horizontal position of the component in the block. Acceptable values are `full`, `left` or `right`.
 

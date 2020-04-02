@@ -16,15 +16,15 @@ define([
   var View = ComponentView.extend({
 
     events: {
-      'click .js-bottomnavigation-btn': 'onButtonClick',
-      'mouseover .js-bottomnavigation-btn': 'onButtonTooltip'
+      'click .js-pagenav-btn': 'onButtonClick',
+      'mouseover .js-pagenav-btn': 'onButtonTooltip'
     },
 
     preRender: function() {
 
       Adapt.trigger(this.constructor.type + 'View:preRender', this);
 
-      this.$el.addClass('bottomnavigation ' + this.model.get('_id'));
+      this.$el.addClass('pagenav ' + this.model.get('_id'));
 
       _.bindAll(this, 'postRender', 'checkButtonStates');
 
@@ -39,7 +39,7 @@ define([
 
     render: function() {
 
-      var template = Handlebars.templates.bottomNavigation;
+      var template = Handlebars.templates.pageNav;
       var data = this.model.getData();
 
       this.$el.html(template(data));
@@ -86,7 +86,7 @@ define([
       var data = items[index];
 
       // rerender the button
-      var $buttonRendered = $(Handlebars.partials['bottomNavigation-item'](data));
+      var $buttonRendered = $(Handlebars.partials['pageNav-item'](data));
       if ($buttonRendered.length === 0) {
         $button.remove();
         return;
@@ -176,7 +176,7 @@ define([
         model: Adapt.findById(id)
       });
 
-      this.$('.bottomnavigation__tooltip-container').append(tooltip.$el);
+      this.$('.pagenav__tooltip-container').append(tooltip.$el);
 
     },
 
