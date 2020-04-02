@@ -1,8 +1,17 @@
-<div class="bottomnavigation-inner component-inner">
-{{> component}}
-<div class="bottomnavigation-widget">
-{{#each _items}}
-{{> bottomNavigation-item this}}
-{{/each}}
-</div>
+<div class="component__inner bottomnavigation__inner">
+
+  {{> component}}
+
+  <div class="component__widget bottomnavigation__widget">
+
+    <div class="bottomnavigation__tooltip-container"></div>
+
+    <div class="bottomnavigation__btn-container">
+      {{#each _items}}
+      {{> bottomNavigation-item this}}
+      {{/each}}
+    </div>
+
+  </div>
+
 </div>

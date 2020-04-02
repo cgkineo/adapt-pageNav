@@ -1,17 +1,20 @@
 {
-    "name": "adapt-bottomNavigation",
-    "repository": "git://github.com/cgkineo/adapt-bottomNavigation.git",
-    "framework": ">=2.3",
-    "version": "1.1.0",
-    "homepage": "https://github.com/cgkineo/adapt-bottomNavigation",
-    "issues": "https://github.com/cgkineo/adapt-bottomNavigation/issues/",
-    "displayName": "Bottom Navigation",
-    "component": "bottomNavigation",
-    "description": "Navigation bar that is displayed within Adapt content pages, typically at the bottom.",
-    "main": "/js/adapt-bottomNavigation.js",
-    "keywords": [
-        "adapt-plugin",
-        "adapt-component"
-    ],
-    "license": "GPLv3"
+  "name": "adapt-bottomNavigation",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/cgkineo/adapt-bottomNavigation.git"
+  },
+  "version": "2.0.0",
+  "framework": ">=5",
+  "homepage": "https://github.com/cgkineo/adapt-bottomNavigation",
+  "issues": "https://github.com/cgkineo/adapt-bottomNavigation/issues/",
+  "component": "bottomNavigation",
+  "displayName": "Bottom navigation",
+  "description": "Navigation bar that is displayed within Adapt content pages, typically at the bottom.",
+  "main": "/js/adapt-bottomNavigation.js",
+  "keywords": [
+    "adapt-plugin",
+    "adapt-component"
+  ],
+  "license": "GPL-3.0"
 }

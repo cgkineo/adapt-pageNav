@@ -1,7 +1,8 @@
-// To go in the component.json file for each page
+    // To go in the component.json file for each page
+    // --------------------------------------------------
     {
-        "_id": "c-04",
-        "_parentId": "b-04",
+        "_id": "c-05",
+        "_parentId": "b-05",
         "_type": "component",
         "_component": "bottomNavigation",
         "_classes": "",
@@ -24,9 +25,9 @@
                 "_classes": "",
                 "_iconClass": "",
                 "_alignIconRight": false,
-                "text": "< Return",
+                "text": "Return",
                 "ariaLabel": "Return to previous location",
-                "_showTooltip": true,
+                "_showTooltip": false,
                 "tooltip": "{{displayTitle}}"
             },
             "_previous": {
@@ -36,9 +37,9 @@
                 "_classes": "",
                 "_iconClass": "",
                 "_alignIconRight": false,
-                "text": "< Previous",
+                "text": "Previous",
                 "ariaLabel": "Previous Page",
-                "_showTooltip": true,
+                "_showTooltip": false,
                 "tooltip": "{{displayTitle}}",
                 "_customRouteId": ""
             },
@@ -51,12 +52,12 @@
                 "_alignIconRight": false,
                 "text": "Go to main menu",
                 "ariaLabel": "Go to main menu",
-                "_showTooltip": true,
+                "_showTooltip": false,
                 "tooltip": "{{displayTitle}}",
                 "_customRouteId": ""
             },
             "_up": {
-                "_isEnabled": true,
+                "_isEnabled": false,
                 "_lockUntilPageComplete": false,
                 "_order": 1,
                 "_classes": "",
@@ -64,7 +65,7 @@
                 "_alignIconRight": false,
                 "text": "Back to menu",
                 "ariaLabel": "Back to menu",
-                "_showTooltip": true,
+                "_showTooltip": false,
                 "tooltip": "{{displayTitle}}",
                 "_customRouteId": ""
             },
@@ -75,14 +76,14 @@
                 "_classes": "",
                 "_iconClass": "",
                 "_alignIconRight": true,
-                "text": "Next >",
+                "text": "Next",
                 "ariaLabel": "Next Page",
-                "_showTooltip": true,
+                "_showTooltip": false,
                 "tooltip": "{{displayTitle}}",
                 "_customRouteId": ""
             },
             "_sibling": {
-                "_isEnabled": true,
+                "_isEnabled": false,
                 "_lockUntilPageComplete": false,
                 "_order": 1,
                 "_classes": "",
@@ -90,12 +91,12 @@
                 "_alignIconRight": false,
                 "text": "{{inc index}}",
                 "ariaLabel": "Page {{inc index}}",
-                "_showTooltip": true,
+                "_showTooltip": false,
                 "tooltip": "{{displayTitle}}",
                 "_customRouteId": ""
             },
             "_close": {
-                "_isEnabled": true,
+                "_isEnabled": false,
                 "_lockUntilPageComplete": false,
                 "_order": 1,
                 "_classes": "",
@@ -107,4 +108,4 @@
                 "tooltip": "Close window"
             }
         }
-    },
+    }
