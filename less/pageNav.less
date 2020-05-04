@@ -31,4 +31,36 @@ html {
   &__btn {
     margin: @item-margin;
   }
+  
+  // buttons with text and icon
+  &__btn.btn-icon.btn-text .icon {
+    padding-right: (@icon-padding / 2);
+
+    .dir-rtl & {
+      padding-left: (@icon-padding / 2);
+      padding-right: inherit;
+    }
+  }
+
+  // consistent with nav icon button styling
+  &__btn.btn-icon:not(.btn-text) {
+    padding: @icon-padding;
+    background-color: @nav-icon;
+    color: @nav-icon-inverted;
+    //border: 1px solid @nav-icon;
+
+    .no-touch &:not(.is-disabled):not(.is-locked):hover {
+      background-color: @nav-icon-hover;
+      color: @nav-icon-inverted-hover;
+      //border-color: @nav-icon-hover;
+      .transition(background-color @duration ease-in, color @duration ease-in;);
+    }
+
+    &.is-locked,
+    &.is-disabled {
+      background-color: @disabled;
+      color: @disabled-inverted;
+      //border-color: @disabled-inverted;
+    }
+  }
 }
