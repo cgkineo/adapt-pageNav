@@ -32,13 +32,23 @@ html {
     margin: @item-margin;
   }
   
-  // buttons with text and icon
-  &__btn.btn-icon.btn-text .icon {
+  // buttons with text and icon (left aligned icon as default)
+  &__btn.btn-icon:not(.icon-is-right).btn-text .icon {
     padding-right: (@icon-padding / 2);
 
     .dir-rtl & {
       padding-left: (@icon-padding / 2);
       padding-right: inherit;
+    }
+  }
+  
+  // buttons with text and icon (right aligned icon)
+  &__btn.btn-icon.icon-is-right.btn-text .icon {
+    padding-left: (@icon-padding / 2);
+
+    .dir-rtl & {
+      padding-right: (@icon-padding / 2);
+      padding-left: inherit;
     }
   }
 
