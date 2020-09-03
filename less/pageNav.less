@@ -1,6 +1,7 @@
 html {
   // Prevents pagenav tooltip from triggering a horizontal scroll bar
   // Only affects IE11 but applied globally to weed out bugs
+  // --------------------------------------------------
   overflow-x: hidden;
 }
 
@@ -22,17 +23,15 @@ html {
 }
 
 // --------------------------------------------------
-// --------------------------------------------------
 // THEME
 // --------------------------------------------------
-// --------------------------------------------------
-
 .pagenav {
   &__btn {
     margin: @item-margin;
   }
-  
+
   // buttons with text and icon (left aligned icon as default)
+  // --------------------------------------------------
   &__btn.btn-icon:not(.icon-is-right).btn-text .icon {
     padding-right: (@icon-padding / 2);
 
@@ -41,8 +40,9 @@ html {
       padding-right: inherit;
     }
   }
-  
+
   // buttons with text and icon (right aligned icon)
+  // --------------------------------------------------
   &__btn.btn-icon.icon-is-right.btn-text .icon {
     padding-left: (@icon-padding / 2);
 
@@ -53,6 +53,7 @@ html {
   }
 
   // consistent with nav icon button styling
+  // --------------------------------------------------
   &__btn.btn-icon:not(.btn-text) {
     padding: @icon-padding;
     background-color: @nav-icon;

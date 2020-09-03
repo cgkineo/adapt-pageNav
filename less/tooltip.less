@@ -15,24 +15,20 @@
     .transform(translateX(-50%));
     width: @item-padding;
     height: @item-padding;
+  }
 
-    &:after {
-      content: "";
-      position: absolute;
-
-      border-width: @item-padding (@item-padding / 2) 0 (@item-padding / 2); /* vary these values to change the angle of the vertex */
-      border-style: solid;
-      border-color: red transparent transparent transparent;
-    }
+  &__triangle:after {
+    content: "";
+    position: absolute;
+    border-width: @item-padding (@item-padding / 2) 0 (@item-padding / 2); /* vary these values to change the angle of the vertex */
+    border-style: solid;
+    border-color: red transparent transparent transparent;
   }
 }
 
 // --------------------------------------------------
-// --------------------------------------------------
 // THEME
 // --------------------------------------------------
-// --------------------------------------------------
-
 .pagenav {
   &__tooltip-text {
     padding: @item-padding / 2;
