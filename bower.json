@@ -9,7 +9,7 @@
   "homepage": "https://github.com/cgkineo/adapt-pageNav",
   "issues": "https://github.com/cgkineo/adapt-pageNav/issues/",
   "component": "pageNav",
-  "displayName": "pageNav",
+  "displayName": "Page Navigation",
   "description": "Navigation bar that is displayed within Adapt content pages, typically at the bottom.",
   "main": "/js/adapt-pageNav.js",
   "keywords": [
