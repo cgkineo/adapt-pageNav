@@ -49,7 +49,7 @@ The pageNav buttons will respect any [locking](https://github.com/adaptlearning/
 
 >**\_classes** (string): CSS class name to be applied to the `button`. The class must be predefined in one of the Less files. Separate multiple classes with a space.
 
->**\_iconClass** (string): CSS class name to be applied to the `button` icon. The class must be predefined in one of the Less files with the corresponding icon be added as part of a font.
+>**\_iconClass** (string): CSS class name to be applied to the `button` icon. The class must be predefined in one of the Less files with the corresponding icon be added as part of a font. Suggested icons for each button detailed in the [_example.json_](https://github.com/cgkineo/adapt-pageNav/blob/master/example.json). List of all available [_vanilla_ icons](https://github.com/adaptlearning/adapt-contrib-vanilla/wiki/Icons) to choose from. 
 
 >**\_alignIconright** (boolean): Defines whether the icon is aligned to the left or right of the text. Default is `false` which aligns the icon to the left of the text.
 
