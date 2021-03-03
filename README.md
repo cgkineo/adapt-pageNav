@@ -66,7 +66,7 @@ The pageNav buttons will respect any [locking](https://github.com/adaptlearning/
 >**\_customRouteId** (string): Overrides the route ID. For use when non standard route navigation is required.
 
 ----------------------------
-**Version number:**  2.0.0  
+**Version number:**  2.0.3  
 **Framework versions:**  5.2+  
 **Vanilla versions:**  5.1.1+  
 **Author / maintainer:**  Kineo  
