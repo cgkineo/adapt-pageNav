@@ -44,7 +44,7 @@ define([
 
       this.$el.html(template(data));
 
-      Adapt.trigger(this.constructor.type + 'View:render', this);
+      Adapt.trigger(this.constructor.type + 'View:render view:render', this);
 
       _.defer(this.postRender);
 
