@@ -21,6 +21,7 @@ define([
     },
 
     preRender: function() {
+      this.model.set('_items', this.model.getNavigationData());
 
       Adapt.trigger(this.constructor.type + 'View:preRender', this);
 
@@ -37,23 +38,7 @@ define([
 
     },
 
-    render: function() {
-
-      var template = Handlebars.templates.pageNav;
-      var data = this.model.getData();
-
-      this.$el.html(template(data));
-
-      Adapt.trigger(this.constructor.type + 'View:render view:render', this);
-
-      _.defer(this.postRender);
-
-    },
-
     postRender: function() {
-
-      Adapt.trigger(this.constructor.type + 'View:postRender', this);
-
       this.checkButtonStates();
       this.setReadyStatus();
 
