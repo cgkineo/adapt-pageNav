@@ -23,8 +23,6 @@ define([
     preRender: function() {
       this.model.set('_items', this.model.getNavigationData());
 
-      Adapt.trigger(this.constructor.type + 'View:preRender', this);
-
       this.$el.addClass('pagenav ' + this.model.get('_id'));
 
       _.bindAll(this, 'postRender', 'checkButtonStates');
