@@ -21,8 +21,7 @@ define([
     },
 
     preRender: function() {
-
-      Adapt.trigger(this.constructor.type + 'View:preRender', this);
+      this.model.set('_items', this.model.getNavigationData());
 
       this.$el.addClass('pagenav ' + this.model.get('_id'));
 
@@ -37,23 +36,7 @@ define([
 
     },
 
-    render: function() {
-
-      var template = Handlebars.templates.pageNav;
-      var data = this.model.getData();
-
-      this.$el.html(template(data));
-
-      Adapt.trigger(this.constructor.type + 'View:render', this);
-
-      _.defer(this.postRender);
-
-    },
-
     postRender: function() {
-
-      Adapt.trigger(this.constructor.type + 'View:postRender', this);
-
       this.checkButtonStates();
       this.setReadyStatus();
 
@@ -125,9 +108,9 @@ define([
 
       switch (id) {
         case '':
-          var data = this.model.getData();
+          var items = this.model.getNavigationData();
           try {
-            var execute = new Function(data._items[index]._onClick||'');
+            var execute = new Function(items[index]._onClick||'');
             execute();
           } catch (err) {
             Adapt.log.error(err);

@@ -18,13 +18,6 @@ define([
 
     },
 
-    getData: function() {
-      var data = _.extend( this.toJSON(), {
-        _items: this.getNavigationData()
-      });
-      return data;
-    },
-
     getNavigationData: function() {
 
       /*
