@@ -108,9 +108,9 @@ define([
 
       switch (id) {
         case '':
-          var data = this.model.getData();
+          var items = this.model.getNavigationData();
           try {
-            var execute = new Function(data._items[index]._onClick||'');
+            var execute = new Function(items[index]._onClick||'');
             execute();
           } catch (err) {
             Adapt.log.error(err);
