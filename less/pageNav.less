@@ -56,14 +56,13 @@ html {
   // --------------------------------------------------
   &__btn.btn-icon:not(.btn-text) {
     padding: @icon-padding;
-    background-color: @nav-icon;
-    color: @nav-icon-inverted;
-    //border: 1px solid @nav-icon;
+    background-color: @btn-icon-color;
+    color: @btn-icon-color-inverted;
+    border-radius: @btn-border-radius;
 
     .no-touch &:not(.is-disabled):not(.is-locked):hover {
-      background-color: @nav-icon-hover;
-      color: @nav-icon-inverted-hover;
-      //border-color: @nav-icon-hover;
+      background-color: @btn-icon-color-hover;
+      color: @btn-icon-color-inverted-hover;
       .transition(background-color @duration ease-in, color @duration ease-in;);
     }
 
@@ -71,7 +70,6 @@ html {
     &.is-disabled {
       background-color: @disabled;
       color: @disabled-inverted;
-      //border-color: @disabled-inverted;
     }
   }
 }
