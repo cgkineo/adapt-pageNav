@@ -133,7 +133,7 @@ define([
       }
 
       // If tooltip isn't defined allow the event to propogate down to the document
-      if (!$target.attr('tooltip')) {
+      if (!$target.attr('data-tooltip')) {
         return;
       }
 
