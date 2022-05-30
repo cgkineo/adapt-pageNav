@@ -10,33 +10,33 @@
   aria-label="{{{compile ariaLabel this}}} {{#if locked}}{{@root/_globals._accessibility._ariaLabels.locked}}{{else if _isComplete}}{{@root/_globals._accessibility._ariaLabels.complete}}{{else}}{{@root/_globals._accessibility._ariaLabels.incomplete}}{{/if}}"
   data-tooltip="{{#if _showTooltip}}{{{compile tooltip this}}}{{/if}}">
 
-  <div class="pagenav__btn-inner">
+  <span class="pagenav__btn-inner">
 
     {{#unless _alignIconRight}}
     {{#if _iconClass}}
-    <div class="pagenav__btn-icon">
-      <div class="icon {{_iconClass}}"></div>
-    </div>
+    <span class="pagenav__btn-icon">
+      <span class="icon {{_iconClass}}"></span>
+    </span>
     {{/if}}
     {{/unless}}
 
     {{#if text}}
-    <div class="pagenav__btn-text">
-      <div class="pagenav__btn-text-inner">
+    <span class="pagenav__btn-text">
+      <span class="pagenav__btn-text-inner">
         {{{compile text this}}}
-      </div>
-    </div>
+      </span>
+    </span>
     {{/if}}
 
     {{#if _alignIconRight}}
     {{#if _iconClass}}
-    <div class="pagenav__btn-icon">
-      <div class="icon {{_iconClass}}"></div>
-    </div>
+    <span class="pagenav__btn-icon">
+      <span class="icon {{_iconClass}}"></span>
+    </span>
     {{/if}}
     {{/if}}
 
-  </div>
+  </span>
 
 </button>
 {{/if}}
