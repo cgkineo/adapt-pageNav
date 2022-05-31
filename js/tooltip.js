@@ -45,7 +45,7 @@ define([
       this.type = this.$target.attr('data-type');
       this.index = this.$target.attr('data-index');
 
-      this.model.set('tooltip', this.$target.attr('tooltip'));
+      this.model.set('tooltip', this.$target.attr('data-tooltip'));
 
     },
 
