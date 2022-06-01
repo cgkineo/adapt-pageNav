@@ -35,7 +35,7 @@ define([
         _sibling: this.getSiblingPages(),
         _close: new Backbone.Model({
           _id: '',
-          _onClick: 'top.window.close();'
+          _onClick: this.closeCourse()
         })
       };
 
@@ -103,6 +103,18 @@ define([
 
       return orderedData;
 
+    },
+
+    closeCourse: function() {
+        var scormWrapper = require('extensions/adapt-contrib-spoor/js/scorm/wrapper');
+        if (scormWrapper) {
+          var scormWrapperInstance = scormWrapper.getInstance();
+          if (scormWrapperInstance.lmsConnected && !scormWrapperInstance.finishCalled) {
+            scormWrapperInstance.finish();
+          }
+        }
+  
+        top.window.close();
     },
 
     getReturnToPreviousLocation: function() {
