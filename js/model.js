@@ -35,7 +35,7 @@ define([
         _sibling: this.getSiblingPages(),
         _close: new Backbone.Model({
           _id: '',
-          _onClick: this.closeCourse()
+          _onClick: 'this.closeCourse();'
         })
       };
 
