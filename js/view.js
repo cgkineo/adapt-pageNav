@@ -27,8 +27,6 @@ define([
 
       _.bindAll(this, 'postRender', 'checkButtonStates');
 
-      this.setCompletionStatus();
-
       this.listenTo(Adapt, 'remove', this.remove);
       this.listenTo(Adapt.contentObjects, {
         'change:_isComplete change:_isLocked': this.onContentObjectComplete
@@ -39,7 +37,24 @@ define([
     postRender: function() {
       this.checkButtonStates();
       this.setReadyStatus();
+      this.setupInview();
+    },
 
+    setupInview: function() {
+      const selector = this.getInviewElementSelector();
+      if (!selector) return this.setCompletionStatus();
+      this.setupInviewCompletion(selector);
+    },
+
+    /**
+    * determines which element should be used for inview logic - body, instruction, title or widget - and returns the selector for that element
+    */
+    getInviewElementSelector: function() {
+      if (this.model.get('body')) return '.component__body';
+      if (this.model.get('instruction')) return '.component__instruction';
+      if (this.model.get('displayTitle')) return '.component__title';
+      if (this.model.get('_buttons')) return '.component__widget';
+      return null;
     },
 
     onContentObjectComplete: function() {
