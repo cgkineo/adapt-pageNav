@@ -7,6 +7,7 @@ define([
 
     defaults: function() {
 
+    this.listenTo(Adapt, 'pageNav:closeCourse', this.closeCourse);
       return $.extend({}, _.result(ComponentModel.prototype, 'defaults'), {
         _isOptional: true,
         _isComplete: true,
@@ -35,7 +36,7 @@ define([
         _sibling: this.getSiblingPages(),
         _close: new Backbone.Model({
           _id: '',
-          _onClick: 'this.closeCourse();'
+          _onClick: 'Adapt.trigger("pageNav:closeCourse")'
         })
       };
 
