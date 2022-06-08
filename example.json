@@ -17,6 +17,7 @@
             "none": "disable previous and next buttons at start and end of the pages in the current parent object"
         },
         "_loopStyle": "none",
+        "_shouldSkipOptionalPages": false,
         "_buttons": {
             "_returnToPreviousLocation": {
                 "_isEnabled": false,
