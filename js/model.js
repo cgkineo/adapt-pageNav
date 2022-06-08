@@ -5,19 +5,6 @@ define([
 
   var Model = ComponentModel.extend({
 
-    defaults: function() {
-
-      return $.extend({}, _.result(ComponentModel.prototype, 'defaults'), {
-        _isOptional: true,
-        _isComplete: true,
-        _isInteractionComplete: true,
-        _pageLevelProgress: {
-          _isEnabled: false
-        }
-      });
-
-    },
-
     getNavigationData: function() {
 
       /*
