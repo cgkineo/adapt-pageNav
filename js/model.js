@@ -135,8 +135,9 @@ define([
       var siblingModels = currentMenu.getAllDescendantModels(true);
 
       siblingModels = _.filter(siblingModels, function(model) {
-        return (model.get('_type') === 'page' && model.get('_isAvailable'));
-      });
+        return model.get('_type') === 'page' && model.get('_isAvailable') &&
+          (!this.get('_shouldSkipOptionalPages') || !model.get('_isOptional'));
+      }, this);
 
       return siblingModels;
 
@@ -156,12 +157,12 @@ define([
         var isNotAvailable = !page.get('_isAvailable');
         if (isNotAvailable) continue;
 
-        if (!hasFoundCurrentPage && page.get('_id') === currentPageId) {
-          hasFoundCurrentPage = true;
+        if (!hasFoundCurrentPage) {
+          hasFoundCurrentPage = page.get('_id') === currentPageId;
           continue;
         }
 
-        if (hasFoundCurrentPage) {
+        if (!this.get('_shouldSkipOptionalPages') || !page.get('_isOptional')) {
           return page;
         }
 
@@ -185,12 +186,12 @@ define([
         var isNotAvailable = !page.get('_isAvailable');
         if (isNotAvailable) continue;
 
-        if (!hasFoundCurrentPage && page.get('_id') === currentPageId) {
-          hasFoundCurrentPage = true;
+        if (!hasFoundCurrentPage) {
+          hasFoundCurrentPage = page.get('_id') === currentPageId;
           continue;
         }
 
-        if (hasFoundCurrentPage) {
+        if (!this.get('_shouldSkipOptionalPages') || !page.get('_isOptional')) {
           return page;
         }
 

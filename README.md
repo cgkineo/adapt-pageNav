@@ -37,6 +37,8 @@ The pageNav buttons will respect any [locking](https://github.com/adaptlearning/
 
 **\_loopStyle** (string): Acceptable values are `allPages`, `siblings`, and `none`. `allPages` = loop sequentially through all pages in course. `siblings` = loop sequentially through all pages in current parent object. `none` = disable previous and next buttons at start and end of the pages in the current parent object.
 
+**\_shouldSkipOptionalPages** (boolean): Skip pages that are set to `"_isOptional": true`. Default is `false`.
+
 **\_buttons** (object): The following attributes configure the defaults for the **Quickanv** buttons. These attributes are available on all of the following buttons **\_returnToPreviousLocation**, **\_previous**, **\_root**, **\_up**, **\_next**, **\_sibling**, and **\_close**.
 
 #### Global button configurations
