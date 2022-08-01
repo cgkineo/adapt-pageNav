@@ -7,7 +7,7 @@
   data-id="{{_id}}"
   data-item-index="{{_index}}"
   {{#any _isHidden locked}} disabled="disabled"{{/any}}
-  aria-label="{{{compile ariaLabel this}}} {{#if locked}}{{@root/_globals._accessibility._ariaLabels.locked}}{{else if _isComplete}}{{@root/_globals._accessibility._ariaLabels.complete}}{{else}}{{@root/_globals._accessibility._ariaLabels.incomplete}}{{/if}}"
+  aria-label="{{{compile ariaLabel this}}}; {{#if locked}}{{@root/_globals._accessibility._ariaLabels.locked}}{{/if}}"
   data-tooltip="{{#if _showTooltip}}{{{compile tooltip this}}}{{/if}}">
 
   <span class="pagenav__btn-inner">
