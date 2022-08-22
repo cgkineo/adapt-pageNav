@@ -51,7 +51,7 @@ The pageNav buttons will respect any [locking](https://github.com/adaptlearning/
 
 >**\_classes** (string): CSS class name to be applied to the `button`. The class must be predefined in one of the Less files. Separate multiple classes with a space.
 
->**\_iconClass** (string): CSS class name to be applied to the `button` icon. The class must be predefined in one of the Less files with the corresponding icon be added as part of a font. Suggested icons for each button detailed in the [_example.json_](https://github.com/cgkineo/adapt-pageNav/blob/master/example.json). List of all available [_vanilla_ icons](https://github.com/adaptlearning/adapt-contrib-vanilla/wiki/Icons) to choose from. 
+>**\_iconClass** (string): CSS class name to be applied to the `button` icon. The class must be predefined in one of the Less files with the corresponding icon be added as part of a font. Suggested icons for each button detailed in the [_example.json_](https://github.com/cgkineo/adapt-pageNav/blob/master/example.json). List of all available [_vanilla_ icons](https://github.com/adaptlearning/adapt-contrib-vanilla/wiki/Icons) to choose from.
 
 >**\_alignIconright** (boolean): Defines whether the icon is aligned to the left or right of the text. Default is `false` which aligns the icon to the left of the text.
 
@@ -63,15 +63,15 @@ The pageNav buttons will respect any [locking](https://github.com/adaptlearning/
 
 >**tooltip** (string): Defines the text that renders in the tooltip.
 
-#### **\_previous** / **\_root** / **\_up** / **\_next** / **\_sibling** 
+#### **\_previous** / **\_root** / **\_up** / **\_next** / **\_sibling**
 
 >**\_customRouteId** (string): Overrides the route ID. For use when non standard route navigation is required.
 
 ----------------------------
-**Version number:**  2.0.3  
-**Framework versions:**  5.2+  
-**Vanilla versions:**  5.1.1+  
-**Author / maintainer:**  Kineo  
-**Accessibility support:**  WAI AA  
-**RTL support:**  Yes  
-**Cross-platform coverage:** Chrome, Chrome for Android, Firefox (ESR + latest version), Edge, IE11, Safari 12+13 for macOS/iOS/iPadOS, Opera  
+**Version number:**  2.1.0
+**Framework versions:**  5.2+
+**Vanilla versions:**  5.1.1+
+**Author / maintainer:**  Kineo
+**Accessibility support:**  WAI AA
+**RTL support:**  Yes
+**Cross-platform coverage:** Chrome, Chrome for Android, Firefox (ESR + latest version), Edge, IE11, Safari 12+13 for macOS/iOS/iPadOS, Opera
