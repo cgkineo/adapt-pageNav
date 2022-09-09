@@ -28,6 +28,10 @@ html {
 .pagenav {
   &__btn {
     margin: @item-margin;
+
+    &[aria-current="page"] {
+      // TODO: put button styles for current page here
+    }
   }
 
   // buttons with text and icon (left aligned icon as default)

@@ -8,7 +8,7 @@
   data-item-index="{{_index}}"
   {{#any _isHidden locked}} disabled="disabled"{{/any}}
   aria-label="{{#if locked}}{{@root/_globals._accessibility._ariaLabels.locked}}. {{/if}}{{{compile ariaLabel this}}}"
-  data-tooltip="{{#if _showTooltip}}{{{compile tooltip this}}}{{/if}}">
+  data-tooltip="{{#if _showTooltip}}{{{compile tooltip this}}}{{/if}}" aria-current="{{#if isCurrent }}page{{else}}false{{/if}}">
 
   <span class="pagenav__btn-inner">
 
