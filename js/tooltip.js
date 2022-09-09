@@ -9,7 +9,7 @@ define([
     initialize: function(options) {
 
       this.removeOtherTooltips();
-      this.setupEventListeners();
+      this.setupEventListeners(options);
       this.setupData(options);
 
       this.render();
@@ -23,12 +23,14 @@ define([
 
     },
 
-    setupEventListeners: function() {
+    setupEventListeners: function(options) {
 
       _.bindAll(this, 'remove', 'postRender', 'show');
       this.show = _.debounce(this.show, 17);
 
-      $(document).on('mouseover', this.remove);
+      if (!options.byFocus) {
+        $(document).on('mouseover', this.remove);
+      }
 
       this.listenTo(Adapt, {
         'device:resize': this.checkPosition,

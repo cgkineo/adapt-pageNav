@@ -17,7 +17,10 @@ define([
 
     events: {
       'click .js-pagenav-btn': 'onButtonClick',
-      'mouseover .js-pagenav-btn': 'onButtonTooltip'
+      'mouseover .js-pagenav-btn': 'onButtonTooltip',
+      'focus .js-pagenav-btn': 'onFocus',
+      'blur .js-pagenav-btn': 'onBlur',
+      'keyup .js-pagenav-btn': 'onKeyUp'
     },
 
     preRender: function() {
@@ -136,8 +139,23 @@ define([
           break;
       }
     },
+    onBlur: function(event) {
+      Adapt.trigger('tooltip:remove');
+    }
+  
+    onFocus: function(event) {
+      Adapt.trigger('tooltip:remove');
+      this.onButtonTooltip(event, true);
+    }
+  
+    onKeyUp: function(event) {
+      if (event.code === "Escape") {
+        event.stopPropagation();
+        Adapt.trigger('tooltip:remove');
+      }
+    }
 
-    onButtonTooltip: function(event) {
+    onButtonTooltip: function(event, byFocus) {
 
       var $target = $(event.currentTarget);
 
@@ -171,7 +189,8 @@ define([
 
       var tooltip = new Tooltip({
         $target: $target,
-        model: Adapt.findById(id)
+        model: Adapt.findById(id),
+        byFocus: byFocus
       });
 
       this.$('.pagenav__tooltip-container').append(tooltip.$el);
