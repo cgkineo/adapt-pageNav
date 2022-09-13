@@ -139,21 +139,22 @@ define([
           break;
       }
     },
+    
     onBlur: function(event) {
       Adapt.trigger('tooltip:remove');
-    }
+    },
   
     onFocus: function(event) {
       Adapt.trigger('tooltip:remove');
       this.onButtonTooltip(event, true);
-    }
+    },
   
     onKeyUp: function(event) {
       if (event.code === "Escape") {
         event.stopPropagation();
         Adapt.trigger('tooltip:remove');
       }
-    }
+    },
 
     onButtonTooltip: function(event, byFocus) {
 
