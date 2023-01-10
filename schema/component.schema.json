@@ -24,9 +24,7 @@
           "title": "Instruction",
           "description": "This is the instruction text",
           "default": "",
-          "_adapt": {
-            "translatable": true
-          }
+          "translatable": true
         },
         "_loopStyle": {
           "type": "string",
@@ -98,17 +96,13 @@
                   "type": "string",
                   "title": "Text",
                   "default": "Return",
-                  "_adapt": {
-                    "translatable": true
-                  }
+                  "translatable": true
                 },
                 "ariaLabel": {
                   "type": "string",
                   "title": "ARIA label",
                   "default": "Return to previous location",
-                  "_adapt": {
-                    "translatable": true
-                  }
+                  "translatable": true
                 },
                 "_showTooltip": {
                   "type": "boolean",
@@ -119,9 +113,7 @@
                   "type": "string",
                   "title": "Tool tip",
                   "default": "{{displayTitle}}",
-                  "_adapt": {
-                    "translatable": true
-                  }
+                  "translatable": true
                 }
               }
             },
@@ -165,17 +157,13 @@
                   "type": "string",
                   "title": "Text",
                   "default": "Previous",
-                  "_adapt": {
-                    "translatable": true
-                  }
+                  "translatable": true
                 },
                 "ariaLabel": {
                   "type": "string",
                   "title": "ARIA label",
                   "default": "Previous Page",
-                  "_adapt": {
-                    "translatable": true
-                  }
+                  "translatable": true
                 },
                 "_showTooltip": {
                   "type": "boolean",
@@ -186,9 +174,7 @@
                   "type": "string",
                   "title": "Tool tip",
                   "default": "{{displayTitle}}",
-                  "_adapt": {
-                    "translatable": true
-                  }
+                  "translatable": true
                 },
                 "_customRouteId": {
                   "type": "string",
@@ -237,17 +223,13 @@
                   "type": "string",
                   "title": "Text",
                   "default": "Menu",
-                  "_adapt": {
-                    "translatable": true
-                  }
+                  "translatable": true
                 },
                 "ariaLabel": {
                   "type": "string",
                   "title": "ARIA label",
                   "default": "Go to main menu",
-                  "_adapt": {
-                    "translatable": true
-                  }
+                  "translatable": true
                 },
                 "_showTooltip": {
                   "type": "boolean",
@@ -258,9 +240,7 @@
                   "type": "string",
                   "title": "Tool tip",
                   "default": "{{displayTitle}}",
-                  "_adapt": {
-                    "translatable": true
-                  }
+                  "translatable": true
                 },
                 "_customRouteId": {
                   "type": "string",
@@ -309,17 +289,13 @@
                   "type": "string",
                   "title": "Text",
                   "default": "Back to menu",
-                  "_adapt": {
-                    "translatable": true
-                  }
+                  "translatable": true
                 },
                 "ariaLabel": {
                   "type": "string",
                   "title": "ARIA label",
                   "default": "Back to menu",
-                  "_adapt": {
-                    "translatable": true
-                  }
+                  "translatable": true
                 },
                 "_showTooltip": {
                   "type": "boolean",
@@ -330,9 +306,7 @@
                   "type": "string",
                   "title": "Tool tip",
                   "default": "{{displayTitle}}",
-                  "_adapt": {
-                    "translatable": true
-                  }
+                  "translatable": true
                 },
                 "_customRouteId": {
                   "type": "string",
@@ -381,17 +355,13 @@
                   "type": "string",
                   "title": "Text",
                   "default": "Next",
-                  "_adapt": {
-                    "translatable": true
-                  }
+                  "translatable": true
                 },
                 "ariaLabel": {
                   "type": "string",
                   "title": "ARIA label",
                   "default": "Next Page",
-                  "_adapt": {
-                    "translatable": true
-                  }
+                  "translatable": true
                 },
                 "_showTooltip": {
                   "type": "boolean",
@@ -402,9 +372,7 @@
                   "type": "string",
                   "title": "Tool tip",
                   "default": "{{displayTitle}}",
-                  "_adapt": {
-                    "translatable": true
-                  }
+                  "translatable": true
                 },
                 "_customRouteId": {
                   "type": "string",
@@ -453,17 +421,13 @@
                   "type": "string",
                   "title": "Text",
                   "default": "{{inc index}}",
-                  "_adapt": {
-                    "translatable": true
-                  }
+                  "translatable": true
                 },
                 "ariaLabel": {
                   "type": "string",
                   "title": "ARIA label",
                   "default": "Page {{inc index}}",
-                  "_adapt": {
-                    "translatable": true
-                  }
+                  "translatable": true
                 },
                 "_showTooltip": {
                   "type": "boolean",
@@ -474,9 +438,7 @@
                   "type": "string",
                   "title": "Tool tip",
                   "default": "{{displayTitle}}",
-                  "_adapt": {
-                    "translatable": true
-                  }
+                  "translatable": true
                 },
                 "_customRouteId": {
                   "type": "string",
@@ -525,17 +487,13 @@
                   "type": "string",
                   "title": "Text",
                   "default": "Close",
-                  "_adapt": {
-                    "translatable": true
-                  }
+                  "translatable": true
                 },
                 "ariaLabel": {
                   "type": "string",
                   "title": "ARIA label",
                   "default": "Close window",
-                  "_adapt": {
-                    "translatable": true
-                  }
+                  "translatable": true
                 },
                 "_showTooltip": {
                   "type": "boolean",
@@ -546,9 +504,7 @@
                   "type": "string",
                   "title": "Tool tip",
                   "default": "Close window",
-                  "_adapt": {
-                    "translatable": true
-                  }
+                  "translatable": true
                 }
               }
             }
