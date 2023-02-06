@@ -1,0 +1,560 @@
+{
+  "$anchor": "pageNav-component",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "$merge": {
+    "source": {
+      "$ref": "component"
+    },
+    "with": {
+      "required": [
+        "_buttons"
+      ],
+      "properties": {
+        "_supportedLayout": {
+          "type": "string",
+          "title": "Supported layout",
+          "default": "full-width",
+          "_adapt": {
+            "editorOnly": true
+          }
+        },
+        "instruction": {
+          "type": "string",
+          "title": "Instruction",
+          "description": "This is the instruction text",
+          "default": "",
+          "_adapt": {
+            "translatable": true
+          }
+        },
+        "_loopStyle": {
+          "type": "string",
+          "title": "Is Continuous",
+          "description": "allPages = loop sequentially through all pages in course, siblings = loop sequentially through all pages in current parent object, none = disable previous and next buttons at start and end of the pages in the current parent object",
+          "default": "none",
+          "enum": [
+            "allPages",
+            "siblings",
+            "none"
+          ],
+          "_backboneForms": "Select"
+        },
+        "_shouldSkipOptionalPages": {
+          "type": "boolean",
+          "title": "Skip optional pages",
+          "default": false
+        },
+        "_buttons": {
+          "type": "object",
+          "title": "Buttons settings",
+          "required": [
+            "_returnToPreviousLocation",
+            "_previous",
+            "_root",
+            "_up",
+            "_next",
+            "_sibling",
+            "_close"
+          ],
+          "properties": {
+            "_returnToPreviousLocation": {
+              "type": "object",
+              "title": "Return to previous location button",
+              "properties": {
+                "_isEnabled": {
+                  "type": "boolean",
+                  "title": "Show",
+                  "default": false
+                },
+                "_lockUntilPageComplete": {
+                  "type": "boolean",
+                  "title": "Lock until page complete",
+                  "description": "For use when the standard Adapt locking system doesn't apply, such as in a start page before the main menu",
+                  "default": false
+                },
+                "_order": {
+                  "type": "number",
+                  "title": "Order",
+                  "description": "Button display order",
+                  "default": 0
+                },
+                "_classes": {
+                  "type": "string",
+                  "title": "Classes",
+                  "default": ""
+                },
+                "_iconClass": {
+                  "type": "string",
+                  "title": "Icon class",
+                  "default": ""
+                },
+                "_alignIconRight": {
+                  "type": "boolean",
+                  "title": "Align icon right",
+                  "default": false
+                },
+                "text": {
+                  "type": "string",
+                  "title": "Text",
+                  "default": "Return",
+                  "_adapt": {
+                    "translatable": true
+                  }
+                },
+                "ariaLabel": {
+                  "type": "string",
+                  "title": "ARIA label",
+                  "default": "Return to previous location",
+                  "_adapt": {
+                    "translatable": true
+                  }
+                },
+                "_showTooltip": {
+                  "type": "boolean",
+                  "title": "Show tool tip",
+                  "default": false
+                },
+                "tooltip": {
+                  "type": "string",
+                  "title": "Tool tip",
+                  "default": "{{displayTitle}}",
+                  "_adapt": {
+                    "translatable": true
+                  }
+                }
+              }
+            },
+            "_previous": {
+              "type": "object",
+              "title": "Previous button",
+              "properties": {
+                "_isEnabled": {
+                  "type": "boolean",
+                  "title": "Show",
+                  "default": false
+                },
+                "_lockUntilPageComplete": {
+                  "type": "boolean",
+                  "title": "Lock until page complete",
+                  "description": "For use when the standard Adapt locking system doesn't apply, such as in a start page before the main menu",
+                  "default": false
+                },
+                "_order": {
+                  "type": "number",
+                  "title": "Order",
+                  "description": "Button display order",
+                  "default": 0
+                },
+                "_classes": {
+                  "type": "string",
+                  "title": "Classes",
+                  "default": ""
+                },
+                "_iconClass": {
+                  "type": "string",
+                  "title": "Icon class",
+                  "default": ""
+                },
+                "_alignIconRight": {
+                  "type": "boolean",
+                  "title": "Align icon right",
+                  "default": false
+                },
+                "text": {
+                  "type": "string",
+                  "title": "Text",
+                  "default": "Previous",
+                  "_adapt": {
+                    "translatable": true
+                  }
+                },
+                "ariaLabel": {
+                  "type": "string",
+                  "title": "ARIA label",
+                  "default": "Previous Page",
+                  "_adapt": {
+                    "translatable": true
+                  }
+                },
+                "_showTooltip": {
+                  "type": "boolean",
+                  "title": "Show tool tip",
+                  "default": false
+                },
+                "tooltip": {
+                  "type": "string",
+                  "title": "Tool tip",
+                  "default": "{{displayTitle}}",
+                  "_adapt": {
+                    "translatable": true
+                  }
+                },
+                "_customRouteId": {
+                  "type": "string",
+                  "title": "Override the route id",
+                  "default": ""
+                }
+              }
+            },
+            "_root": {
+              "type": "object",
+              "title": "Root button",
+              "properties": {
+                "_isEnabled": {
+                  "type": "boolean",
+                  "title": "Show",
+                  "default": false
+                },
+                "_lockUntilPageComplete": {
+                  "type": "boolean",
+                  "title": "Lock until page complete",
+                  "description": "For use when the standard Adapt locking system doesn't apply, such as in a start page before the main menu",
+                  "default": false
+                },
+                "_order": {
+                  "type": "number",
+                  "title": "Order",
+                  "description": "Button display order",
+                  "default": 0
+                },
+                "_classes": {
+                  "type": "string",
+                  "title": "Classes",
+                  "default": ""
+                },
+                "_iconClass": {
+                  "type": "string",
+                  "title": "Icon class",
+                  "default": ""
+                },
+                "_alignIconRight": {
+                  "type": "boolean",
+                  "title": "Align icon right",
+                  "default": false
+                },
+                "text": {
+                  "type": "string",
+                  "title": "Text",
+                  "default": "Menu",
+                  "_adapt": {
+                    "translatable": true
+                  }
+                },
+                "ariaLabel": {
+                  "type": "string",
+                  "title": "ARIA label",
+                  "default": "Go to main menu",
+                  "_adapt": {
+                    "translatable": true
+                  }
+                },
+                "_showTooltip": {
+                  "type": "boolean",
+                  "title": "Show tool tip",
+                  "default": false
+                },
+                "tooltip": {
+                  "type": "string",
+                  "title": "Tool tip",
+                  "default": "{{displayTitle}}",
+                  "_adapt": {
+                    "translatable": true
+                  }
+                },
+                "_customRouteId": {
+                  "type": "string",
+                  "title": "Override the route id",
+                  "default": ""
+                }
+              }
+            },
+            "_up": {
+              "type": "object",
+              "title": "Up button",
+              "properties": {
+                "_isEnabled": {
+                  "type": "boolean",
+                  "title": "Show",
+                  "default": false
+                },
+                "_lockUntilPageComplete": {
+                  "type": "boolean",
+                  "title": "Lock until page complete",
+                  "description": "For use when the standard Adapt locking system doesn't apply, such as in a start page before the main menu",
+                  "default": false
+                },
+                "_order": {
+                  "type": "number",
+                  "title": "Order",
+                  "description": "Button display order",
+                  "default": 0
+                },
+                "_classes": {
+                  "type": "string",
+                  "title": "Classes",
+                  "default": ""
+                },
+                "_iconClass": {
+                  "type": "string",
+                  "title": "Icon class",
+                  "default": ""
+                },
+                "_alignIconRight": {
+                  "type": "boolean",
+                  "title": "Align icon right",
+                  "default": false
+                },
+                "text": {
+                  "type": "string",
+                  "title": "Text",
+                  "default": "Back to menu",
+                  "_adapt": {
+                    "translatable": true
+                  }
+                },
+                "ariaLabel": {
+                  "type": "string",
+                  "title": "ARIA label",
+                  "default": "Back to menu",
+                  "_adapt": {
+                    "translatable": true
+                  }
+                },
+                "_showTooltip": {
+                  "type": "boolean",
+                  "title": "Show tool tip",
+                  "default": false
+                },
+                "tooltip": {
+                  "type": "string",
+                  "title": "Tool tip",
+                  "default": "{{displayTitle}}",
+                  "_adapt": {
+                    "translatable": true
+                  }
+                },
+                "_customRouteId": {
+                  "type": "string",
+                  "title": "Override the route id",
+                  "default": ""
+                }
+              }
+            },
+            "_next": {
+              "type": "object",
+              "title": "Next button",
+              "properties": {
+                "_isEnabled": {
+                  "type": "boolean",
+                  "title": "Show",
+                  "default": false
+                },
+                "_lockUntilPageComplete": {
+                  "type": "boolean",
+                  "title": "Lock until page complete",
+                  "description": "For use when the standard Adapt locking system doesn't apply, such as in a start page before the main menu",
+                  "default": false
+                },
+                "_order": {
+                  "type": "number",
+                  "title": "Order",
+                  "description": "Button display order",
+                  "default": 0
+                },
+                "_classes": {
+                  "type": "string",
+                  "title": "Classes",
+                  "default": ""
+                },
+                "_iconClass": {
+                  "type": "string",
+                  "title": "Icon class",
+                  "default": ""
+                },
+                "_alignIconRight": {
+                  "type": "boolean",
+                  "title": "Align icon right",
+                  "default": true
+                },
+                "text": {
+                  "type": "string",
+                  "title": "Text",
+                  "default": "Next",
+                  "_adapt": {
+                    "translatable": true
+                  }
+                },
+                "ariaLabel": {
+                  "type": "string",
+                  "title": "ARIA label",
+                  "default": "Next Page",
+                  "_adapt": {
+                    "translatable": true
+                  }
+                },
+                "_showTooltip": {
+                  "type": "boolean",
+                  "title": "Show tool tip",
+                  "default": false
+                },
+                "tooltip": {
+                  "type": "string",
+                  "title": "Tool tip",
+                  "default": "{{displayTitle}}",
+                  "_adapt": {
+                    "translatable": true
+                  }
+                },
+                "_customRouteId": {
+                  "type": "string",
+                  "title": "Override the route id",
+                  "default": ""
+                }
+              }
+            },
+            "_sibling": {
+              "type": "object",
+              "title": "Sibling buttons",
+              "properties": {
+                "_isEnabled": {
+                  "type": "boolean",
+                  "title": "Show",
+                  "default": false
+                },
+                "_lockUntilPageComplete": {
+                  "type": "boolean",
+                  "title": "Lock until page complete",
+                  "description": "For use when the standard Adapt locking system doesn't apply, such as in a start page before the main menu",
+                  "default": false
+                },
+                "_order": {
+                  "type": "number",
+                  "title": "Order",
+                  "description": "Button display order",
+                  "default": 0
+                },
+                "_classes": {
+                  "type": "string",
+                  "title": "Classes",
+                  "default": ""
+                },
+                "_iconClass": {
+                  "type": "string",
+                  "title": "Icon class",
+                  "default": ""
+                },
+                "_alignIconRight": {
+                  "type": "boolean",
+                  "title": "Align icon right",
+                  "default": false
+                },
+                "text": {
+                  "type": "string",
+                  "title": "Text",
+                  "default": "{{inc index}}",
+                  "_adapt": {
+                    "translatable": true
+                  }
+                },
+                "ariaLabel": {
+                  "type": "string",
+                  "title": "ARIA label",
+                  "default": "Page {{inc index}}",
+                  "_adapt": {
+                    "translatable": true
+                  }
+                },
+                "_showTooltip": {
+                  "type": "boolean",
+                  "title": "Show tool tip",
+                  "default": false
+                },
+                "tooltip": {
+                  "type": "string",
+                  "title": "Tool tip",
+                  "default": "{{displayTitle}}",
+                  "_adapt": {
+                    "translatable": true
+                  }
+                },
+                "_customRouteId": {
+                  "type": "string",
+                  "title": "Override the route id",
+                  "default": ""
+                }
+              }
+            },
+            "_close": {
+              "type": "object",
+              "title": "Close button",
+              "properties": {
+                "_isEnabled": {
+                  "type": "boolean",
+                  "title": "Show",
+                  "default": false
+                },
+                "_lockUntilPageComplete": {
+                  "type": "boolean",
+                  "title": "Lock until page complete",
+                  "description": "For use when the standard Adapt locking system doesn't apply, such as in a start page before the main menu",
+                  "default": false
+                },
+                "_order": {
+                  "type": "number",
+                  "title": "Order",
+                  "description": "Button display order",
+                  "default": 0
+                },
+                "_classes": {
+                  "type": "string",
+                  "title": "Classes",
+                  "default": ""
+                },
+                "_iconClass": {
+                  "type": "string",
+                  "title": "Icon class",
+                  "default": ""
+                },
+                "_alignIconRight": {
+                  "type": "boolean",
+                  "title": "Align icon right",
+                  "default": false
+                },
+                "text": {
+                  "type": "string",
+                  "title": "Text",
+                  "default": "Close",
+                  "_adapt": {
+                    "translatable": true
+                  }
+                },
+                "ariaLabel": {
+                  "type": "string",
+                  "title": "ARIA label",
+                  "default": "Close window",
+                  "_adapt": {
+                    "translatable": true
+                  }
+                },
+                "_showTooltip": {
+                  "type": "boolean",
+                  "title": "Show tool tip",
+                  "default": false
+                },
+                "tooltip": {
+                  "type": "string",
+                  "title": "Tool tip",
+                  "default": "Close window",
+                  "_adapt": {
+                    "translatable": true
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
