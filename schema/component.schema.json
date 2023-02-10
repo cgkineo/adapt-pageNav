@@ -87,16 +87,19 @@
                 "_iconClass": {
                   "type": "string",
                   "title": "Icon class",
+                  "description": "CSS class name to be applied to the button icon. Suggested: icon-controls-left",
                   "default": ""
                 },
                 "_alignIconRight": {
                   "type": "boolean",
                   "title": "Align icon right",
+                  "description": "Defines whether the icon is aligned to the left or right of the text.",
                   "default": false
                 },
                 "text": {
                   "type": "string",
-                  "title": "Text",
+                  "title": "Button text",
+                  "description": "Text that appears on the button. Optional since you can only use an icon.",
                   "default": "Return",
                   "_adapt": {
                     "translatable": true
@@ -113,6 +116,7 @@
                 "_showTooltip": {
                   "type": "boolean",
                   "title": "Show tool tip",
+                  "description": "Defines whether the tooltip renders on hover.",
                   "default": false
                 },
                 "tooltip": {
@@ -154,16 +158,19 @@
                 "_iconClass": {
                   "type": "string",
                   "title": "Icon class",
+                  "description": "CSS class name to be applied to the button icon. Suggested: icon-controls-left",
                   "default": ""
                 },
                 "_alignIconRight": {
                   "type": "boolean",
                   "title": "Align icon right",
+                  "description": "Defines whether the icon is aligned to the left or right of the text.",
                   "default": false
                 },
                 "text": {
                   "type": "string",
-                  "title": "Text",
+                  "title": "Button text",
+                  "description": "Text that appears on the button. Optional since you can only use an icon.",
                   "default": "Previous",
                   "_adapt": {
                     "translatable": true
@@ -180,6 +187,7 @@
                 "_showTooltip": {
                   "type": "boolean",
                   "title": "Show tool tip",
+                  "description": "Defines whether the tooltip renders on hover.",
                   "default": false
                 },
                 "tooltip": {
@@ -193,6 +201,7 @@
                 "_customRouteId": {
                   "type": "string",
                   "title": "Override the route id",
+                  "description": "Enter the Friendly id of the page that the button should direct the user to. For use when non-standard navigation is required.",
                   "default": ""
                 }
               }
@@ -200,6 +209,7 @@
             "_root": {
               "type": "object",
               "title": "Root button",
+              "description": "Takes you back to top level menu",
               "properties": {
                 "_isEnabled": {
                   "type": "boolean",
@@ -226,16 +236,19 @@
                 "_iconClass": {
                   "type": "string",
                   "title": "Icon class",
+                  "description": "CSS class name to be applied to the button icon. Suggested: icon-home",
                   "default": ""
                 },
                 "_alignIconRight": {
                   "type": "boolean",
                   "title": "Align icon right",
+                  "description": "Defines whether the icon is aligned to the left or right of the text.",
                   "default": false
                 },
                 "text": {
                   "type": "string",
-                  "title": "Text",
+                  "title": "Button text",
+                  "description": "Text that appears on the button. Optional since you can only use an icon.",
                   "default": "Menu",
                   "_adapt": {
                     "translatable": true
@@ -252,6 +265,7 @@
                 "_showTooltip": {
                   "type": "boolean",
                   "title": "Show tool tip",
+                  "description": "Defines whether the tooltip renders on hover.",
                   "default": false
                 },
                 "tooltip": {
@@ -265,6 +279,7 @@
                 "_customRouteId": {
                   "type": "string",
                   "title": "Override the route id",
+                  "description": "Enter the Friendly id of the page that the button should direct the user to. For use when non-standard navigation is required.",
                   "default": ""
                 }
               }
@@ -272,6 +287,7 @@
             "_up": {
               "type": "object",
               "title": "Up button",
+              "description": "Takes you to the menu that is the next level up in the hierarchy",
               "properties": {
                 "_isEnabled": {
                   "type": "boolean",
@@ -298,16 +314,19 @@
                 "_iconClass": {
                   "type": "string",
                   "title": "Icon class",
+                  "description": "CSS class name to be applied to the button icon. Suggested: icon-controls-up",
                   "default": ""
                 },
                 "_alignIconRight": {
                   "type": "boolean",
                   "title": "Align icon right",
+                  "description": "Defines whether the icon is aligned to the left or right of the text.",
                   "default": false
                 },
                 "text": {
                   "type": "string",
-                  "title": "Text",
+                  "title": "Button text",
+                  "description": "Text that appears on the button. Optional since you can only use an icon.",
                   "default": "Back to menu",
                   "_adapt": {
                     "translatable": true
@@ -324,6 +343,7 @@
                 "_showTooltip": {
                   "type": "boolean",
                   "title": "Show tool tip",
+                  "description": "Defines whether the tooltip renders on hover.",
                   "default": false
                 },
                 "tooltip": {
@@ -337,6 +357,7 @@
                 "_customRouteId": {
                   "type": "string",
                   "title": "Override the route id",
+                  "description": "Enter the Friendly id of the page that the button should direct the user to. For use when non-standard navigation is required.",
                   "default": ""
                 }
               }
@@ -370,16 +391,19 @@
                 "_iconClass": {
                   "type": "string",
                   "title": "Icon class",
+                  "description": "CSS class name to be applied to the button icon. Suggested: icon-controls-right",
                   "default": ""
                 },
                 "_alignIconRight": {
                   "type": "boolean",
                   "title": "Align icon right",
+                  "description": "Defines whether the icon is aligned to the left or right of the text.",
                   "default": true
                 },
                 "text": {
                   "type": "string",
-                  "title": "Text",
+                  "title": "Button text",
+                  "description": "Text that appears on the button. Optional since you can only use an icon.",
                   "default": "Next",
                   "_adapt": {
                     "translatable": true
@@ -396,6 +420,7 @@
                 "_showTooltip": {
                   "type": "boolean",
                   "title": "Show tool tip",
+                  "description": "Defines whether the tooltip renders on hover.",
                   "default": false
                 },
                 "tooltip": {
@@ -409,6 +434,7 @@
                 "_customRouteId": {
                   "type": "string",
                   "title": "Override the route id",
+                  "description": "Enter the Friendly id of the page that the button should direct the user to. For use when non-standard navigation is required.",
                   "default": ""
                 }
               }
@@ -416,6 +442,7 @@
             "_sibling": {
               "type": "object",
               "title": "Sibling buttons",
+              "description": "Numbered buttons representing each sibling page",
               "properties": {
                 "_isEnabled": {
                   "type": "boolean",
@@ -442,16 +469,19 @@
                 "_iconClass": {
                   "type": "string",
                   "title": "Icon class",
+                  "description": "CSS class name to be applied to the button icon. No icon is recommended.",
                   "default": ""
                 },
                 "_alignIconRight": {
                   "type": "boolean",
                   "title": "Align icon right",
+                  "description": "Defines whether the icon is aligned to the left or right of the text.",
                   "default": false
                 },
                 "text": {
                   "type": "string",
-                  "title": "Text",
+                  "title": "Button text",
+                  "description": "Text that appears on the button. Suggest using the default.",
                   "default": "{{inc index}}",
                   "_adapt": {
                     "translatable": true
@@ -468,6 +498,7 @@
                 "_showTooltip": {
                   "type": "boolean",
                   "title": "Show tool tip",
+                  "description": "Defines whether the tooltip renders on hover.",
                   "default": false
                 },
                 "tooltip": {
@@ -481,6 +512,7 @@
                 "_customRouteId": {
                   "type": "string",
                   "title": "Override the route id",
+                  "description": "Enter the Friendly id of the page that the button should direct the user to. For use when non-standard navigation is required.",
                   "default": ""
                 }
               }
@@ -488,6 +520,7 @@
             "_close": {
               "type": "object",
               "title": "Close button",
+              "description": "Closes the course window. Only possible if the course was launched in a popup window.",
               "properties": {
                 "_isEnabled": {
                   "type": "boolean",
@@ -514,16 +547,19 @@
                 "_iconClass": {
                   "type": "string",
                   "title": "Icon class",
+                  "description": "CSS class name to be applied to the button icon. Suggested: icon-cross",
                   "default": ""
                 },
                 "_alignIconRight": {
                   "type": "boolean",
                   "title": "Align icon right",
+                  "description": "Defines whether the icon is aligned to the left or right of the text.",
                   "default": false
                 },
                 "text": {
                   "type": "string",
-                  "title": "Text",
+                  "title": "Button text",
+                  "description": "Text that appears on the button. Optional since you can only use an icon.",
                   "default": "Close",
                   "_adapt": {
                     "translatable": true
@@ -540,6 +576,7 @@
                 "_showTooltip": {
                   "type": "boolean",
                   "title": "Show tool tip",
+                  "description": "Defines whether the tooltip renders on hover.",
                   "default": false
                 },
                 "tooltip": {
