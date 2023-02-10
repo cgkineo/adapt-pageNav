@@ -4,12 +4,11 @@
     "type": "git",
     "url": "git://github.com/cgkineo/adapt-pageNav.git"
   },
-  "version": "2.1.1",
+  "version": "2.1.2",
   "framework": ">=5.2",
   "homepage": "https://github.com/cgkineo/adapt-pageNav",
   "issues": "https://github.com/cgkineo/adapt-pageNav/issues/",
   "component": "pageNav",
-  "targetAttribute": "_pageNav",
   "displayName": "Page Navigation",
   "description": "Navigation bar that is displayed within Adapt content pages, typically at the bottom.",
   "main": "/js/adapt-pageNav.js",
