@@ -4,7 +4,7 @@
     "type": "git",
     "url": "git://github.com/cgkineo/adapt-pageNav.git"
   },
-  "version": "2.1.2",
+  "version": "2.2.0",
   "framework": ">=5.2",
   "homepage": "https://github.com/cgkineo/adapt-pageNav",
   "issues": "https://github.com/cgkineo/adapt-pageNav/issues/",
