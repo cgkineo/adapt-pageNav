@@ -23,6 +23,7 @@ define([
         _close: new Backbone.Model({
           _id: '',
           _onClick: `
+try {
   var scormWrapper = require('extensions/adapt-contrib-spoor/js/scorm/wrapper');
   if (scormWrapper) {
     var scormWrapperInstance = scormWrapper.getInstance();
@@ -30,7 +31,8 @@ define([
       scormWrapperInstance.finish();
     }
   }
-  top.window.close();
+} catch (err) {}
+top.window.close();
 `
         })
       };
