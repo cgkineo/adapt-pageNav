@@ -1,7 +1,8 @@
 define([
   'core/js/adapt',
+  'core/js/location',
   'core/js/models/componentModel'
-], function(Adapt, ComponentModel) {
+], function(Adapt, Location, ComponentModel) {
 
   var Model = ComponentModel.extend({
 
@@ -65,6 +66,7 @@ top.window.close();
             _.extend(item, buttonConfig, {
               type: attrName,
               index: index,
+              isCurrent: item._id === Location._currentId,
               order: order++,
               locked: item._isLocked || (buttonConfig._lockUntilPageComplete && !currentPageComplete)
             });
