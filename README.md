@@ -14,7 +14,7 @@ The attributes listed below are used in *components.json* to configure **PageNav
 Navigation bar component which can contain some or all of the following buttons:
 
 - _returnToPreviousLocation (takes you back to the previous location - not back in history, just the last routed location)
-- _home (takes you back to top level menu)
+- _root (takes you back to top level menu)
 - _up (takes you to the menu the next level up in the hierarchy)
 - _previous (navigates directly to the previous page, if exists, without having to navigate via the menu)
 - _next (navigates directly to the next page, if exists, without having to navigate via the menu)
@@ -68,10 +68,10 @@ The pageNav buttons will respect any [locking](https://github.com/adaptlearning/
 >**\_customRouteId** (string): Overrides the route ID. For use when non standard route navigation is required.
 
 ----------------------------
-**Version number:**  2.1.0
-**Framework versions:**  5.2+
-**Vanilla versions:**  5.1.1+
-**Author / maintainer:**  Kineo
-**Accessibility support:**  WAI AA
-**RTL support:**  Yes
-**Cross-platform coverage:** Chrome, Chrome for Android, Firefox (ESR + latest version), Edge, IE11, Safari 12+13 for macOS/iOS/iPadOS, Opera
+
+**Framework versions:**  5.2+<br>
+**Vanilla versions:**  5.1.1+<br>
+**Author / maintainer:**  Kineo<br>
+**Accessibility support:**  WAI AA<br>
+**RTL support:**  Yes<br>
+**Cross-platform coverage:** Chrome, Chrome for Android, Firefox (ESR + latest version), Edge, IE11, Safari 12+13 for macOS/iOS/iPadOS, Opera<br>
