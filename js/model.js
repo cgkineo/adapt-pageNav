@@ -22,7 +22,18 @@ define([
         _sibling: this.getSiblingPages(),
         _close: new Backbone.Model({
           _id: '',
-          _onClick: 'top.window.close();'
+          _onClick: `
+try {
+  var scormWrapper = require('extensions/adapt-contrib-spoor/js/scorm/wrapper');
+  if (scormWrapper) {
+    var scormWrapperInstance = scormWrapper.getInstance();
+    if (scormWrapperInstance.lmsConnected && !scormWrapperInstance.finishCalled) {
+      scormWrapperInstance.finish();
+    }
+  }
+} catch (err) {}
+top.window.close();
+`
         })
       };
 
