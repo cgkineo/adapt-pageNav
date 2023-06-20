@@ -66,7 +66,7 @@ top.window.close();
             _.extend(item, buttonConfig, {
               type: attrName,
               index: index,
-              isCurrent: item._id === Location._currentId,
+              _isCurrent: item._id === Location._currentId,
               order: order++,
               locked: item._isLocked || (buttonConfig._lockUntilPageComplete && !currentPageComplete)
             });
