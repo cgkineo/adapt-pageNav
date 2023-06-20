@@ -28,6 +28,10 @@ html {
 .pagenav {
   &__btn {
     margin: @item-margin;
+
+    &[aria-current="page"] {
+      background-color: darken(@btn-item-color, 20%);
+    }
   }
 
   &__btn-icon .icon {
