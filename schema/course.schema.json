@@ -12,7 +12,7 @@
           "type": "object",
           "default": {},
           "properties": {
-            "_hotgrid": {
+            "_pageNav": {
               "type": "object",
               "title": "PageNav",
               "default": {},
