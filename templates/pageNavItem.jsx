@@ -47,27 +47,20 @@ export default function PageNavItem(props) {
 
         <span className="pagenav__btn-inner">
 
-          {/* {{#unless _alignIconRight}}
-          {{#if _iconClass}}
+          {_iconClass &&
           <span className="pagenav__btn-icon" aria-hidden="true">
-            <span className="icon {{_iconClass}}"></span>
+            <span className={classes([
+              'icon',
+              _iconClass
+            ])} />
           </span>
-          {{/if}}
-          {{/unless}} */}
+          }
 
           {text &&
           <span className="pagenav__btn-text">
             <span className="pagenav__btn-text-inner" dangerouslySetInnerHTML={{ __html: compile(text, props) }} />
           </span>
           }
-
-          {/* {{#if _alignIconRight}}
-          {{#if _iconClass}}
-          <span className="pagenav__btn-icon" aria-hidden="true">
-            <span className="icon {{_iconClass}}"></span>
-          </span>
-          {{/if}}
-          {{/if}} */}
 
         </span>
 
