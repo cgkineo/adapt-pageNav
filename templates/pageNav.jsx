@@ -6,7 +6,8 @@ export default function PageNav(props) {
   const globals = Adapt.course.get('_globals');
 
   const {
-    _items
+    _items,
+    onButtonClick
   } = props;
 
   return (
@@ -24,7 +25,7 @@ export default function PageNav(props) {
             return (
               <templates.pageNavItem {...props}
                 key={index}
-                // onClick={onFilterClicked}
+                onButtonClick={onButtonClick}
               />
             );
 

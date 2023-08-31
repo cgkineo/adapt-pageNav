@@ -15,7 +15,8 @@ export default function PageNavItem(props) {
     type,
     _id,
     _index,
-    text
+    text,
+    onButtonClick
   } = props;
 
   return (
@@ -41,6 +42,7 @@ export default function PageNavItem(props) {
         // aria-label={locked && globals._accessibility._ariaLabels.locked}. {compile ariaLabel this}}
         // data-tooltip="{{#if _showTooltip}}{{{compile tooltip this}}}{{/if}}"
         aria-current={_isCurrent ? 'page' : false}
+        onClick={onButtonClick}
       >
 
         <span className="pagenav__btn-inner">

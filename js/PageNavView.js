@@ -11,20 +11,22 @@ class PageNavView extends ComponentView {
     return attrs;
   };
 
-  // events: {
-  //   'click .js-pagenav-btn': 'onButtonClick',
-  //   'mouseover .js-pagenav-btn': 'onButtonTooltip'
-  // },
+  initialize() {
+    // this.onButtonClick = this.onButtonClick.bind(this);
+    _.bindAll(this, 'postRender', 'checkButtonStates', 'onButtonClick');
+
+    super.initialize();
+  }
 
   preRender() {
-    this.$el.addClass('pagenav ' + this.model.get('_id'));
-
-    _.bindAll(this, 'postRender', 'checkButtonStates');
+    // _.bindAll(this, 'postRender', 'checkButtonStates');
 
     this.listenTo(Adapt, 'remove', this.remove);
     this.listenTo(Adapt.contentObjects, {
       'change:_isComplete change:_isLocked': this.onContentObjectComplete
     });
+
+    this.$el.addClass('pagenav ' + this.model.get('_id'));
   };
 
   postRender() {
@@ -35,7 +37,6 @@ class PageNavView extends ComponentView {
 
   setupInview() {
     const selector = this.getInviewElementSelector();
-
     if (!selector) return this.setCompletionStatus();
 
     this.setupInviewCompletion(selector);
