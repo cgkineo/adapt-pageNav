@@ -4,13 +4,13 @@ import ComponentView from 'core/js/views/componentView';
 import tooltips from 'core/js/tooltips';
 
 class PageNavView extends ComponentView {
-  getAttributes($node) {
-    const attrs = {};
-    _.each($node[0].attributes, function (attribute) {
-      attrs[attribute.name] = attribute.value;
-    });
-    return attrs;
-  };
+  // getAttributes($node) {
+  //   const attrs = {};
+  //   _.each($node[0].attributes, function (attribute) {
+  //     attrs[attribute.name] = attribute.value;
+  //   });
+  //   return attrs;
+  // };
 
   initialize() {
     _.bindAll(this, 'postRender', 'checkButtonStates', 'onButtonClick');
@@ -32,26 +32,7 @@ class PageNavView extends ComponentView {
   postRender() {
     this.checkButtonStates();
     this.setReadyStatus();
-    this.setupInview();
-  };
-
-  setupInview() {
-    const selector = this.getInviewElementSelector();
-    if (!selector) return this.setCompletionStatus();
-
-    this.setupInviewCompletion(selector);
-  };
-
-  /**
-  * determines which element should be used for inview logic - body, instruction, title or widget - and returns the selector for that element
-  */
-  getInviewElementSelector() {
-    if (this.model.get('body')) return '.component__body';
-    if (this.model.get('instruction')) return '.component__instruction';
-    if (this.model.get('displayTitle')) return '.component__title';
-    if (this.model.get('_buttons')) return '.component__widget';
-
-    return null;
+    this.setupInviewCompletion();
   };
 
   onContentObjectComplete() {
