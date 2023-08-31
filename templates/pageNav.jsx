@@ -19,7 +19,7 @@ export default function PageNav(props) {
         <div className="pagenav__tooltip-container" />
 
         <nav className="pagenav__btn-container" aria-label={globals._components._pageNav.ariaRegion}>
-          {_items.map((index) => {
+          {_items.map(({ ...props }, index) => {
 
             return (
               <templates.pageNavItem {...props}

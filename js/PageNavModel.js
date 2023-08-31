@@ -4,10 +4,16 @@ import data from 'core/js/data';
 import ComponentModel from 'core/js/models/componentModel';
 
 class PageNavModel extends ComponentModel {
+  init() {
+    this.set('_items', this.getNavigationData());
+
+    super.init();
+  };
+
   getNavigationData() {
     /*
-      * Combine the config, model, order, index and type for each _buttons
-      * Add each combined item to an array
+      Combine the config, model, order, index and type for each _buttons
+      Add each combined item to an array
     */
     const buttonTypeModels = {
       _returnToPreviousLocation: this.getReturnToPreviousLocation(),
@@ -17,21 +23,7 @@ class PageNavModel extends ComponentModel {
       _next: this.getNextPage(),
       _previous: this.getPrevPage(),
       _sibling: this.getSiblingPages(),
-      _close: new Backbone.Model({
-        _id: '',
-        _onClick: `
-          try {
-          var scormWrapper = require('extensions/adapt-contrib-spoor/js/scorm/wrapper');
-          if (scormWrapper) {
-            var scormWrapperInstance = scormWrapper.getInstance();
-            if (scormWrapperInstance.lmsConnected && !scormWrapperInstance.finishCalled) {
-              scormWrapperInstance.finish();
-            }
-          }
-          } catch (err) {}
-          top.window.close();
-          `
-      })
+      _close: this.getClose()
     };
 
     const data = [];
@@ -94,7 +86,6 @@ class PageNavModel extends ComponentModel {
     });
 
     return orderedData;
-
   };
 
   getReturnToPreviousLocation() {
@@ -117,7 +108,6 @@ class PageNavModel extends ComponentModel {
     const parents = this.getAncestorModels ? this.getAncestorModels() : this.getParents().models;
 
     for (let i = 0, l = parents.length; i < l; i++) {
-
       const model = parents[i];
       switch (model.get('_type')) {
         case 'menu':
@@ -142,10 +132,9 @@ class PageNavModel extends ComponentModel {
   getPrevPage() {
     const currentPage = this.getCurrentPage();
     const currentPageId = currentPage.get('_id');
-
     const pages = this.getPages();
-
     let hasFoundCurrentPage = false;
+
     for (let i = pages.length - 1; i > -1; i--) {
       const page = pages[i];
       const isNotAvailable = !page.get('_isAvailable');
@@ -165,7 +154,6 @@ class PageNavModel extends ComponentModel {
   getNextPage() {
     const currentPage = this.getCurrentPage();
     const currentPageId = currentPage.get('_id');
-
     const pages = this.getPages();
 
     let hasFoundCurrentPage = false;
@@ -187,7 +175,6 @@ class PageNavModel extends ComponentModel {
 
   getPages() {
     const loopStyle = this.get('_loopStyle');
-
     if (!loopStyle) return [];
 
     let loop = false;
@@ -214,6 +201,24 @@ class PageNavModel extends ComponentModel {
 
     return _.filter(descendants, function(model) {
       return model.get('_type') === 'page';
+    });
+  };
+
+  getClose() {
+    return new Backbone.Model({
+      _id: '',
+      _onClick: `
+        try {
+        var scormWrapper = require('extensions/adapt-contrib-spoor/js/scorm/wrapper');
+        if (scormWrapper) {
+          var scormWrapperInstance = scormWrapper.getInstance();
+          if (scormWrapperInstance.lmsConnected && !scormWrapperInstance.finishCalled) {
+            scormWrapperInstance.finish();
+          }
+        }
+        } catch (err) {}
+        top.window.close();
+        `
     });
   };
 

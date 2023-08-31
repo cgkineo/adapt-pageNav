@@ -1,4 +1,5 @@
 import Adapt from 'core/js/adapt';
+import router from 'core/js/router';
 import ComponentView from 'core/js/views/componentView';
 
 class PageNavView extends ComponentView {
@@ -16,8 +17,6 @@ class PageNavView extends ComponentView {
   // },
 
   preRender() {
-    this.model.set('_items', this.model.getNavigationData());
-
     this.$el.addClass('pagenav ' + this.model.get('_id'));
 
     _.bindAll(this, 'postRender', 'checkButtonStates');
@@ -167,10 +166,11 @@ class PageNavView extends ComponentView {
   // };
 
   navigateTo(id) {
-    const isCourse = (id === Adapt.course.get('_id'));
-    const hash = '#' + (isCourse ? '/' : '/id/' + id);
+    // const isCourse = (id === Adapt.course.get('_id'));
+    // const hash = '#' + (isCourse ? '/' : '/id/' + id);
 
-    Backbone.history.navigate(hash, { trigger: true, replace: false });
+    // Backbone.history.navigate(hash, { trigger: true, replace: false });
+    router.navigateToElement(id);
   };
 }
 
