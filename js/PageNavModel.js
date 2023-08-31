@@ -17,8 +17,7 @@ class PageNavModel extends ComponentModel {
 
   getNavigationData() {
     const buttons = this.get('_buttons');
-    const data = [];
-    if (!buttons) { return data; }
+    if (!buttons) { return []; }
 
     /*
       Combine the config, model, order, index and type for each _buttons
@@ -35,12 +34,12 @@ class PageNavModel extends ComponentModel {
       _close: this.getClose()
     };
 
+    const data = [];
     let order = 0;
     let item;
     const currentPageComplete = buttonTypeModels._page.get('_isComplete');
 
     for (const attrName in buttons) {
-
       const buttonConfig = buttons[attrName];
       let buttonModel = buttonTypeModels[attrName];
 

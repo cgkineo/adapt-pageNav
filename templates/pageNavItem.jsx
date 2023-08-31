@@ -39,9 +39,9 @@ export default function PageNavItem(props) {
         data-type={type}
         data-id={_id}
         data-item-index={_index}
+        data-tooltip-id={`pagenav_btn-${type.replace('_', '')}`}
         disabled={(_isHidden || locked) && 'disabled'}
         aria-label={`${locked ? globals._accessibility._ariaLabels.locked + '. ' : ''}${compile(ariaLabel)}`}
-        // data-tooltip="{{#if _showTooltip}}{{{compile tooltip this}}}{{/if}}"
         aria-current={_isCurrent ? 'page' : false}
         onClick={onButtonClick}
       >
