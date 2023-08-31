@@ -1,16 +1,25 @@
 import Adapt from 'core/js/adapt';
 import location from 'core/js/location';
 import data from 'core/js/data';
+import logging from 'core/js/logging';
 import ComponentModel from 'core/js/models/componentModel';
 
 class PageNavModel extends ComponentModel {
   init() {
-    this.set('_items', this.getNavigationData());
+    this.listenTo(Adapt, 'router:location', this.setupItemsModel);
 
     super.init();
   };
 
+  setupItemsModel() {
+    this.set('_items', this.getNavigationData());
+  }
+
   getNavigationData() {
+    const buttons = this.get('_buttons');
+    const data = [];
+    if (!buttons) { return data; }
+
     /*
       Combine the config, model, order, index and type for each _buttons
       Add each combined item to an array
@@ -26,11 +35,6 @@ class PageNavModel extends ComponentModel {
       _close: this.getClose()
     };
 
-    const data = [];
-    const buttons = this.get('_buttons');
-
-    if (!buttons) { return data; }
-
     let order = 0;
     let item;
     const currentPageComplete = buttonTypeModels._page.get('_isComplete');
@@ -41,7 +45,6 @@ class PageNavModel extends ComponentModel {
       let buttonModel = buttonTypeModels[attrName];
 
       if (attrName === '_sibling') {
-
         // Skip if only one sibling
         if (buttonModel.length <= 1) continue;
 
@@ -57,7 +60,6 @@ class PageNavModel extends ComponentModel {
             locked: item._isLocked || (buttonConfig._lockUntilPageComplete && !currentPageComplete)
           });
           data.push(item);
-
         });
 
         continue;
@@ -89,19 +91,16 @@ class PageNavModel extends ComponentModel {
   };
 
   getReturnToPreviousLocation() {
-    return location._previousId ? data.findById(location._previousId) : null;
+    if (!location._previousId) { return; }
+
+    return data.findById(location._previousId);
   };
 
   getCurrentPage() {
-    const parents = this.getAncestorModels ? this.getAncestorModels() : this.getParents().models;
-    for (let i = 0, l = parents.length; i < l; i++) {
+    const currentModel = location._currentModel;
+    if (!currentModel.get('_type') === 'page') return;
 
-      const model = parents[i];
-      switch (model.get('_type')) {
-        case 'page':
-          return model;
-      }
-    }
+    return currentModel;
   };
 
   getCurrentMenu() {
@@ -207,19 +206,23 @@ class PageNavModel extends ComponentModel {
   getClose() {
     return new Backbone.Model({
       _id: '',
-      _onClick: `
-        try {
-        var scormWrapper = require('extensions/adapt-contrib-spoor/js/scorm/wrapper');
-        if (scormWrapper) {
-          var scormWrapperInstance = scormWrapper.getInstance();
-          if (scormWrapperInstance.lmsConnected && !scormWrapperInstance.finishCalled) {
-            scormWrapperInstance.finish();
-          }
-        }
-        } catch (err) {}
-        top.window.close();
-        `
+      _onClick: this.closeWindow()
     });
+  };
+
+  closeWindow() {
+    try {
+      const scormWrapper = require('extensions/adapt-contrib-spoor/js/scorm/wrapper');
+      if (scormWrapper) {
+        const scormWrapperInstance = scormWrapper.getInstance();
+        if (scormWrapperInstance.lmsConnected && !scormWrapperInstance.finishCalled) {
+          scormWrapperInstance.finish();
+        }
+      }
+    } catch (err) {
+      logging.warn(`Could not close window. Error: ${err}`);
+    }
+    top.window.close();
   };
 
 }

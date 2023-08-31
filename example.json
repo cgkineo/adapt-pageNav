@@ -29,8 +29,10 @@
                 "_alignIconRight": false,
                 "text": "Return",
                 "ariaLabel": "Return to previous location",
-                "_showTooltip": false,
-                "tooltip": "{{displayTitle}}"
+                "_tooltip": {
+                    "_isEnabled": true,
+                    "text": "{{displayTitle}}"
+                }
             },
             "_previous": {
                 "_isEnabled": true,
@@ -42,8 +44,10 @@
                 "_alignIconRight": false,
                 "text": "Previous",
                 "ariaLabel": "Previous Page",
-                "_showTooltip": false,
-                "tooltip": "{{displayTitle}}",
+                "_tooltip": {
+                    "_isEnabled": true,
+                    "text": "{{displayTitle}}"
+                },
                 "_customRouteId": ""
             },
             "_root": {
@@ -56,8 +60,10 @@
                 "_alignIconRight": false,
                 "text": "Go to main menu",
                 "ariaLabel": "Go to main menu",
-                "_showTooltip": false,
-                "tooltip": "{{displayTitle}}",
+                "_tooltip": {
+                    "_isEnabled": true,
+                    "text": "{{displayTitle}}"
+                },
                 "_customRouteId": ""
             },
             "_up": {
@@ -70,8 +76,10 @@
                 "_alignIconRight": false,
                 "text": "Back to menu",
                 "ariaLabel": "Back to menu",
-                "_showTooltip": false,
-                "tooltip": "{{displayTitle}}",
+                "_tooltip": {
+                    "_isEnabled": true,
+                    "text": "{{displayTitle}}"
+                },
                 "_customRouteId": ""
             },
             "_next": {
@@ -84,8 +92,10 @@
                 "_alignIconRight": true,
                 "text": "Next",
                 "ariaLabel": "Next Page",
-                "_showTooltip": false,
-                "tooltip": "{{displayTitle}}",
+                "_tooltip": {
+                    "_isEnabled": true,
+                    "text": "{{displayTitle}}"
+                },
                 "_customRouteId": ""
             },
             "_sibling": {
@@ -97,8 +107,10 @@
                 "_alignIconRight": false,
                 "text": "{{inc index}}",
                 "ariaLabel": "Page {{inc index}}",
-                "_showTooltip": false,
-                "tooltip": "{{displayTitle}}",
+                "_tooltip": {
+                    "_isEnabled": true,
+                    "text": "{{displayTitle}}"
+                },
                 "_customRouteId": ""
             },
             "_close": {
@@ -111,8 +123,10 @@
                 "_alignIconRight": false,
                 "text": "Close",
                 "ariaLabel": "Close window",
-                "_showTooltip": false,
-                "tooltip": "Close window"
+                "_tooltip": {
+                    "_isEnabled": true,
+                    "text": "Close window"
+                }
             }
         }
     }

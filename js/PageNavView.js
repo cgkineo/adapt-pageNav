@@ -1,6 +1,7 @@
 import Adapt from 'core/js/adapt';
 import router from 'core/js/router';
 import ComponentView from 'core/js/views/componentView';
+import tooltips from 'core/js/tooltips';
 
 class PageNavView extends ComponentView {
   getAttributes($node) {
@@ -12,21 +13,20 @@ class PageNavView extends ComponentView {
   };
 
   initialize() {
-    // this.onButtonClick = this.onButtonClick.bind(this);
     _.bindAll(this, 'postRender', 'checkButtonStates', 'onButtonClick');
+
+    // this.setupTooltips();
 
     super.initialize();
   }
 
   preRender() {
-    // _.bindAll(this, 'postRender', 'checkButtonStates');
-
     this.listenTo(Adapt, 'remove', this.remove);
     this.listenTo(Adapt.contentObjects, {
       'change:_isComplete change:_isLocked': this.onContentObjectComplete
     });
 
-    this.$el.addClass('pagenav ' + this.model.get('_id'));
+    this.$el.addClass(`pagenav ${this.model.get('_id')}`);
   };
 
   postRender() {
@@ -59,17 +59,17 @@ class PageNavView extends ComponentView {
   };
 
   checkButtonStates() {
-    this.$('button').each(function(index, item) {
-      this.checkButtonState(item);
-    }.bind(this));
+    // this.$('button').each(function(index, item) {
+    //   this.checkButtonState(item);
+    // }.bind(this));
   };
 
   checkButtonState(button) {
-    const $button = $(button);
-    const id = $button.attr('data-id');
-    const index = $button.attr('data-item-index');
+    // const $button = $(button);
+    // const id = $button.attr('data-id');
+    // const index = $button.attr('data-item-index');
 
-    if (!id) return;
+    // if (!id) return;
 
     // get the button data
     // const items = this.model.getNavigationData();
@@ -165,6 +165,13 @@ class PageNavView extends ComponentView {
   //   this.$('.pagenav__tooltip-container').append(tooltip.$el);
 
   // };
+
+  setupTooltip(id) {
+    // tooltips.register({
+    //   _id: 'pagelevelprogress',
+    //   ...Adapt.course.get('_globals')?._extensions?._pageLevelProgress?._navTooltip || {}
+    // });
+  };
 
   navigateTo(id) {
     // const isCourse = (id === Adapt.course.get('_id'));

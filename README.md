@@ -59,9 +59,12 @@ The pageNav buttons will respect any [locking](https://github.com/adaptlearning/
 
 >**ariaLabel** (string): This text is associated with the button. It renders as part of the aria label to give screen readers more information.
 
->**\_showTooltip** (boolean): Defines whether the tooltip renders on hover. Default is `false`.
+> **\_tooltip** (object): The tooltip object. Used when tooltips are enabled globally
 
->**tooltip** (string): Defines the text that renders in the tooltip.
+>> **\_isEnabled** (boolean): Enables tooltips on the button
+
+>> **text** (string): The text of the tooltip
+
 
 #### **\_previous** / **\_root** / **\_up** / **\_next** / **\_sibling**
 
