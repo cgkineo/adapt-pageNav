@@ -45,7 +45,7 @@ The pageNav buttons will respect any [locking](https://github.com/adaptlearning/
 
 >**\_isEnabled** (boolean): Turns the button on and off. Acceptable values are `true` and `false`.
 
->**\_lockUntilPageComplete** (boolean): For use when the standard Adapt locking system doesn't apply, such as in a start page before the main menu. Acceptable values are `true` and `false`.
+>**\_lockUntilPageComplete** (boolean): For use when the standard Adapt locking system doesn't apply, such as in a start page before the main menu. Locks a button until the current page is complete. Acceptable values are `true` and `false`. Defaults to `false`
 
 >**\_order** (number): Defines the display order of the button. Numerical order with 0 rendering first.
 

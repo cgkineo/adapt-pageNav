@@ -16,6 +16,7 @@ export default function PageNavItem(props) {
     _id,
     _index,
     text,
+    ariaLabel,
     onButtonClick
   } = props;
 
@@ -39,7 +40,7 @@ export default function PageNavItem(props) {
         data-id={_id}
         data-item-index={_index}
         disabled={(_isHidden || locked) && 'disabled'}
-        // aria-label={locked && globals._accessibility._ariaLabels.locked}. {compile ariaLabel this}}
+        aria-label={`${locked ? globals._accessibility._ariaLabels.locked + '. ' : ''}${compile(ariaLabel)}`}
         // data-tooltip="{{#if _showTooltip}}{{{compile tooltip this}}}{{/if}}"
         aria-current={_isCurrent ? 'page' : false}
         onClick={onButtonClick}
