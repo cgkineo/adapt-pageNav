@@ -58,21 +58,16 @@ class PageNavView extends ComponentView {
   };
 
   setupTooltips() {
-    const buttons = this.model.get('_buttons');
-    for (const key in buttons) {
-      const btnTooltip = buttons[key]._tooltip;
-      if (!btnTooltip) { return; }
+    const items = this.model.get('_items');
+    items.forEach(item => {
+      if (!item._tooltip) { return; }
 
-      const type = key.replace('_', '');
-      const _id = 'pagenav_btn-' + type;
-      console.log(this.model.get('_items'));
       tooltips.register({
-        _id,
-        _isEnabled: btnTooltip._isEnabled,
-        text: 'Tooltip!'
-        // text: Handlebars.compile(btnTooltip.text)(this.model.get('_items')[key])
+        _id: 'pagenav_btn' + item.type,
+        _isEnabled: item._tooltip._isEnabled,
+        text: Handlebars.compile(item._tooltip.text)(item)
       });
-    }
+    });
   };
 
   navigateTo(id) {
