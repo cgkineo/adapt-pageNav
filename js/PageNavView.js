@@ -41,7 +41,6 @@ class PageNavView extends ComponentView {
   setupTooltips() {
     const items = this.model.get('_items');
     items.forEach(item => {
-      console.log(item);
       if (!item._tooltip || item._isHidden) { return; }
 
       tooltips.register({

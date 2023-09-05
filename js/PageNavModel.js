@@ -111,12 +111,9 @@ class PageNavModel extends ComponentModel {
   getCurrentMenu() {
     const parents = this.getAncestorModels ? this.getAncestorModels() : this.getParents().models;
 
-    for (let i = 0, l = parents.length; i < l; i++) {
-      const model = parents[i];
-      switch (model.get('_type')) {
-        case 'menu':
-        case 'course':
-          return model;
+    for (const model of parents) {
+      if (['menu', 'course'].includes(model.get('_type'))) {
+        return model;
       }
     }
   };
