@@ -44,14 +44,14 @@ class PageNavModel extends ComponentModel {
       const buttonConfig = buttons[attrName];
       let buttonModel = buttonTypeModels[attrName];
 
+      // Generate sibling entries
       if (attrName === '_sibling') {
         // Skip if only one sibling
         if (buttonModel.length <= 1) continue;
 
-        // Generate sibling entries
         buttonModel.forEach((model, index) => {
           item = model.toJSON();
-          _.extend(item, buttonConfig, {
+          Object.assign(item, buttonConfig, {
             type: attrName,
             index,
             _isCurrent: item._id === location._currentId,
@@ -72,7 +72,7 @@ class PageNavModel extends ComponentModel {
       // Convert found buttonModel to json if exists or create an 'undefined' json
       item = buttonModel ? buttonModel.toJSON() : { _isHidden: true };
 
-      _.extend(item, buttonConfig, {
+      Object.assign(item, buttonConfig, {
         type: attrName,
         index: 0,
         order: order++,
