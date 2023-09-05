@@ -7,8 +7,6 @@ class PageNavView extends ComponentView {
   initialize() {
     _.bindAll(this, 'postRender', 'onButtonClick');
 
-    // this.setupTooltips();
-
     super.initialize();
   }
 
@@ -17,8 +15,6 @@ class PageNavView extends ComponentView {
     this.listenTo(Adapt.contentObjects, {
       'change:_isComplete change:_isLocked': this.onContentObjectComplete
     });
-
-    this.$el.addClass(`pagenav ${this.model.get('_id')}`);
   };
 
   postRender() {
@@ -38,23 +34,8 @@ class PageNavView extends ComponentView {
 
     if (isLocked || isSelected) return;
 
-    const id = $target.attr('data-id');
-    // const index = $target.attr('data-item-index');
-    let items;
-
-    switch (id) {
-      case '':
-        items = this.model.getNavigationData();
-        // try {
-        //   const execute = new Function(items[index]._onClick||'');
-        //   execute();
-        // } catch (err) {
-        //   Adapt.log.error(err);
-        // }
-        break;
-      default:
-        this.navigateTo(id);
-    }
+    const id = $target.data('id');
+    this.navigateTo(id);
   };
 
   setupTooltips() {
