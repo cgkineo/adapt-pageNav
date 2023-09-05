@@ -75,7 +75,7 @@ class PageNavModel extends ComponentModel {
     // requires a stable sorting algorithm - native sorting in Chrome is unstable (should be stable from Chrome 70)
     const sortedItems = _.sortBy(unsortedItems, '_order');
 
-    sortedItems.forEach(function(item, index) {
+    sortedItems.forEach((item, index) => {
       item._index = index;
     });
 
@@ -112,7 +112,8 @@ class PageNavModel extends ComponentModel {
     const parents = this.getAncestorModels ? this.getAncestorModels() : this.getParents().models;
 
     for (const model of parents) {
-      if (['menu', 'course'].includes(model.get('_type'))) {
+      const type = model.get('_type');
+      if (['menu', 'course'].includes(type)) {
         return model;
       }
     }
@@ -136,8 +137,7 @@ class PageNavModel extends ComponentModel {
     const pages = this.getPages();
     let hasFoundCurrentPage = false;
 
-    for (let i = pages.length - 1; i > -1; i--) {
-      const page = pages[i];
+    for (const page of pages.reverse()) {
       const isNotAvailable = !page.get('_isAvailable');
       if (isNotAvailable) continue;
 
@@ -156,10 +156,9 @@ class PageNavModel extends ComponentModel {
     const currentPage = this.getCurrentPage();
     const currentPageId = currentPage.get('_id');
     const pages = this.getPages();
-
     let hasFoundCurrentPage = false;
-    for (let i = 0, l = pages.length; i < l; i++) {
-      const page = pages[i];
+
+    for (const page of pages) {
       const isNotAvailable = !page.get('_isAvailable');
       if (isNotAvailable) continue;
 

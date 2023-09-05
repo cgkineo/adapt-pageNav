@@ -30,7 +30,7 @@ class PageNavView extends ComponentView {
   onButtonClick(event) {
     const $target = $(event.currentTarget);
     const isLocked = $target.hasClass('is-locked');
-    const isSelected = $target.hasClass('is-selected');
+    const isSelected = $target.attr('aria-current');
 
     if (isLocked || isSelected) return;
 
