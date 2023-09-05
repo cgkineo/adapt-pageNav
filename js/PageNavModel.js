@@ -54,7 +54,7 @@ class PageNavModel extends ComponentModel {
           _.extend(item, buttonConfig, {
             type: attrName,
             index,
-            _isCurrent: item._id === Location._currentId,
+            _isCurrent: item._id === location._currentId,
             order: order++,
             locked: item._isLocked || (buttonConfig._lockUntilPageComplete && !currentPageComplete)
           });
@@ -65,7 +65,9 @@ class PageNavModel extends ComponentModel {
       }
 
       // Find buttonModel from config._customRouteId if not found in defined type
-      if (buttonConfig._customRouteId) buttonModel = data.findById(buttonConfig._customRouteId);
+      if (buttonConfig._customRouteId) {
+        buttonModel = data.findById(buttonConfig._customRouteId);
+      }
 
       // Convert found buttonModel to json if exists or create an 'undefined' json
       item = buttonModel ? buttonModel.toJSON() : { _isHidden: true };
