@@ -49,8 +49,7 @@ class PageNavModel extends ComponentModel {
         if (buttonModel.length <= 1) continue;
 
         // Generate sibling entries
-        _.each(buttonModel, function(model, index) {
-
+        buttonModel.forEach((model, index) => {
           item = model.toJSON();
           _.extend(item, buttonConfig, {
             type: attrName,
@@ -120,14 +119,14 @@ class PageNavModel extends ComponentModel {
 
   getSiblingPages() {
     const currentMenu = this.getCurrentMenu();
-    let siblingModels = currentMenu.getAllDescendantModels(true);
+    const siblingModels = currentMenu.getAllDescendantModels(true);
 
-    siblingModels = _.filter(siblingModels, function(model) {
-      return model.get('_type') === 'page' && model.get('_isAvailable') &&
-        (!this.get('_shouldSkipOptionalPages') || !model.get('_isOptional'));
-    }, this);
+    return siblingModels.filter(model => {
+      const isAvailablePage = model.get('_type') === 'page' && model.get('_isAvailable');
+      const notOptionalOrNotSkipped = !this.get('_shouldSkipOptionalPages') || !model.get('_isOptional');
 
-    return siblingModels;
+      return isAvailablePage && notOptionalOrNotSkipped;
+    });
   };
 
   getPrevPage() {
@@ -200,7 +199,7 @@ class PageNavModel extends ComponentModel {
       descendants = descendants.concat(descendants);
     }
 
-    return _.filter(descendants, function(model) {
+    return descendants.filter(model => {
       return model.get('_type') === 'page';
     });
   };
