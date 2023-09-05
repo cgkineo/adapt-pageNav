@@ -34,10 +34,11 @@ class PageNavModel extends ComponentModel {
       _close: this.getClose()
     };
 
-    const data = [];
+    const currentPageComplete = buttonTypeModels._page.get('_isComplete');
+
+    const unsortedItems = [];
     let order = 0;
     let item;
-    const currentPageComplete = buttonTypeModels._page.get('_isComplete');
 
     for (const attrName in buttons) {
       const buttonConfig = buttons[attrName];
@@ -58,7 +59,7 @@ class PageNavModel extends ComponentModel {
             order: order++,
             locked: item._isLocked || (buttonConfig._lockUntilPageComplete && !currentPageComplete)
           });
-          data.push(item);
+          unsortedItems.push(item);
         });
 
         continue;
@@ -78,17 +79,17 @@ class PageNavModel extends ComponentModel {
         order: order++,
         locked: item._isLocked || (buttonConfig._lockUntilPageComplete && !currentPageComplete)
       });
-      data.push(item);
+      unsortedItems.push(item);
     }
 
     // requires a stable sorting algorithm - native sorting in Chrome is unstable (should be stable from Chrome 70)
-    const orderedData = _.sortBy(data, '_order');
+    const sortedItems = _.sortBy(unsortedItems, '_order');
 
-    orderedData.forEach(function(item, index) {
+    sortedItems.forEach(function(item, index) {
       item._index = index;
     });
 
-    return orderedData;
+    return sortedItems;
   };
 
   getReturnToPreviousLocation() {
