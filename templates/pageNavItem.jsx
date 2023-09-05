@@ -13,6 +13,7 @@ export default function PageNavItem(props) {
     _iconClass,
     locked,
     type,
+    _tooltipId,
     _id,
     _index,
     text,
@@ -39,9 +40,9 @@ export default function PageNavItem(props) {
         data-type={type}
         data-id={_id}
         data-item-index={_index}
-        data-tooltip-id={`pagenav_btn${type}`}
+        data-tooltip-id={_tooltipId}
         disabled={(_isHidden || locked) && 'disabled'}
-        aria-label={`${locked ? globals._accessibility._ariaLabels.locked + '. ' : ''}${compile(ariaLabel)}`}
+        aria-label={`${locked ? globals._accessibility._ariaLabels.locked + '. ' : ''}${compile(ariaLabel, props)}`}
         aria-current={_isCurrent ? 'page' : null}
         onClick={onButtonClick}
       >

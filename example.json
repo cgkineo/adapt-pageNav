@@ -110,8 +110,7 @@
                 "_tooltip": {
                     "_isEnabled": true,
                     "text": "{{displayTitle}}"
-                },
-                "_customRouteId": ""
+                }
             },
             "_close": {
                 "_isEnabled": false,

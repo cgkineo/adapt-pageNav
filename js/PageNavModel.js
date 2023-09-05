@@ -23,39 +23,29 @@ class PageNavModel extends ComponentModel {
       Combine the config, model, order, index and type for each _buttons
       Add each combined item to an array
     */
-    const buttonTypeModels = {
-      _returnToPreviousLocation: this.getReturnToPreviousLocation(),
-      _page: this.getCurrentPage(),
-      _up: this.getCurrentMenu(),
-      _root: Adapt.course,
-      _next: this.getNextPage(),
-      _previous: this.getPrevPage(),
-      _sibling: this.getSiblingPages(),
-      _close: this.getClose()
-    };
-
+    const buttonTypeModels = this.getButtonTypeModels();
     const currentPageComplete = buttonTypeModels._page.get('_isComplete');
-
     const unsortedItems = [];
     let order = 0;
     let item;
 
-    for (const attrName in buttons) {
-      const buttonConfig = buttons[attrName];
-      let buttonModel = buttonTypeModels[attrName];
+    for (const type in buttons) {
+      const buttonConfig = buttons[type];
+      let buttonModel = buttonTypeModels[type];
 
       // Generate sibling entries
-      if (attrName === '_sibling') {
+      if (type === '_sibling') {
         // Skip if only one sibling
         if (buttonModel.length <= 1) continue;
 
         buttonModel.forEach((model, index) => {
           item = model.toJSON();
           Object.assign(item, buttonConfig, {
-            type: attrName,
+            type,
             index,
             _isCurrent: item._id === location._currentId,
             order: order++,
+            _tooltipId: `pagenav_btn${type}-${index}`,
             locked: item._isLocked || (buttonConfig._lockUntilPageComplete && !currentPageComplete)
           });
           unsortedItems.push(item);
@@ -73,9 +63,10 @@ class PageNavModel extends ComponentModel {
       item = buttonModel ? buttonModel.toJSON() : { _isHidden: true };
 
       Object.assign(item, buttonConfig, {
-        type: attrName,
+        type,
         index: 0,
         order: order++,
+        _tooltipId: `pagenav_btn${type}`,
         locked: item._isLocked || (buttonConfig._lockUntilPageComplete && !currentPageComplete)
       });
       unsortedItems.push(item);
@@ -90,6 +81,19 @@ class PageNavModel extends ComponentModel {
 
     return sortedItems;
   };
+
+  getButtonTypeModels() {
+    return {
+      _returnToPreviousLocation: this.getReturnToPreviousLocation(),
+      _page: this.getCurrentPage(),
+      _up: this.getCurrentMenu(),
+      _root: Adapt.course,
+      _next: this.getNextPage(),
+      _previous: this.getPrevPage(),
+      _sibling: this.getSiblingPages(),
+      _close: this.getClose()
+    };
+  }
 
   getReturnToPreviousLocation() {
     if (!location._previousId) { return; }
