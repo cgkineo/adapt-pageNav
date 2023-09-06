@@ -109,14 +109,7 @@ class PageNavModel extends ComponentModel {
   };
 
   getCurrentMenu() {
-    const parents = this.getAncestorModels ? this.getAncestorModels() : this.getParents().models;
-
-    for (const model of parents) {
-      const type = model.get('_type');
-      if (['menu', 'course'].includes(type)) {
-        return model;
-      }
-    }
+    return this.findAncestor('menu');
   };
 
   getSiblingPages() {
