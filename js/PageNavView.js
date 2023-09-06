@@ -54,8 +54,10 @@ class PageNavView extends ComponentView {
   navigateTo(id) {
     router.navigateToElement(id);
   };
-}
 
-PageNavView.template = 'pageNav.jsx';
+  static get template() {
+    return 'pageNav.jsx';
+  }
+}
 
 export default PageNavView;
