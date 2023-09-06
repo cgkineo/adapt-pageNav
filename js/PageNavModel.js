@@ -103,7 +103,7 @@ class PageNavModel extends ComponentModel {
 
   getCurrentPage() {
     const currentModel = location._currentModel;
-    if (!currentModel.get('_type') === 'page') return;
+    if (currentModel.get('_type') !== 'page') return;
 
     return currentModel;
   };
