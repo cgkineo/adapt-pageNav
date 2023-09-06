@@ -24,7 +24,7 @@ class PageNavView extends ComponentView {
   };
 
   onContentObjectComplete() {
-    // _.defer(this.checkButtonStates);
+    this.model.setupItemsModel();
   };
 
   onButtonClick(event) {
