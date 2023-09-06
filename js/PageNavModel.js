@@ -17,7 +17,7 @@ class PageNavModel extends ComponentModel {
 
   getNavigationData() {
     const buttons = this.get('_buttons');
-    if (!buttons) { return []; }
+    if (!buttons) return [];
 
     /*
       Combine the config, model, order, index and type for each _buttons
