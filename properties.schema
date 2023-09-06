@@ -632,14 +632,6 @@
               "inputType": "Text",
               "validators": [],
               "translatable": true
-            },
-            "_customRouteId": {
-              "type": "string",
-              "required": true,
-              "title": "Override the route id",
-              "default": "",
-              "inputType": "Text",
-              "validators": []
             }
           }
         },

@@ -508,12 +508,6 @@
                   "_adapt": {
                     "translatable": true
                   }
-                },
-                "_customRouteId": {
-                  "type": "string",
-                  "title": "Override the route id",
-                  "description": "Enter the Friendly id of the page that the button should direct the user to. For use when non-standard navigation is required.",
-                  "default": ""
                 }
               }
             },

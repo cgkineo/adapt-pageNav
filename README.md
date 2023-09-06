@@ -66,7 +66,7 @@ The pageNav buttons will respect any [locking](https://github.com/adaptlearning/
 >> **text** (string): The text of the tooltip
 
 
-#### **\_previous** / **\_root** / **\_up** / **\_next** / **\_sibling**
+#### **\_previous** / **\_root** / **\_up** / **\_next**
 
 >**\_customRouteId** (string): Overrides the route ID. For use when non standard route navigation is required.
 
