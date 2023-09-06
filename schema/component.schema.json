@@ -113,18 +113,24 @@
                     "translatable": true
                   }
                 },
-                "_showTooltip": {
-                  "type": "boolean",
-                  "title": "Show tool tip",
-                  "description": "Defines whether the tooltip renders on hover.",
-                  "default": false
-                },
-                "tooltip": {
-                  "type": "string",
-                  "title": "Tool tip",
-                  "default": "{{displayTitle}}",
-                  "_adapt": {
-                    "translatable": true
+                "_navTooltip": {
+                  "type": "object",
+                  "title": "Button tooltip",
+                  "default": {},
+                  "properties": {
+                    "_isEnabled": {
+                      "type": "boolean",
+                      "title": "Enable tooltip for this button",
+                      "default": true
+                    },
+                    "text": {
+                      "type": "string",
+                      "title": "",
+                      "default": "Home",
+                      "_adapt": {
+                        "translatable": true
+                      }
+                    }
                   }
                 }
               }
@@ -184,18 +190,24 @@
                     "translatable": true
                   }
                 },
-                "_showTooltip": {
-                  "type": "boolean",
-                  "title": "Show tool tip",
-                  "description": "Defines whether the tooltip renders on hover.",
-                  "default": false
-                },
-                "tooltip": {
-                  "type": "string",
-                  "title": "Tool tip",
-                  "default": "{{displayTitle}}",
-                  "_adapt": {
-                    "translatable": true
+                "_navTooltip": {
+                  "type": "object",
+                  "title": "Button tooltip",
+                  "default": {},
+                  "properties": {
+                    "_isEnabled": {
+                      "type": "boolean",
+                      "title": "Enable tooltip for this button",
+                      "default": true
+                    },
+                    "text": {
+                      "type": "string",
+                      "title": "",
+                      "default": "Home",
+                      "_adapt": {
+                        "translatable": true
+                      }
+                    }
                   }
                 },
                 "_customRouteId": {
@@ -262,18 +274,24 @@
                     "translatable": true
                   }
                 },
-                "_showTooltip": {
-                  "type": "boolean",
-                  "title": "Show tool tip",
-                  "description": "Defines whether the tooltip renders on hover.",
-                  "default": false
-                },
-                "tooltip": {
-                  "type": "string",
-                  "title": "Tool tip",
-                  "default": "{{displayTitle}}",
-                  "_adapt": {
-                    "translatable": true
+                "_navTooltip": {
+                  "type": "object",
+                  "title": "Button tooltip",
+                  "default": {},
+                  "properties": {
+                    "_isEnabled": {
+                      "type": "boolean",
+                      "title": "Enable tooltip for this button",
+                      "default": true
+                    },
+                    "text": {
+                      "type": "string",
+                      "title": "",
+                      "default": "Home",
+                      "_adapt": {
+                        "translatable": true
+                      }
+                    }
                   }
                 },
                 "_customRouteId": {
@@ -340,18 +358,24 @@
                     "translatable": true
                   }
                 },
-                "_showTooltip": {
-                  "type": "boolean",
-                  "title": "Show tool tip",
-                  "description": "Defines whether the tooltip renders on hover.",
-                  "default": false
-                },
-                "tooltip": {
-                  "type": "string",
-                  "title": "Tool tip",
-                  "default": "{{displayTitle}}",
-                  "_adapt": {
-                    "translatable": true
+                "_navTooltip": {
+                  "type": "object",
+                  "title": "Button tooltip",
+                  "default": {},
+                  "properties": {
+                    "_isEnabled": {
+                      "type": "boolean",
+                      "title": "Enable tooltip for this button",
+                      "default": true
+                    },
+                    "text": {
+                      "type": "string",
+                      "title": "",
+                      "default": "Home",
+                      "_adapt": {
+                        "translatable": true
+                      }
+                    }
                   }
                 },
                 "_customRouteId": {
@@ -417,18 +441,24 @@
                     "translatable": true
                   }
                 },
-                "_showTooltip": {
-                  "type": "boolean",
-                  "title": "Show tool tip",
-                  "description": "Defines whether the tooltip renders on hover.",
-                  "default": false
-                },
-                "tooltip": {
-                  "type": "string",
-                  "title": "Tool tip",
-                  "default": "{{displayTitle}}",
-                  "_adapt": {
-                    "translatable": true
+                "_navTooltip": {
+                  "type": "object",
+                  "title": "Button tooltip",
+                  "default": {},
+                  "properties": {
+                    "_isEnabled": {
+                      "type": "boolean",
+                      "title": "Enable tooltip for this button",
+                      "default": true
+                    },
+                    "text": {
+                      "type": "string",
+                      "title": "",
+                      "default": "Home",
+                      "_adapt": {
+                        "translatable": true
+                      }
+                    }
                   }
                 },
                 "_customRouteId": {
@@ -495,18 +525,24 @@
                     "translatable": true
                   }
                 },
-                "_showTooltip": {
-                  "type": "boolean",
-                  "title": "Show tool tip",
-                  "description": "Defines whether the tooltip renders on hover.",
-                  "default": false
-                },
-                "tooltip": {
-                  "type": "string",
-                  "title": "Tool tip",
-                  "default": "{{displayTitle}}",
-                  "_adapt": {
-                    "translatable": true
+                "_navTooltip": {
+                  "type": "object",
+                  "title": "Button tooltip",
+                  "default": {},
+                  "properties": {
+                    "_isEnabled": {
+                      "type": "boolean",
+                      "title": "Enable tooltip for this button",
+                      "default": true
+                    },
+                    "text": {
+                      "type": "string",
+                      "title": "",
+                      "default": "Home",
+                      "_adapt": {
+                        "translatable": true
+                      }
+                    }
                   }
                 }
               }
@@ -567,18 +603,24 @@
                     "translatable": true
                   }
                 },
-                "_showTooltip": {
-                  "type": "boolean",
-                  "title": "Show tool tip",
-                  "description": "Defines whether the tooltip renders on hover.",
-                  "default": false
-                },
-                "tooltip": {
-                  "type": "string",
-                  "title": "Tool tip",
-                  "default": "Close window",
-                  "_adapt": {
-                    "translatable": true
+                "_navTooltip": {
+                  "type": "object",
+                  "title": "Button tooltip",
+                  "default": {},
+                  "properties": {
+                    "_isEnabled": {
+                      "type": "boolean",
+                      "title": "Enable tooltip for this button",
+                      "default": true
+                    },
+                    "text": {
+                      "type": "string",
+                      "title": "",
+                      "default": "Home",
+                      "_adapt": {
+                        "translatable": true
+                      }
+                    }
                   }
                 }
               }

@@ -129,22 +129,27 @@
               "validators": [],
               "translatable": true
             },
-            "_showTooltip": {
-              "type": "boolean",
-              "required": true,
-              "title": "Show tool tip",
-              "default": false,
-              "inputType": "Checkbox",
-              "validators": []
-            },
-            "tooltip": {
-              "type": "string",
-              "required": false,
-              "title": "Tool tip",
-              "default": "{{displayTitle}}",
-              "inputType": "Text",
-              "validators": [],
-              "translatable": true
+            "_navTooltip": {
+              "type": "object",
+              "title": "Navigation tooltip",
+              "properties": {
+                "_isEnabled": {
+                  "type": "boolean",
+                  "default": true,
+                  "title": "Enable tooltip for navigation button",
+                  "inputType": "Checkbox",
+                  "validators": []
+                },
+                "text": {
+                  "type": "string",
+                  "title": "",
+                  "default": "Home",
+                  "help": "The tooltip text to display on hover over this item",
+                  "inputType": "Text",
+                  "validators": [],
+                  "translatable": true
+                }
+              }
             }
           }
         },
@@ -220,22 +225,27 @@
               "validators": [],
               "translatable": true
             },
-            "_showTooltip": {
-              "type": "boolean",
-              "required": true,
-              "title": "Show tool tip",
-              "default": false,
-              "inputType": "Checkbox",
-              "validators": []
-            },
-            "tooltip": {
-              "type": "string",
-              "required": false,
-              "title": "Tool tip",
-              "default": "{{displayTitle}}",
-              "inputType": "Text",
-              "validators": [],
-              "translatable": true
+            "_navTooltip": {
+              "type": "object",
+              "title": "Navigation tooltip",
+              "properties": {
+                "_isEnabled": {
+                  "type": "boolean",
+                  "default": true,
+                  "title": "Enable tooltip for navigation button",
+                  "inputType": "Checkbox",
+                  "validators": []
+                },
+                "text": {
+                  "type": "string",
+                  "title": "",
+                  "default": "Home",
+                  "help": "The tooltip text to display on hover over this item",
+                  "inputType": "Text",
+                  "validators": [],
+                  "translatable": true
+                }
+              }
             },
             "_customRouteId": {
               "type": "string",
@@ -319,22 +329,27 @@
               "validators": [],
               "translatable": true
             },
-            "_showTooltip": {
-              "type": "boolean",
-              "required": true,
-              "title": "Show tool tip",
-              "default": false,
-              "inputType": "Checkbox",
-              "validators": []
-            },
-            "tooltip": {
-              "type": "string",
-              "required": false,
-              "title": "Tool tip",
-              "default": "{{displayTitle}}",
-              "inputType": "Text",
-              "validators": [],
-              "translatable": true
+            "_navTooltip": {
+              "type": "object",
+              "title": "Navigation tooltip",
+              "properties": {
+                "_isEnabled": {
+                  "type": "boolean",
+                  "default": true,
+                  "title": "Enable tooltip for navigation button",
+                  "inputType": "Checkbox",
+                  "validators": []
+                },
+                "text": {
+                  "type": "string",
+                  "title": "",
+                  "default": "Home",
+                  "help": "The tooltip text to display on hover over this item",
+                  "inputType": "Text",
+                  "validators": [],
+                  "translatable": true
+                }
+              }
             },
             "_customRouteId": {
               "type": "string",
@@ -418,22 +433,27 @@
               "validators": [],
               "translatable": true
             },
-            "_showTooltip": {
-              "type": "boolean",
-              "required": true,
-              "title": "Show tool tip",
-              "default": false,
-              "inputType": "Checkbox",
-              "validators": []
-            },
-            "tooltip": {
-              "type": "string",
-              "required": false,
-              "title": "Tool tip",
-              "default": "{{displayTitle}}",
-              "inputType": "Text",
-              "validators": [],
-              "translatable": true
+            "_navTooltip": {
+              "type": "object",
+              "title": "Navigation tooltip",
+              "properties": {
+                "_isEnabled": {
+                  "type": "boolean",
+                  "default": true,
+                  "title": "Enable tooltip for navigation button",
+                  "inputType": "Checkbox",
+                  "validators": []
+                },
+                "text": {
+                  "type": "string",
+                  "title": "",
+                  "default": "Home",
+                  "help": "The tooltip text to display on hover over this item",
+                  "inputType": "Text",
+                  "validators": [],
+                  "translatable": true
+                }
+              }
             },
             "_customRouteId": {
               "type": "string",
@@ -517,22 +537,27 @@
               "validators": [],
               "translatable": true
             },
-            "_showTooltip": {
-              "type": "boolean",
-              "required": true,
-              "title": "Show tool tip",
-              "default": false,
-              "inputType": "Checkbox",
-              "validators": []
-            },
-            "tooltip": {
-              "type": "string",
-              "required": false,
-              "title": "Tool tip",
-              "default": "{{displayTitle}}",
-              "inputType": "Text",
-              "validators": [],
-              "translatable": true
+            "_navTooltip": {
+              "type": "object",
+              "title": "Navigation tooltip",
+              "properties": {
+                "_isEnabled": {
+                  "type": "boolean",
+                  "default": true,
+                  "title": "Enable tooltip for navigation button",
+                  "inputType": "Checkbox",
+                  "validators": []
+                },
+                "text": {
+                  "type": "string",
+                  "title": "",
+                  "default": "Home",
+                  "help": "The tooltip text to display on hover over this item",
+                  "inputType": "Text",
+                  "validators": [],
+                  "translatable": true
+                }
+              }
             },
             "_customRouteId": {
               "type": "string",
@@ -616,22 +641,27 @@
               "validators": [],
               "translatable": true
             },
-            "_showTooltip": {
-              "type": "boolean",
-              "required": true,
-              "title": "Show tool tip",
-              "default": false,
-              "inputType": "Checkbox",
-              "validators": []
-            },
-            "tooltip": {
-              "type": "string",
-              "required": false,
-              "title": "Tool tip",
-              "default": "{{displayTitle}}",
-              "inputType": "Text",
-              "validators": [],
-              "translatable": true
+            "_navTooltip": {
+              "type": "object",
+              "title": "Navigation tooltip",
+              "properties": {
+                "_isEnabled": {
+                  "type": "boolean",
+                  "default": true,
+                  "title": "Enable tooltip for navigation button",
+                  "inputType": "Checkbox",
+                  "validators": []
+                },
+                "text": {
+                  "type": "string",
+                  "title": "",
+                  "default": "Home",
+                  "help": "The tooltip text to display on hover over this item",
+                  "inputType": "Text",
+                  "validators": [],
+                  "translatable": true
+                }
+              }
             }
           }
         },
@@ -707,22 +737,27 @@
               "validators": [],
               "translatable": true
             },
-            "_showTooltip": {
-              "type": "boolean",
-              "required": true,
-              "title": "Show tool tip",
-              "default": false,
-              "inputType": "Checkbox",
-              "validators": []
-            },
-            "tooltip": {
-              "type": "string",
-              "required": false,
-              "title": "Tool tip",
-              "default": "Close window",
-              "inputType": "Text",
-              "validators": [],
-              "translatable": true
+            "_navTooltip": {
+              "type": "object",
+              "title": "Navigation tooltip",
+              "properties": {
+                "_isEnabled": {
+                  "type": "boolean",
+                  "default": true,
+                  "title": "Enable tooltip for navigation button",
+                  "inputType": "Checkbox",
+                  "validators": []
+                },
+                "text": {
+                  "type": "string",
+                  "title": "",
+                  "default": "Home",
+                  "help": "The tooltip text to display on hover over this item",
+                  "inputType": "Text",
+                  "validators": [],
+                  "translatable": true
+                }
+              }
             }
           }
         }
