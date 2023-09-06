@@ -15,14 +15,15 @@ class PageNavModel extends ComponentModel {
     this.set('_items', this.getNavigationData());
   }
 
+  /**
+   * Combines the config, model, order, index and type for each _buttons item
+   *
+   * @returns {array} An array of combined button items
+   */
   getNavigationData() {
     const buttons = this.get('_buttons');
     if (!buttons) return [];
 
-    /*
-      Combine the config, model, order, index and type for each _buttons
-      Add each combined item to an array
-    */
     const buttonTypeModels = this.getButtonTypeModels();
     const currentPageComplete = buttonTypeModels._page.get('_isComplete');
     const unsortedItems = [];
