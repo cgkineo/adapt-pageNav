@@ -96,7 +96,7 @@ class PageNavModel extends ComponentModel {
   }
 
   getReturnToPreviousLocation() {
-    if (!location._previousId) { return; }
+    if (!location._previousId) return;
 
     return data.findById(location._previousId);
   };
