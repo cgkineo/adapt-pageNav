@@ -13,21 +13,21 @@ The attributes listed below are used in *components.json* to configure **PageNav
 
 Navigation bar component which can contain some or all of the following buttons:
 
-- `_returnToPreviousLocation` (takes you back to the previous location - not back in history, just the last routed location)
-- `_root` (takes you back to top level menu)
-- `_up` (takes you to the menu the next level up in the hierarchy)
-- `_previous` (navigates directly to the previous page, if exists, without having to navigate via the menu)
-- `_next` (navigates directly to the next page, if exists, without having to navigate via the menu)
-- `_sibling` (1,2,3,4 etc buttons representing each sibling page)
-- `_close` (closes the course window - only possible if the course was launched in a popup window)
+- `_returnToPreviousLocation`: Navigates to the previous location - not back in history, just the last routed location
+- `_root`: Navigates to the top level menu
+- `_up`: Navigates to the menu that is the next level up in the hierarchy. For instance, a sub menu.
+- `_previous`: Navigates to the previous page if it exists and is unlocked
+- `_next`: Navigates to the next page if it exists and is unlocked
+- `_sibling`: Numbered pagination buttons (1, 2, 3, etc) representing each sibling page
+- `_close`: Closes the course window. Only possible if the course was launched in a popup window
 
-The pageNav buttons will respect any [locking](https://github.com/adaptlearning/adapt_framework/wiki/Locking-objects-with-'_isLocked'-and-'_lockType'#using-locking-with-menus) that has been configured in Adapt. In cases not covered by Adapt's locking system - such as a [start page](https://github.com/adaptlearning/adapt_framework/wiki/Content-starts-with-course.json#example-1) that appears immediately before the main menu - the setting `_lockUntilPageComplete` can be used to disable the button until the current page has been completed.
+The **PageNav** buttons will respect any [locking](https://github.com/adaptlearning/adapt_framework/wiki/Locking-objects-with-'_isLocked'-and-'_lockType'#using-locking-with-menus) that has been configured in Adapt. In cases not covered by Adapt's locking system - such as a [start page](https://github.com/adaptlearning/adapt_framework/wiki/Content-starts-with-course.json#example-1) that appears immediately before the main menu - the setting `_lockUntilPageComplete` can be used to disable the button until the current page has been completed.
 
 ### Attributes
 
-[**core model attributes**](https://github.com/adaptlearning/adapt_framework/wiki/Core-model-attributes): These are inherited by every Adapt component. [Read more](https://github.com/adaptlearning/adapt_framework/wiki/Core-model-attributes).
+[**core model attributes**](https://github.com/adaptlearning/adapt_framework/wiki/Core-model-attributes): These are inherited by every Adapt component. [Read more](https://github.com/adaptlearning/adapt_framework/wiki/Core-model-attributes)
 
-**\_component** (string): This value must be: `pageNav`. (One word.)
+**\_component** (string): This value must be `pageNav` (one word)
 
 **\_classes** (string): CSS class name to be applied to **PageNav**’s containing `div`. The class must be predefined in one of the Less files. Separate multiple classes with a space.
 
@@ -35,7 +35,10 @@ The pageNav buttons will respect any [locking](https://github.com/adaptlearning/
 
 **instruction** (string): This optional text appears above the component. It is frequently used to guide the learner’s interaction with the component.
 
-**\_loopStyle** (string): Acceptable values are `allPages`, `siblings`, and `none`. `allPages` = loop sequentially through all pages in course. `siblings` = loop sequentially through all pages in current parent object. `none` = disable previous and next buttons at start and end of the pages in the current parent object.
+**\_loopStyle** (string): Acceptable values are `allPages`, `siblings`, and `none`.
+- `allPages`: Loop sequentially through all pages in course
+- `siblings`: Loop sequentially through all pages in current parent object
+- `none`: Disable previous and next buttons at start and end of the pages in the current parent object.
 
 **\_shouldSkipOptionalPages** (boolean): Skip pages that are set to `"_isOptional": true`. Default is `false`.
 
@@ -65,8 +68,7 @@ The pageNav buttons will respect any [locking](https://github.com/adaptlearning/
 
 >> **text** (string): The text of the tooltip
 
-
-#### **\_previous** / **\_root** / **\_up** / **\_next**
+#### **\_previous**, **\_root**, **\_up**, and **\_next** properties
 
 >**\_customRouteId** (string): Overrides the route ID. For use when non standard route navigation is required.
 
