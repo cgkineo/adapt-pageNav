@@ -29,13 +29,14 @@ class PageNavView extends ComponentView {
 
   onButtonClick(event) {
     const $target = $(event.currentTarget);
-    const isLocked = $target.hasClass('is-locked');
-    const isSelected = $target.attr('aria-current');
+    const index = $target.data('item-index');
+    const item = this.model.get('_items')[index];
 
+    const isLocked = item._isHidden || item._isLocked;
+    const isSelected = item._isCurrent;
     if (isLocked || isSelected) return;
 
-    const id = $target.data('id');
-    this.navigateTo(id);
+    this.navigateTo(item._id);
   };
 
   setupTooltips() {
