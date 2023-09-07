@@ -1,7 +1,6 @@
 import Adapt from 'core/js/adapt';
 import location from 'core/js/location';
 import data from 'core/js/data';
-import logging from 'core/js/logging';
 import ComponentModel from 'core/js/models/componentModel';
 
 class PageNavModel extends ComponentModel {
@@ -196,27 +195,8 @@ class PageNavModel extends ComponentModel {
   };
 
   getClose() {
-    return new Backbone.Model({
-      _id: '',
-      _onClick: this.closeWindow()
-    });
+    return new Backbone.Model({ _id: '' });
   };
-
-  closeWindow() {
-    try {
-      const scormWrapper = require('extensions/adapt-contrib-spoor/js/scorm/wrapper');
-      if (scormWrapper) {
-        const scormWrapperInstance = scormWrapper.getInstance();
-        if (scormWrapperInstance.lmsConnected && !scormWrapperInstance.finishCalled) {
-          scormWrapperInstance.finish();
-        }
-      }
-    } catch (err) {
-      logging.warn(`Could not close window. Error: ${err}`);
-    }
-    top.window.close();
-  };
-
 }
 
 export default PageNavModel;
