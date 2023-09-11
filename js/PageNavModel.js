@@ -33,27 +33,6 @@ class PageNavModel extends ComponentModel {
       const buttonConfig = buttons[type];
       let buttonModel = buttonTypeModels[type];
 
-      // Generate sibling entries
-      if (type === '_sibling') {
-        // Skip if only one sibling
-        if (buttonModel.length <= 1) continue;
-
-        buttonModel.forEach((model, index) => {
-          item = model.toJSON();
-          Object.assign(item, buttonConfig, {
-            type,
-            index,
-            _isCurrent: item._id === location._currentId,
-            order: order++,
-            _tooltipId: `pagenav_btn${type}-${index}`,
-            locked: item._isLocked || (buttonConfig._lockUntilPageComplete && !currentPageComplete)
-          });
-          unsortedItems.push(item);
-        });
-
-        continue;
-      }
-
       // Find buttonModel from config._customRouteId if not found in defined type
       if (buttonConfig._customRouteId) {
         buttonModel = data.findById(buttonConfig._customRouteId);
@@ -84,22 +63,14 @@ class PageNavModel extends ComponentModel {
 
   getButtonTypeModels() {
     return {
-      _returnToPreviousLocation: this.getReturnToPreviousLocation(),
       _page: this.getCurrentPage(),
       _up: this.getCurrentMenu(),
       _root: Adapt.course,
       _next: this.getNextPage(),
       _previous: this.getPrevPage(),
-      _sibling: this.getSiblingPages(),
       _close: this.getClose()
     };
   }
-
-  getReturnToPreviousLocation() {
-    if (!location._previousId) return;
-
-    return data.findById(location._previousId);
-  };
 
   getCurrentPage() {
     return location._currentModel;
@@ -107,18 +78,6 @@ class PageNavModel extends ComponentModel {
 
   getCurrentMenu() {
     return this.findAncestor('menu');
-  };
-
-  getSiblingPages() {
-    const currentMenu = this.getCurrentMenu();
-    const siblingModels = currentMenu.getAllDescendantModels(true);
-
-    return siblingModels.filter(model => {
-      const isAvailablePage = model.get('_type') === 'page' && model.get('_isAvailable');
-      const notOptionalOrNotSkipped = !this.get('_shouldSkipOptionalPages') || !model.get('_isOptional');
-
-      return isAvailablePage && notOptionalOrNotSkipped;
-    });
   };
 
   getPrevPage() {
@@ -176,9 +135,6 @@ class PageNavModel extends ComponentModel {
         loop = true;
         descendants = Adapt.course.getAllDescendantModels(true);
         break;
-      case 'siblings':
-        loop = true;
-        // falls through
       default:
         currentMenu = this.getCurrentMenu();
         descendants = currentMenu.getAllDescendantModels(true);
