@@ -31,7 +31,10 @@ class PageNavModel extends ComponentModel {
 
     for (const type in buttons) {
       const buttonConfig = buttons[type];
+
+      // Get models, skipping any undefined types (ex. deprecated button types)
       let buttonModel = buttonTypeModels[type];
+      if (!buttonModel) continue;
 
       // Find buttonModel from config._customRouteId if not found in defined type
       if (buttonConfig._customRouteId) {
