@@ -13,12 +13,10 @@ The attributes listed below are used in *components.json* to configure **PageNav
 
 Navigation bar component which can contain some or all of the following buttons:
 
-- `_returnToPreviousLocation`: Navigates to the previous location - not back in history, just the last routed location
 - `_root`: Navigates to the top level menu
 - `_up`: Navigates to the menu that is the next level up in the hierarchy. For instance, a sub menu.
 - `_previous`: Navigates to the previous page if it exists and is unlocked
 - `_next`: Navigates to the next page if it exists and is unlocked
-- `_sibling`: Numbered pagination buttons (1, 2, 3, etc) representing each sibling page
 - `_close`: Closes the course window. Only possible if the course was launched in a popup window
 
 The **PageNav** buttons will respect any [locking](https://github.com/adaptlearning/adapt_framework/wiki/Locking-objects-with-'_isLocked'-and-'_lockType'#using-locking-with-menus) that has been configured in Adapt. In cases not covered by Adapt's locking system - such as a [start page](https://github.com/adaptlearning/adapt_framework/wiki/Content-starts-with-course.json#example-1) that appears immediately before the main menu - the setting `_lockUntilPageComplete` can be used to disable the button until the current page has been completed.
@@ -35,14 +33,14 @@ The **PageNav** buttons will respect any [locking](https://github.com/adaptlearn
 
 **instruction** (string): This optional text appears above the component. It is frequently used to guide the learner’s interaction with the component.
 
-**\_loopStyle** (string): Acceptable values are `allPages`, `siblings`, and `none`.
+**\_loopStyle** (string): Acceptable values are `allPages`, `siblings`, and `none`. Defaults to `none`.
 - `allPages`: Loop sequentially through all pages in course
 - `siblings`: Loop sequentially through all pages in current parent object
 - `none`: Disable previous and next buttons at start and end of the pages in the current parent object.
 
 **\_shouldSkipOptionalPages** (boolean): Skip pages that are set to `"_isOptional": true`. Default is `false`.
 
-**\_buttons** (object): The following attributes configure the defaults for the **Quickanv** buttons. These attributes are available on all of the following buttons **\_returnToPreviousLocation**, **\_previous**, **\_root**, **\_up**, **\_next**, **\_sibling**, and **\_close**.
+**\_buttons** (object): The following attributes configure the defaults for the **Quickanv** buttons. These attributes are available on all of the following buttons **\_previous**, **\_root**, **\_up**, **\_next**, and **\_close**.
 
 #### Global button configurations
 
