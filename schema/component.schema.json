@@ -49,12 +49,10 @@
           "type": "object",
           "title": "Buttons settings",
           "required": [
-            "_returnToPreviousLocation",
             "_previous",
             "_root",
             "_up",
             "_next",
-            "_sibling",
             "_close"
           ],
           "properties": {
