@@ -19,21 +19,6 @@
         "_loopStyle": "none",
         "_shouldSkipOptionalPages": false,
         "_buttons": {
-            "_returnToPreviousLocation": {
-                "_isEnabled": false,
-                "_lockUntilPageComplete": false,
-                "_order": 1,
-                "_classes": "",
-                "_iconClassComment": "Suggested icon = 'icon-controls-left'",
-                "_iconClass": "",
-                "_alignIconRight": false,
-                "text": "Return",
-                "ariaLabel": "Return to previous location",
-                "_tooltip": {
-                    "_isEnabled": true,
-                    "text": "{{displayTitle}}"
-                }
-            },
             "_previous": {
                 "_isEnabled": true,
                 "_lockUntilPageComplete": false,
@@ -97,20 +82,6 @@
                     "text": "{{displayTitle}}"
                 },
                 "_customRouteId": ""
-            },
-            "_sibling": {
-                "_isEnabled": false,
-                "_lockUntilPageComplete": false,
-                "_order": 1,
-                "_classes": "",
-                "_iconClass": "",
-                "_alignIconRight": false,
-                "text": "{{inc index}}",
-                "ariaLabel": "Page {{inc index}}",
-                "_tooltip": {
-                    "_isEnabled": true,
-                    "text": "{{displayTitle}}"
-                }
             },
             "_close": {
                 "_isEnabled": false,
