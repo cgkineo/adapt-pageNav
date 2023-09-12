@@ -18,59 +18,83 @@
 // --------------------------------------------------
 // THEME
 // --------------------------------------------------
-.pagenav {
-  &__btn {
-    margin: @item-margin;
+.pagenav__btn {
+  margin: @item-margin;
 
-    &[aria-current="page"] {
-      background-color: darken(@btn-color, 20%);
-    }
+  &[aria-current="page"] {
+    background-color: darken(@btn-color, 20%);
   }
 
-  &__btn-icon .icon {
+  &-icon .icon {
     display: block;
   }
+}
 
-  // buttons with text and icon (left aligned icon as default)
+// Buttons with text and icon
+// --------------------------------------------------
+.pagenav__btn.btn-icon.btn-text {
+
+  // Left aligned icon
   // --------------------------------------------------
-  &__btn.btn-icon:not(.icon-is-right).btn-text .icon {
-    padding-right: (@icon-padding / 2);
-
-    .dir-rtl & {
-      padding-left: (@icon-padding / 2);
-      padding-right: inherit;
-    }
-  }
-
-  // buttons with text and icon (right aligned icon)
-  // --------------------------------------------------
-  &__btn.btn-icon.icon-is-right.btn-text .icon {
-    padding-left: (@icon-padding / 2);
-
-    .dir-rtl & {
+  &.has-icon-left,
+  .dir-ltr &.has-icon-auto {
+    .icon {
       padding-right: (@icon-padding / 2);
-      padding-left: inherit;
     }
   }
 
-  // consistent with nav icon button styling
+  // Right aligned icon
   // --------------------------------------------------
-  &__btn.btn-icon:not(.btn-text) {
-    padding: @icon-padding;
-    background-color: @btn-icon-color;
-    color: @btn-icon-color-inverted;
-    border-radius: @btn-border-radius;
-
-    .no-touch &:not(.is-disabled):not(.is-locked):hover {
-      background-color: @btn-icon-color-hover;
-      color: @btn-icon-color-inverted-hover;
-      .transition(background-color @duration ease-in, color @duration ease-in;);
+  &.has-icon-right,
+  .dir-rtl &.has-icon-auto {
+    .pagenav__btn-inner {
+      flex-direction: row-reverse;
     }
-
-    &.is-locked,
-    &.is-disabled {
-      background-color: @disabled;
-      color: @disabled-inverted;
+    .icon {
+      padding-left: (@icon-padding / 2);
     }
+  }
+
+  // Top aligned icon
+  // --------------------------------------------------
+  &.has-icon-top {
+    .pagenav__btn-inner {
+      flex-direction: column;
+    }
+    .icon {
+      padding-bottom: (@icon-padding / 4);
+    }
+  }
+
+  // Bottom aligned icon
+  // --------------------------------------------------
+  &.has-icon-bottom {
+    .pagenav__btn-inner {
+      flex-direction: column-reverse;
+    }
+    .icon {
+      padding-top: (@icon-padding / 4);
+    }
+  }
+}
+
+// Consistent with nav icon button styling
+// --------------------------------------------------
+.pagenav__btn.btn-icon:not(.btn-text) {
+  padding: @icon-padding;
+  background-color: @btn-icon-color;
+  color: @btn-icon-color-inverted;
+  border-radius: @btn-border-radius;
+
+  .no-touch &:not(.is-disabled):not(.is-locked):hover {
+    background-color: @btn-icon-color-hover;
+    color: @btn-icon-color-inverted-hover;
+    .transition(background-color @duration ease-in, color @duration ease-in;);
+  }
+
+  &.is-locked,
+  &.is-disabled {
+    background-color: @disabled;
+    color: @disabled-inverted;
   }
 }
