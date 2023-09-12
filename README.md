@@ -54,7 +54,7 @@ The **PageNav** buttons will respect any [locking](https://github.com/adaptlearn
 
 >**\_iconClass** (string): CSS class name to be applied to the `button` icon. The class must be predefined in one of the Less files with the corresponding icon included as part of a font. To have _no_ icon, leave this field blank. Suggested icons for each button are detailed in the [_example.json_](https://github.com/cgkineo/adapt-pageNav/blob/master/example.json). List of all available [_vanilla_ icons](https://github.com/adaptlearning/adapt-contrib-vanilla/wiki/Icons) to choose from.
 
->**\_alignIconright** (boolean): Defines whether the icon is aligned to the left or right of the text. Default is `false` which aligns the icon to the left of the text.
+>**\_iconAlignment** (string): Determines how the icon is aligned to the text. Options include `auto`, `left`, `right`, `top`, and `bottom`. When using `auto`, the position will automatically adjust based on whether the user is using an LTR or RTL lanaguage. The `_next` button will also be adjusted accordingly when using `auto` (i.e. the icon will be right-aligned for LTR and left-aligned for RTL). Defaults to `auto`.
 
 >**text** (string): Defines the text that renders in the `button`.
 
