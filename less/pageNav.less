@@ -33,22 +33,22 @@
   // Left aligned icon (icon before the text)
   // --------------------------------------------------
   &.has-icon-left,
-  .dir-ltr &.has-icon-auto {
-    .icon {
-      padding-right: (@icon-padding / 2);
-    }
-  }
+  .dir-ltr &.has-icon-auto,
   .dir-rtl &.has-icon-auto[data-type="_next"] {
-    .pagenav__btn-inner {
-      flex-direction: row-reverse;
-    }
     .icon {
+      padding-left: 0;
       padding-right: (@icon-padding / 2);
     }
   }
   .dir-rtl &.has-icon-left {
     .icon {
+      padding-right: 0;
       padding-left: (@icon-padding / 2);
+    }
+  }
+  .dir-rtl &.has-icon-auto[data-type="_next"] {
+    .pagenav__btn-inner {
+      flex-direction: row-reverse;
     }
   }
 
@@ -58,11 +58,13 @@
   .dir-rtl &.has-icon-auto,
   .dir-ltr &.has-icon-auto[data-type="_next"] {
     .icon {
+      padding-right: 0;
       padding-left: (@icon-padding / 2);
     }
   }
   .dir-rtl &.has-icon-right {
     .icon {
+      padding-left: 0;
       padding-right: (@icon-padding / 2);
     }
   }
