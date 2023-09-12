@@ -6,19 +6,19 @@ export default function PageNavItem(props) {
   const globals = Adapt.course.get('_globals');
 
   const {
-    _isEnabled,
-    _isHidden,
     _classes,
-    _iconClass,
     _iconAlignment,
-    locked,
-    type,
-    _tooltipId,
+    _iconClass,
     _id,
     _index,
-    text,
+    _isEnabled,
+    _isHidden,
+    _tooltipId,
     ariaLabel,
-    onButtonClick
+    locked,
+    onButtonClick,
+    text,
+    type
   } = props;
 
   return (
