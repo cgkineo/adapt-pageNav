@@ -105,13 +105,13 @@
               "inputType": "Text",
               "validators": []
             },
-            "_alignIconRight": {
-              "type": "boolean",
-              "required": true,
-              "title": "Align icon right",
-              "default": false,
-              "inputType": "Checkbox",
-              "validators": []
+            "_iconAlignment": {
+              "type": "string",
+              "required": false,
+              "default": "auto",
+              "inputType": {"type":"Select", "options":["auto","left","right","top","bottom"]},
+              "title": "Icon alignment",
+              "help": "Determines how the icon is aligned to the text."
             },
             "text": {
               "type": "string",
@@ -210,13 +210,13 @@
               "inputType": "Text",
               "validators": []
             },
-            "_alignIconRight": {
-              "type": "boolean",
-              "required": true,
-              "title": "Align icon right",
-              "default": false,
-              "inputType": "Checkbox",
-              "validators": []
+            "_iconAlignment": {
+              "type": "string",
+              "required": false,
+              "default": "auto",
+              "inputType": {"type":"Select", "options":["auto","left","right","top","bottom"]},
+              "title": "Icon alignment",
+              "help": "Determines how the icon is aligned to the text."
             },
             "text": {
               "type": "string",
@@ -315,13 +315,13 @@
               "inputType": "Text",
               "validators": []
             },
-            "_alignIconRight": {
-              "type": "boolean",
-              "required": true,
-              "title": "Align icon right",
-              "default": false,
-              "inputType": "Checkbox",
-              "validators": []
+            "_iconAlignment": {
+              "type": "string",
+              "required": false,
+              "default": "auto",
+              "inputType": {"type":"Select", "options":["auto","left","right","top","bottom"]},
+              "title": "Icon alignment",
+              "help": "Determines how the icon is aligned to the text."
             },
             "text": {
               "type": "string",
@@ -420,13 +420,13 @@
               "inputType": "Text",
               "validators": []
             },
-            "_alignIconRight": {
-              "type": "boolean",
-              "required": true,
-              "title": "Align icon right",
-              "default": true,
-              "inputType": "Checkbox",
-              "validators": []
+            "_iconAlignment": {
+              "type": "string",
+              "required": false,
+              "default": "auto",
+              "inputType": {"type":"Select", "options":["auto","left","right","top","bottom"]},
+              "title": "Icon alignment",
+              "help": "Determines how the icon is aligned to the text."
             },
             "text": {
               "type": "string",
@@ -525,13 +525,13 @@
               "inputType": "Text",
               "validators": []
             },
-            "_alignIconRight": {
-              "type": "boolean",
-              "required": true,
-              "title": "Align icon right",
-              "default": false,
-              "inputType": "Checkbox",
-              "validators": []
+            "_iconAlignment": {
+              "type": "string",
+              "required": false,
+              "default": "auto",
+              "inputType": {"type":"Select", "options":["auto","left","right","top","bottom"]},
+              "title": "Icon alignment",
+              "help": "Determines how the icon is aligned to the text."
             },
             "text": {
               "type": "string",

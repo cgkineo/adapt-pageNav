@@ -88,11 +88,19 @@
                   "description": "CSS class name to be applied to the button icon. Suggested: icon-controls-left",
                   "default": "icon-controls-left"
                 },
-                "_alignIconRight": {
-                  "type": "boolean",
-                  "title": "Align icon right",
-                  "description": "Defines whether the icon is aligned to the left or right of the text.",
-                  "default": false
+                "_iconAlignment": {
+                  "type": "string",
+                  "title": "Icon alignment",
+                  "description": "Determines how the icon is aligned to the text.",
+                  "default": "auto",
+                  "enum": [
+                    "auto",
+                    "left",
+                    "right",
+                    "top",
+                    "bottom"
+                  ],
+                  "_backboneForms": "Select"
                 },
                 "text": {
                   "type": "string",
@@ -172,11 +180,19 @@
                   "description": "CSS class name to be applied to the button icon. Suggested: icon-home",
                   "default": "icon-home"
                 },
-                "_alignIconRight": {
-                  "type": "boolean",
-                  "title": "Align icon right",
-                  "description": "Defines whether the icon is aligned to the left or right of the text.",
-                  "default": false
+                "_iconAlignment": {
+                  "type": "string",
+                  "title": "Icon alignment",
+                  "description": "Determines how the icon is aligned to the text.",
+                  "default": "auto",
+                  "enum": [
+                    "auto",
+                    "left",
+                    "right",
+                    "top",
+                    "bottom"
+                  ],
+                  "_backboneForms": "Select"
                 },
                 "text": {
                   "type": "string",
@@ -256,11 +272,19 @@
                   "description": "CSS class name to be applied to the button icon. Suggested: icon-controls-up",
                   "default": "icon-controls-up"
                 },
-                "_alignIconRight": {
-                  "type": "boolean",
-                  "title": "Align icon right",
-                  "description": "Defines whether the icon is aligned to the left or right of the text.",
-                  "default": false
+                "_iconAlignment": {
+                  "type": "string",
+                  "title": "Icon alignment",
+                  "description": "Determines how the icon is aligned to the text.",
+                  "default": "auto",
+                  "enum": [
+                    "auto",
+                    "left",
+                    "right",
+                    "top",
+                    "bottom"
+                  ],
+                  "_backboneForms": "Select"
                 },
                 "text": {
                   "type": "string",
@@ -339,11 +363,19 @@
                   "description": "CSS class name to be applied to the button icon. Suggested: icon-controls-right",
                   "default": "icon-controls-right"
                 },
-                "_alignIconRight": {
-                  "type": "boolean",
-                  "title": "Align icon right",
-                  "description": "Defines whether the icon is aligned to the left or right of the text.",
-                  "default": true
+                "_iconAlignment": {
+                  "type": "string",
+                  "title": "Icon alignment",
+                  "description": "Determines how the icon is aligned to the text.",
+                  "default": "auto",
+                  "enum": [
+                    "auto",
+                    "left",
+                    "right",
+                    "top",
+                    "bottom"
+                  ],
+                  "_backboneForms": "Select"
                 },
                 "text": {
                   "type": "string",
@@ -423,11 +455,19 @@
                   "description": "CSS class name to be applied to the button icon. Suggested: icon-cross",
                   "default": "icon-cross"
                 },
-                "_alignIconRight": {
-                  "type": "boolean",
-                  "title": "Align icon right",
-                  "description": "Defines whether the icon is aligned to the left or right of the text.",
-                  "default": false
+                "_iconAlignment": {
+                  "type": "string",
+                  "title": "Icon alignment",
+                  "description": "Determines how the icon is aligned to the text.",
+                  "default": "auto",
+                  "enum": [
+                    "auto",
+                    "left",
+                    "right",
+                    "top",
+                    "bottom"
+                  ],
+                  "_backboneForms": "Select"
                 },
                 "text": {
                   "type": "string",
