@@ -8,7 +8,6 @@ export default function PageNavItem(props) {
   const {
     _isEnabled,
     _isHidden,
-    _isCurrent,
     _classes,
     _iconClass,
     _iconAlignment,
@@ -44,7 +43,6 @@ export default function PageNavItem(props) {
         data-tooltip-id={_tooltipId}
         disabled={_isHidden || locked}
         aria-label={`${locked ? globals._accessibility._ariaLabels.locked + '. ' : ''}${compile(ariaLabel, props)}`}
-        aria-current={_isCurrent ? 'page' : null}
         onClick={onButtonClick}
       >
 

@@ -21,10 +21,6 @@
 .pagenav__btn {
   margin: @item-margin;
 
-  &[aria-current="page"] {
-    background-color: darken(@btn-color, 20%);
-  }
-
   &-icon .icon {
     display: block;
   }
@@ -43,7 +39,7 @@
     }
   }
   // Next button
-  .dir-rtl &.has-icon-auto[data-type='_next'] {
+  .dir-rtl &.has-icon-auto[data-type="_next"] {
     .pagenav__btn-inner {
       flex-direction: row-reverse;
     }
@@ -61,7 +57,7 @@
     }
   }
   // Next button
-  .dir-ltr &.has-icon-auto[data-type='_next'] {
+  .dir-ltr &.has-icon-auto[data-type="_next"] {
     .pagenav__btn-inner {
       flex-direction: row-reverse;
     }

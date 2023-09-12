@@ -41,10 +41,9 @@ class PageNavView extends ComponentView {
       return;
     }
 
-    // Check locked or selected
+    // Check if locked
     const isLocked = item._isHidden || item._isLocked;
-    const isSelected = item._isCurrent;
-    if (isLocked || isSelected) return;
+    if (isLocked) return;
 
     // Navigate to the location
     this.navigateTo(item._id);
