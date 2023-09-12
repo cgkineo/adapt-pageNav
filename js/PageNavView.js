@@ -25,6 +25,7 @@ class PageNavView extends ComponentView {
   };
 
   onContentObjectComplete() {
+    // Update model so that _lockUntilPageComplete works properly
     this.model.setupItemsModel();
   };
 
