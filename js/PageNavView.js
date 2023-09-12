@@ -70,7 +70,7 @@ class PageNavView extends ComponentView {
       if (!item._tooltip || item._isHidden) return;
 
       tooltips.register({
-        _id: `pagenav_btn${item.type}`,
+        _id: item._tooltipId,
         _isEnabled: item._tooltip._isEnabled,
         text: Handlebars.compile(item._tooltip.text)(item)
       });
