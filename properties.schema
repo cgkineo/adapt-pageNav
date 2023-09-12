@@ -100,7 +100,7 @@
               "type": "string",
               "required": false,
               "title": "Icon class",
-              "default": "",
+              "default": "icon-controls-left",
               "help": "CSS class name to be applied to the button icon. Suggested: icon-controls-left",
               "inputType": "Text",
               "validators": []
@@ -205,7 +205,7 @@
               "type": "string",
               "required": false,
               "title": "Icon class",
-              "default": "",
+              "default": "icon-home",
               "help": "CSS class name to be applied to the button icon. Suggested: icon-home",
               "inputType": "Text",
               "validators": []
@@ -310,7 +310,7 @@
               "type": "string",
               "required": false,
               "title": "Icon class",
-              "default": "",
+              "default": "icon-controls-up",
               "help": "CSS class name to be applied to the button icon. Suggested: icon-controls-up",
               "inputType": "Text",
               "validators": []
@@ -415,7 +415,7 @@
               "type": "string",
               "required": false,
               "title": "Icon class",
-              "default": "",
+              "default": "icon-controls-right",
               "help": "CSS class name to be applied to the button icon. Suggested: icon-controls-right",
               "inputType": "Text",
               "validators": []
@@ -520,7 +520,7 @@
               "type": "string",
               "required": false,
               "title": "Icon class",
-              "default": "",
+              "default": "icon-cross",
               "help": "CSS class name to be applied to the button icon. Suggested: icon-cross",
               "inputType": "Text",
               "validators": []

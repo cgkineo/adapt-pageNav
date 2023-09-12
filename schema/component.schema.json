@@ -86,7 +86,7 @@
                   "type": "string",
                   "title": "Icon class",
                   "description": "CSS class name to be applied to the button icon. Suggested: icon-controls-left",
-                  "default": ""
+                  "default": "icon-controls-left"
                 },
                 "_alignIconRight": {
                   "type": "boolean",
@@ -170,7 +170,7 @@
                   "type": "string",
                   "title": "Icon class",
                   "description": "CSS class name to be applied to the button icon. Suggested: icon-home",
-                  "default": ""
+                  "default": "icon-home"
                 },
                 "_alignIconRight": {
                   "type": "boolean",
@@ -254,7 +254,7 @@
                   "type": "string",
                   "title": "Icon class",
                   "description": "CSS class name to be applied to the button icon. Suggested: icon-controls-up",
-                  "default": ""
+                  "default": "icon-controls-up"
                 },
                 "_alignIconRight": {
                   "type": "boolean",
@@ -337,7 +337,7 @@
                   "type": "string",
                   "title": "Icon class",
                   "description": "CSS class name to be applied to the button icon. Suggested: icon-controls-right",
-                  "default": ""
+                  "default": "icon-controls-right"
                 },
                 "_alignIconRight": {
                   "type": "boolean",
@@ -421,7 +421,7 @@
                   "type": "string",
                   "title": "Icon class",
                   "description": "CSS class name to be applied to the button icon. Suggested: icon-cross",
-                  "default": ""
+                  "default": "icon-cross"
                 },
                 "_alignIconRight": {
                   "type": "boolean",
