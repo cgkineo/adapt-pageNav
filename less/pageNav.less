@@ -30,7 +30,7 @@
 // --------------------------------------------------
 .pagenav__btn.btn-icon.btn-text {
 
-  // Left aligned icon
+  // Left aligned icon (icon before the text)
   // --------------------------------------------------
   &.has-icon-left,
   .dir-ltr &.has-icon-auto {
@@ -38,7 +38,6 @@
       padding-right: (@icon-padding / 2);
     }
   }
-  // Next button
   .dir-rtl &.has-icon-auto[data-type="_next"] {
     .pagenav__btn-inner {
       flex-direction: row-reverse;
@@ -47,22 +46,30 @@
       padding-right: (@icon-padding / 2);
     }
   }
-
-  // Right aligned icon
-  // --------------------------------------------------
-  &.has-icon-right,
-  .dir-rtl &.has-icon-auto {
+  .dir-rtl &.has-icon-left {
     .icon {
       padding-left: (@icon-padding / 2);
     }
   }
-  // Next button
+
+  // Right aligned icon (icon after the text)
+  // --------------------------------------------------
+  &.has-icon-right,
+  .dir-rtl &.has-icon-auto,
+  .dir-ltr &.has-icon-auto[data-type="_next"] {
+    .icon {
+      padding-left: (@icon-padding / 2);
+    }
+  }
+  .dir-rtl &.has-icon-right {
+    .icon {
+      padding-right: (@icon-padding / 2);
+    }
+  }
+  &.has-icon-right,
   .dir-ltr &.has-icon-auto[data-type="_next"] {
     .pagenav__btn-inner {
       flex-direction: row-reverse;
-    }
-    .icon {
-      padding-left: (@icon-padding / 2);
     }
   }
 
