@@ -32,6 +32,9 @@ class PageNavModel extends ComponentModel {
     for (const type in buttons) {
       const buttonConfig = buttons[type];
 
+      // Skip the button if not enabled
+      if (!buttonConfig._isEnabled) continue;
+
       // Get models, skipping any undefined types (ex. deprecated button types)
       let buttonModel = buttonTypeModels[type];
       if (!buttonModel) continue;
