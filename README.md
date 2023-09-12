@@ -72,7 +72,7 @@ The **PageNav** buttons will respect any [locking](https://github.com/adaptlearn
 
 ----------------------------
 
-**Framework versions:**  5.19.1+<br>
+**Framework versions:**  5.30.2+<br>
 **Vanilla versions:**  5.1.1+<br>
 **Author / maintainer:**  Kineo<br>
 **Accessibility support:**  WAI AA<br>
