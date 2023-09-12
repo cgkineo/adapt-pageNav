@@ -42,11 +42,29 @@
       padding-right: (@icon-padding / 2);
     }
   }
+  // Next button
+  .dir-rtl &.has-icon-auto[data-type='_next'] {
+    .pagenav__btn-inner {
+      flex-direction: row-reverse;
+    }
+    .icon {
+      padding-right: (@icon-padding / 2);
+    }
+  }
 
   // Right aligned icon
   // --------------------------------------------------
   &.has-icon-right,
   .dir-rtl &.has-icon-auto {
+    .icon {
+      padding-left: (@icon-padding / 2);
+    }
+  }
+  // Next button
+  .dir-ltr &.has-icon-auto[data-type='_next'] {
+    .pagenav__btn-inner {
+      flex-direction: row-reverse;
+    }
     .icon {
       padding-left: (@icon-padding / 2);
     }
