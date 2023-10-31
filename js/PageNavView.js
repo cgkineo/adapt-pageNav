@@ -1,7 +1,6 @@
 import Adapt from 'core/js/adapt';
 import router from 'core/js/router';
 import ComponentView from 'core/js/views/componentView';
-import a11y from 'core/js/a11y';
 import tooltips from 'core/js/tooltips';
 import logging from 'core/js/logging';
 
@@ -46,8 +45,6 @@ class PageNavView extends ComponentView {
     const isLocked = item._isHidden || item._isLocked;
     if (isLocked) return;
 
-    // Ensure tooltip is removed before navigating away by forcing the button to trigger a blur event
-    a11y.focus('body');
     this.navigateTo(item._id);
   };
 
