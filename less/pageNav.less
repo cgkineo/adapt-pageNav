@@ -28,10 +28,23 @@ html {
 .pagenav {
   &__btn {
     margin: @item-margin;
+    .btn-color;
+
+    .no-touch &:not(.is-disabled):not(.is-locked):hover {
+      .btn-color-hover;
+    }
+
+    html:not(.a11y-disable-focusoutline) &:focus-visible {
+      .btn-color-focus;
+    }
 
     &[aria-current="page"] {
-      background-color: darken(@btn-color, 20%);
+      .btn-color-selected;
     }
+  }
+
+  &__btn.is-disabled {
+    .btn-color-disabled;
   }
 
   &__btn-icon .icon {
