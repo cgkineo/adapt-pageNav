@@ -1,7 +1,7 @@
 {{import_globals}}
 {{#if _isEnabled}}
 <button
-  class="{{#if _iconClass}}btn-icon{{/if}}{{#if text}} btn-text{{/if}} pagenav__btn{{#if _isHidden}} is-hidden is-disabled{{/if}}{{#if locked}} is-locked is-disabled{{/if}}{{#if _classes}} {{_classes}}{{/if}}{{#if text}} has-text{{/if}}{{#if _iconClass}} has-icon{{/if}}{{#if _alignIconRight}} icon-is-right{{else}} icon-is-left{{/if}} js-pagenav-btn"
+  class="{{#if text}}btn-text{{else}}btn-icon{{/if}} pagenav__btn{{#if _isHidden}} is-hidden is-disabled{{/if}}{{#if locked}} is-locked is-disabled{{/if}}{{#if _classes}} {{_classes}}{{/if}}{{#if text}} has-text{{/if}}{{#if _iconClass}} has-icon{{/if}}{{#if _alignIconRight}} icon-is-right{{else}} icon-is-left{{/if}} js-pagenav-btn"
   role="link"
   data-type="{{type}}"
   data-id="{{_id}}"
