@@ -53,34 +53,13 @@ html {
 
   // buttons with text and icon (left aligned icon as default)
   // --------------------------------------------------
-  &__btn.btn-icon:not(.icon-is-right).btn-text .icon {
+  &__btn.icon-is-left &__btn-icon {
     padding-inline-end: (@icon-padding / 2);
   }
 
   // buttons with text and icon (right aligned icon)
   // --------------------------------------------------
-  &__btn.btn-icon.icon-is-right.btn-text .icon {
+  &__btn.icon-is-right &__btn-icon {
     padding-inline-start: (@icon-padding / 2);
-  }
-
-  // consistent with nav icon button styling
-  // --------------------------------------------------
-  &__btn.btn-icon:not(.btn-text) {
-    padding: @icon-padding;
-    background-color: @btn-icon-color;
-    color: @btn-icon-color-inverted;
-    border-radius: @btn-border-radius;
-
-    .no-touch &:not(.is-disabled):not(.is-locked):hover {
-      background-color: @btn-icon-color-hover;
-      color: @btn-icon-color-inverted-hover;
-      .transition(background-color @duration ease-in, color @duration ease-in;);
-    }
-
-    &.is-locked,
-    &.is-disabled {
-      background-color: @disabled;
-      color: @disabled-inverted;
-    }
   }
 }
