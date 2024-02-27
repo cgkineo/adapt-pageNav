@@ -1,118 +1,97 @@
-    // To go in the component.json file for each page
-    // --------------------------------------------------
-    {
-        "_id": "c-05",
-        "_parentId": "b-05",
-        "_type": "component",
-        "_component": "pageNav",
-        "_classes": "",
-        "_layout": "full",
-        "title": "",
-        "displayTitle": "",
-        "body": "",
-        "instruction": "",
-        "_loopStyleComment": {
-            "allPages": "loop sequentially through all pages in course",
-            "siblings": "loop sequentially through all pages in current parent object",
-            "none": "disable previous and next buttons at start and end of the pages in the current parent object"
+// To go in the component.json file for each page
+// --------------------------------------------------
+{
+    "_id": "c-05",
+    "_parentId": "b-05",
+    "_type": "component",
+    "_component": "pageNav",
+    "_classes": "",
+    "_layout": "full",
+    "title": "",
+    "displayTitle": "",
+    "body": "",
+    "instruction": "",
+    "_loopStyleComment": {
+        "allPages": "loop sequentially through all pages in course",
+        "siblings": "loop sequentially through all pages in current parent object",
+        "none": "disable previous and next buttons at start and end of the pages in the current parent object"
+    },
+    "_loopStyle": "none",
+    "_shouldSkipOptionalPages": false,
+    "_buttons": {
+        "_root": {
+            "_isEnabled": true,
+            "_lockUntilPageComplete": false,
+            "_order": 1,
+            "_classes": "",
+            "_iconClass": "icon-home",
+            "_iconAlignment": "auto",
+            "text": "Go to main menu",
+            "ariaLabel": "Go to main menu",
+            "_tooltip": {
+                "_isEnabled": true,
+                "text": "{{displayTitle}}"
+            },
+            "_customRouteId": ""
         },
-        "_loopStyle": "none",
-        "_shouldSkipOptionalPages": false,
-        "_buttons": {
-            "_returnToPreviousLocation": {
-                "_isEnabled": false,
-                "_lockUntilPageComplete": false,
-                "_order": 1,
-                "_classes": "",
-                "_iconClassComment": "Suggested icon = 'icon-controls-left'",
-                "_iconClass": "",
-                "_alignIconRight": false,
-                "text": "Return",
-                "ariaLabel": "Return to previous location",
-                "_showTooltip": false,
-                "tooltip": "{{displayTitle}}"
-            },
-            "_previous": {
+        "_up": {
+            "_isEnabled": false,
+            "_lockUntilPageComplete": false,
+            "_order": 1,
+            "_classes": "",
+            "_iconClass": "icon-controls-up",
+            "_iconAlignment": "auto",
+            "text": "Back to menu",
+            "ariaLabel": "Back to menu",
+            "_tooltip": {
                 "_isEnabled": true,
-                "_lockUntilPageComplete": false,
-                "_order": 1,
-                "_classes": "",
-                "_iconClassComment": "Suggested icon = 'icon-controls-left'",
-                "_iconClass": "",
-                "_alignIconRight": false,
-                "text": "Previous",
-                "ariaLabel": "Previous Page",
-                "_showTooltip": false,
-                "tooltip": "{{displayTitle}}",
-                "_customRouteId": ""
+                "text": "{{displayTitle}}"
             },
-            "_root": {
+            "_customRouteId": ""
+        },
+        "_previous": {
+            "_isEnabled": true,
+            "_lockUntilPageComplete": false,
+            "_order": 1,
+            "_classes": "",
+            "_iconClass": "icon-controls-left",
+            "_iconAlignment": "auto",
+            "text": "Previous",
+            "ariaLabel": "Previous Page",
+            "_tooltip": {
                 "_isEnabled": true,
-                "_lockUntilPageComplete": false,
-                "_order": 1,
-                "_classes": "",
-                "_iconClassComment": "Suggested icon = 'icon-home'",
-                "_iconClass": "",
-                "_alignIconRight": false,
-                "text": "Go to main menu",
-                "ariaLabel": "Go to main menu",
-                "_showTooltip": false,
-                "tooltip": "{{displayTitle}}",
-                "_customRouteId": ""
+                "text": "{{displayTitle}}"
             },
-            "_up": {
-                "_isEnabled": false,
-                "_lockUntilPageComplete": false,
-                "_order": 1,
-                "_classes": "",
-                "_iconClassComment": "Suggested icon = 'icon-controls-up'",
-                "_iconClass": "",
-                "_alignIconRight": false,
-                "text": "Back to menu",
-                "ariaLabel": "Back to menu",
-                "_showTooltip": false,
-                "tooltip": "{{displayTitle}}",
-                "_customRouteId": ""
-            },
-            "_next": {
+            "_customRouteId": ""
+        },
+        "_next": {
+            "_isEnabled": true,
+            "_lockUntilPageComplete": false,
+            "_order": 1,
+            "_classes": "",
+            "_iconClass": "icon-controls-right",
+            "_iconAlignment": "auto",
+            "text": "Next",
+            "ariaLabel": "Next Page",
+            "_tooltip": {
                 "_isEnabled": true,
-                "_lockUntilPageComplete": false,
-                "_order": 1,
-                "_classes": "",
-                "_iconClassComment": "Suggested icon = 'icon-controls-right'",
-                "_iconClass": "",
-                "_alignIconRight": true,
-                "text": "Next",
-                "ariaLabel": "Next Page",
-                "_showTooltip": false,
-                "tooltip": "{{displayTitle}}",
-                "_customRouteId": ""
+                "text": "{{displayTitle}}"
             },
-            "_sibling": {
-                "_isEnabled": false,
-                "_lockUntilPageComplete": false,
-                "_order": 1,
-                "_classes": "",
-                "_iconClass": "",
-                "_alignIconRight": false,
-                "text": "{{inc index}}",
-                "ariaLabel": "Page {{inc index}}",
-                "_showTooltip": false,
-                "tooltip": "{{displayTitle}}",
-                "_customRouteId": ""
-            },
-            "_close": {
-                "_isEnabled": false,
-                "_lockUntilPageComplete": false,
-                "_order": 1,
-                "_classes": "",
-                "_iconClassComment": "Suggested icon = 'icon-cross'",
-                "_iconClass": "",
-                "_alignIconRight": false,
-                "text": "Close",
-                "ariaLabel": "Close window",
-                "_showTooltip": false,
-                "tooltip": "Close window"
+            "_customRouteId": ""
+        },
+        "_close": {
+            "_isEnabled": false,
+            "_lockUntilPageComplete": false,
+            "_order": 1,
+            "_classes": "",
+            "_iconClass": "icon-cross",
+            "_iconAlignment": "auto",
+            "text": "Close",
+            "ariaLabel": "Close window",
+            "_tooltip": {
+                "_isEnabled": true,
+                "text": "Close window"
             }
         }
     }
+}
