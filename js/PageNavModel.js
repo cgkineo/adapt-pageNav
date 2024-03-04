@@ -71,12 +71,19 @@ class PageNavModel extends ComponentModel {
     return {
       _page: this.getCurrentPage(),
       _up: this.getCurrentMenu(),
+      _returnToPreviousLocation: this.getReturnToPreviousLocation(),
       _root: Adapt.course,
       _next: this.getNextPage(),
       _previous: this.getPrevPage(),
       _close: this.getClose()
     };
   }
+
+  getReturnToPreviousLocation() {
+    if (!location._previousId) return;
+
+    return data.findById(location._previousId);
+  };
 
   getCurrentPage() {
     return location._currentModel;

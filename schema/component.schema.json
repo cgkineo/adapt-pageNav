@@ -52,6 +52,7 @@
             "_previous",
             "_root",
             "_up",
+            "_returnToPreviousLocation",
             "_next",
             "_close"
           ],
@@ -328,6 +329,92 @@
                   "title": "Override the route id",
                   "description": "Enter the Friendly id of the page that the button should direct the user to. For use when non-standard navigation is required.",
                   "default": ""
+                }
+              }
+            },
+            "_returnToPreviousLocation": {
+              "type": "object",
+              "title": "Return to previous location button",
+              "description": "Navigates to the previous location. For example, if the user navigates to a help page that is not part of the normal flow, this would take them back to the previous page that they visited",
+              "properties": {
+                "_isEnabled": {
+                  "type": "boolean",
+                  "title": "Show",
+                  "default": false
+                },
+                "_lockUntilPageComplete": {
+                  "type": "boolean",
+                  "title": "Lock until page complete",
+                  "description": "For use when the standard Adapt locking system doesn't apply, such as in a start page before the main menu",
+                  "default": false
+                },
+                "_order": {
+                  "type": "number",
+                  "title": "Order",
+                  "description": "Button display order",
+                  "default": 0
+                },
+                "_classes": {
+                  "type": "string",
+                  "title": "Classes",
+                  "default": ""
+                },
+                "_iconClass": {
+                  "type": "string",
+                  "title": "Icon class",
+                  "description": "CSS class name to be applied to the button icon. Suggested: icon-controls-left",
+                  "default": "icon-controls-left"
+                },
+                "_iconAlignment": {
+                  "type": "string",
+                  "title": "Icon alignment",
+                  "description": "Determines how the icon is aligned to the text.",
+                  "default": "auto",
+                  "enum": [
+                    "auto",
+                    "left",
+                    "right",
+                    "top",
+                    "bottom"
+                  ],
+                  "_backboneForms": "Select"
+                },
+                "text": {
+                  "type": "string",
+                  "title": "Button text",
+                  "description": "Text that appears on the button. Optional since you can only use an icon.",
+                  "default": "Return",
+                  "_adapt": {
+                    "translatable": true
+                  }
+                },
+                "ariaLabel": {
+                  "type": "string",
+                  "title": "ARIA label",
+                  "default": "Return to previous location",
+                  "_adapt": {
+                    "translatable": true
+                  }
+                },
+                "_navTooltip": {
+                  "type": "object",
+                  "title": "Button tooltip",
+                  "default": {},
+                  "properties": {
+                    "_isEnabled": {
+                      "type": "boolean",
+                      "title": "Enable tooltip for this button",
+                      "default": true
+                    },
+                    "text": {
+                      "type": "string",
+                      "title": "",
+                      "default": "Return to previous location",
+                      "_adapt": {
+                        "translatable": true
+                      }
+                    }
+                  }
                 }
               }
             },
