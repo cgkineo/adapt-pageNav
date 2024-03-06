@@ -15,6 +15,7 @@ Navigation bar component which can contain some or all of the following buttons:
 
 - `_root`: Navigates to the top level menu
 - `_up`: Navigates to the menu that is the next level up in the hierarchy. For instance, a sub menu.
+- `_returnToPreviousLocation`: Navigates to the previous location. For example, if the user navigates to a help page that is not part of the normal flow, this would take them back to the previous page that they visited
 - `_previous`: Navigates to the previous page if it exists and is unlocked
 - `_next`: Navigates to the next page if it exists and is unlocked
 - `_close`: Closes the course window. Only possible if the course was launched in a popup window
@@ -34,13 +35,14 @@ The **PageNav** buttons will respect any [locking](https://github.com/adaptlearn
 **instruction** (string): This optional text appears above the component. It is frequently used to guide the learner’s interaction with the component.
 
 **\_loopStyle** (string): Acceptable values are `allPages`, `siblings`, and `none`. Defaults to `none`.
+
 - `allPages`: Loop sequentially through all pages in course
 - `siblings`: Loop sequentially through all pages in current parent object
 - `none`: Disable previous and next buttons at start and end of the pages in the current parent object.
 
 **\_shouldSkipOptionalPages** (boolean): Skip pages that are set to `"_isOptional": true`. Default is `false`.
 
-**\_buttons** (object): The following attributes configure the defaults for the **Quickanv** buttons. These attributes are available on all of the following buttons **\_previous**, **\_root**, **\_up**, **\_next**, and **\_close**.
+**\_buttons** (object): The following attributes configure the defaults for the **Page Nav** buttons. These attributes are available on all of the following buttons: **\_root**, **\_up**, **\_returnToPreviousLocation**, **\_previous**, **\_next**, and **\_close**.
 
 #### Global button configurations
 
@@ -72,7 +74,6 @@ The **PageNav** buttons will respect any [locking](https://github.com/adaptlearn
 
 ----------------------------
 
-**Framework versions:**  5.30.2+<br>
 **Vanilla versions:**  5.1.1+<br>
 **Author / maintainer:**  Kineo<br>
 **Accessibility support:**  WAI AA<br>

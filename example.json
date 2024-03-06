@@ -49,6 +49,20 @@
             },
             "_customRouteId": ""
         },
+        "_returnToPreviousLocation": {
+            "_isEnabled": false,
+            "_lockUntilPageComplete": false,
+            "_order": 1,
+            "_classes": "",
+            "_iconClass": "icon-controls-left",
+            "_iconAlignment": "auto",
+            "text": "Return",
+            "ariaLabel": "Return to previous location",
+            "_tooltip": {
+                "_isEnabled": true,
+                "text": "{{displayTitle}}"
+            }
+        },
         "_previous": {
             "_isEnabled": true,
             "_lockUntilPageComplete": false,

@@ -372,6 +372,103 @@
             }
           }
         },
+        "_returnToPreviousLocation": {
+          "type": "object",
+          "required": true,
+          "legend": "Return to previous location button",
+          "properties": {
+            "_isEnabled": {
+              "type": "boolean",
+              "required": true,
+              "title": "Show",
+              "default": false,
+              "inputType": "Checkbox",
+              "validators": []
+            },
+            "_lockUntilPageComplete": {
+              "type": "boolean",
+              "required": true,
+              "title": "Lock until page complete",
+              "default": false,
+              "inputType": "Checkbox",
+              "validators": [],
+              "help": "For use when the standard Adapt locking system doesn't apply, such as in a start page before the main menu"
+            },
+            "_order": {
+              "type": "number",
+              "required": true,
+              "default": 0,
+              "title": "Order",
+              "inputType": "Number",
+              "validators": ["required", "number"],
+              "help": "Button display order"
+            },
+            "_classes": {
+              "type": "string",
+              "required": false,
+              "title": "Classes",
+              "default": "",
+              "inputType": "Text",
+              "validators": []
+            },
+            "_iconClass": {
+              "type": "string",
+              "required": false,
+              "title": "Icon class",
+              "default": "icon-controls-left",
+              "help": "CSS class name to be applied to the button icon. Suggested: icon-controls-left",
+              "inputType": "Text",
+              "validators": []
+            },
+            "_iconAlignment": {
+              "type": "string",
+              "required": false,
+              "default": "auto",
+              "inputType": {"type":"Select", "options":["auto","left","right","top","bottom"]},
+              "title": "Icon alignment",
+              "help": "Determines how the icon is aligned to the text."
+            },
+            "text": {
+              "type": "string",
+              "required": true,
+              "default": "Return",
+              "inputType": "Text",
+              "validators": [],
+              "translatable": true
+            },
+            "ariaLabel": {
+              "type": "string",
+              "required": true,
+              "title": "ARIA label",
+              "default": "Return to previous location",
+              "inputType": "Text",
+              "validators": [],
+              "translatable": true
+            },
+            "_navTooltip": {
+              "type": "object",
+              "title": "Navigation tooltip",
+              "properties": {
+                "_isEnabled": {
+                  "type": "boolean",
+                  "default": true,
+                  "title": "Enable tooltip for navigation button",
+                  "inputType": "Checkbox",
+                  "validators": []
+                },
+                "text": {
+                  "type": "string",
+                  "title": "",
+                  "default": "Return to previous location",
+                  "help": "The tooltip text to display on hover over this item",
+                  "inputType": "Text",
+                  "validators": [],
+                  "translatable": true
+                }
+              }
+            }
+          }
+        },
         "_next": {
           "type": "object",
           "required": true,
