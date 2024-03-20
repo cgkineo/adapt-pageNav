@@ -4,6 +4,12 @@ import data from 'core/js/data';
 import ComponentModel from 'core/js/models/componentModel';
 
 class PageNavModel extends ComponentModel {
+  defaults() {
+    return ComponentModel.resultExtend('defaults', {
+      _isA11yComponentDescriptionEnabled: false
+    });
+  }
+
   init() {
     this.listenTo(Adapt, 'router:location', this.setupItemsModel);
 
