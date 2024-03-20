@@ -12,9 +12,8 @@ class PageNavModel extends ComponentModel {
 
   init() {
     this.listenTo(Adapt, 'router:location', this.setupItemsModel);
-
     super.init();
-  };
+  }
 
   setupItemsModel() {
     this.set('_items', this.getNavigationData());
@@ -89,15 +88,15 @@ class PageNavModel extends ComponentModel {
     if (!location._previousId) return;
 
     return data.findById(location._previousId);
-  };
+  }
 
   getCurrentPage() {
     return location._currentModel;
-  };
+  }
 
   getCurrentMenu() {
     return this.findAncestor('menu');
-  };
+  }
 
   getPrevPage() {
     const currentPage = this.getCurrentPage();
@@ -118,7 +117,7 @@ class PageNavModel extends ComponentModel {
         return page;
       }
     }
-  };
+  }
 
   getNextPage() {
     const currentPage = this.getCurrentPage();
@@ -139,7 +138,7 @@ class PageNavModel extends ComponentModel {
         return page;
       }
     }
-  };
+  }
 
   getPages() {
     const loopStyle = this.get('_loopStyle');
@@ -167,11 +166,11 @@ class PageNavModel extends ComponentModel {
     return descendants.filter(model => {
       return model.get('_type') === 'page';
     });
-  };
+  }
 
   getClose() {
     return new Backbone.Model({ _id: '' });
-  };
+  }
 }
 
 export default PageNavModel;
