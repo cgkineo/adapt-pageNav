@@ -142,30 +142,16 @@ class PageNavModel extends ComponentModel {
 
   getPages() {
     const loopStyle = this.get('_loopStyle');
-    if (!loopStyle) return [];
-
-    let loop = false;
-    let descendants;
-    let currentMenu;
-
-    switch (loopStyle) {
-      case 'allPages':
-        loop = true;
-        descendants = Adapt.course.getAllDescendantModels(true);
-        break;
-      default:
-        currentMenu = this.getCurrentMenu();
-        descendants = currentMenu.getAllDescendantModels(true);
-    }
-
-    if (loop) {
-      // Create a double copy to allow loop searching
+    const descendants = (loopStyle === 'allPages')
+      ? Adapt.course.getAllDescendantModels(true)
+      // For siblings and none
+      : this.getCurrentMenu().getAllDescendantModels(true);
+    const isLooping = Boolean(loopStyle && loopStyle !== 'none');
+    if (isLooping) {
+      // Create a double copy to allow loop searching to fall over the end
       descendants = descendants.concat(descendants);
     }
-
-    return descendants.filter(model => {
-      return model.get('_type') === 'page';
-    });
+    return descendants.filter(model => model.get('_type') === 'page');
   }
 
   getClose() {
