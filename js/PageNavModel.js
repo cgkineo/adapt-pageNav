@@ -142,7 +142,7 @@ class PageNavModel extends ComponentModel {
 
   getPages() {
     const loopStyle = this.get('_loopStyle');
-    const descendants = (loopStyle === 'allPages')
+    let descendants = (loopStyle === 'allPages')
       ? Adapt.course.getAllDescendantModels(true)
       // For siblings and none
       : this.getCurrentMenu().getAllDescendantModels(true);
