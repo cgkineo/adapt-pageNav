@@ -30,6 +30,7 @@ class PageNavModel extends ComponentModel {
 
     const buttonTypeModels = this.getButtonTypeModels();
     const currentPageComplete = buttonTypeModels._page.get('_isComplete');
+    const currentPageOptional = buttonTypeModels._page.get('_isOptional');
     const unsortedItems = [];
     let order = 0;
     let item;
@@ -57,7 +58,7 @@ class PageNavModel extends ComponentModel {
         index: 0,
         order: order++,
         _tooltipId: `pagenav_btn${type}`,
-        locked: item._isLocked || (buttonConfig._lockUntilPageComplete && !currentPageComplete)
+        locked: (item._isLocked && !currentPageOptional) || ((buttonConfig._lockUntilPageComplete && !currentPageComplete) && !currentPageOptional) 
       });
       unsortedItems.push(item);
     }
