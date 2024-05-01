@@ -58,7 +58,7 @@ class PageNavModel extends ComponentModel {
         index: 0,
         order: order++,
         _tooltipId: `pagenav_btn${type}`,
-        locked: (item._isLocked && !currentPageOptional) || ((buttonConfig._lockUntilPageComplete && !currentPageComplete) && !currentPageOptional) 
+        locked: !currentPageOptional && (item._isLocked || (buttonConfig._lockUntilPageComplete && !currentPageComplete)) 
       });
       unsortedItems.push(item);
     }
