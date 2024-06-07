@@ -20,6 +20,23 @@
 // --------------------------------------------------
 .pagenav__btn {
   margin: @item-margin;
+  .btn-color;
+
+  .no-touch &:not(.is-disabled):not(.is-locked):hover {
+    .btn-color-hover;
+  }
+
+  html:not(.a11y-disable-focusoutline) &:focus-visible {
+    .btn-color-focus;
+  }
+
+  &[aria-current="page"] {
+    .btn-color-selected;
+  }
+
+  &__btn.is-disabled {
+    .btn-color-disabled;
+  }
 
   &-icon .icon {
     display: block;
@@ -102,25 +119,4 @@
 // --------------------------------------------------
 .pagenav__btn.is-locked .icon {
   .icon-padlock-locked;
-}
-
-// Consistent with nav icon button styling
-// --------------------------------------------------
-.pagenav__btn.btn-icon:not(.btn-text) {
-  padding: @icon-padding;
-  background-color: @btn-icon-color;
-  color: @btn-icon-color-inverted;
-  border-radius: @btn-border-radius;
-
-  .no-touch &:not(.is-disabled):not(.is-locked):hover {
-    background-color: @btn-icon-color-hover;
-    color: @btn-icon-color-inverted-hover;
-    .transition(background-color @duration ease-in, color @duration ease-in;);
-  }
-
-  &.is-locked,
-  &.is-disabled {
-    background-color: @disabled;
-    color: @disabled-inverted;
-  }
 }
