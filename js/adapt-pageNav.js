@@ -1,12 +1,8 @@
-define([
-  'core/js/adapt',
-  './model',
-  './view'
-], function(Adapt, Model, View) {
+import components from 'core/js/components';
+import PageNavView from './PageNavView';
+import PageNavModel from './PageNavModel';
 
-  return Adapt.register('pageNav', {
-    model: Model,
-    view: View
-  });
-
+export default components.register('pageNav', {
+  view: PageNavView,
+  model: PageNavModel
 });

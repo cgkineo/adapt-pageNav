@@ -1,10 +1,3 @@
-html {
-  // Prevents pagenav tooltip from triggering a horizontal scroll bar
-  // Only affects IE11 but applied globally to weed out bugs
-  // --------------------------------------------------
-  overflow-x: hidden;
-}
-
 .pagenav {
   &__widget {
     position: relative;
@@ -25,41 +18,109 @@ html {
 // --------------------------------------------------
 // THEME
 // --------------------------------------------------
-.pagenav {
-  &__btn {
-    margin: @item-margin;
-    .btn-color;
+.pagenav__btn {
+  margin: @item-margin;
 
-    .no-touch &:not(.is-disabled):not(.is-locked):hover {
-      .btn-color-hover;
-    }
-
-    html:not(.a11y-disable-focusoutline) &:focus-visible {
-      .btn-color-focus;
-    }
-
-    &[aria-current="page"] {
-      .btn-color-selected;
-    }
-  }
-
-  &__btn.is-disabled {
-    .btn-color-disabled;
-  }
-
-  &__btn-icon .icon {
+  &-icon .icon {
     display: block;
   }
+}
 
-  // buttons with text and icon (left aligned icon as default)
+// Buttons with text and icon
+// --------------------------------------------------
+.pagenav__btn.btn-icon.btn-text {
+
+  // Left aligned icon (icon before the text)
   // --------------------------------------------------
-  &__btn.has-text.has-icon.icon-is-left &__btn-icon {
-    padding-inline-end: (@icon-padding / 2);
+  &.has-icon-left,
+  .dir-ltr &.has-icon-auto,
+  .dir-rtl &.has-icon-auto[data-type="_next"] {
+    .icon {
+      padding-left: 0;
+      padding-right: (@icon-padding / 2);
+    }
+  }
+  .dir-rtl &.has-icon-left {
+    .icon {
+      padding-right: 0;
+      padding-left: (@icon-padding / 2);
+    }
+  }
+  .dir-rtl &.has-icon-auto[data-type="_next"] {
+    .pagenav__btn-inner {
+      flex-direction: row-reverse;
+    }
   }
 
-  // buttons with text and icon (right aligned icon)
+  // Right aligned icon (icon after the text)
   // --------------------------------------------------
-  &__btn.has-text.has-icon.icon-is-right &__btn-icon {
-    padding-inline-start: (@icon-padding / 2);
+  &.has-icon-right,
+  .dir-rtl &.has-icon-auto,
+  .dir-ltr &.has-icon-auto[data-type="_next"] {
+    .icon {
+      padding-right: 0;
+      padding-left: (@icon-padding / 2);
+    }
+  }
+  .dir-rtl &.has-icon-right {
+    .icon {
+      padding-left: 0;
+      padding-right: (@icon-padding / 2);
+    }
+  }
+  &.has-icon-right,
+  .dir-ltr &.has-icon-auto[data-type="_next"] {
+    .pagenav__btn-inner {
+      flex-direction: row-reverse;
+    }
+  }
+
+  // Top aligned icon
+  // --------------------------------------------------
+  &.has-icon-top {
+    .pagenav__btn-inner {
+      flex-direction: column;
+    }
+    .icon {
+      padding-bottom: (@icon-padding / 4);
+    }
+  }
+
+  // Bottom aligned icon
+  // --------------------------------------------------
+  &.has-icon-bottom {
+    .pagenav__btn-inner {
+      flex-direction: column-reverse;
+    }
+    .icon {
+      padding-top: (@icon-padding / 4);
+    }
+  }
+}
+
+// Padlock replaces icon when locked
+// --------------------------------------------------
+.pagenav__btn.is-locked .icon {
+  .icon-padlock-locked;
+}
+
+// Consistent with nav icon button styling
+// --------------------------------------------------
+.pagenav__btn.btn-icon:not(.btn-text) {
+  padding: @icon-padding;
+  background-color: @btn-icon-color;
+  color: @btn-icon-color-inverted;
+  border-radius: @btn-border-radius;
+
+  .no-touch &:not(.is-disabled):not(.is-locked):hover {
+    background-color: @btn-icon-color-hover;
+    color: @btn-icon-color-inverted-hover;
+    .transition(background-color @duration ease-in, color @duration ease-in;);
+  }
+
+  &.is-locked,
+  &.is-disabled {
+    background-color: @disabled;
+    color: @disabled-inverted;
   }
 }
