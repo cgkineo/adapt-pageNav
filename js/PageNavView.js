@@ -22,6 +22,7 @@ class PageNavView extends ComponentView {
     this.setReadyStatus();
     this.setupInviewCompletion();
     this.setupTooltips();
+    this.model.setupItemsModel();
   };
 
   onContentObjectComplete() {
