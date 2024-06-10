@@ -12,6 +12,7 @@ class PageNavView extends ComponentView {
   }
 
   preRender() {
+    this.model.setupItemsModel();
     this.listenTo(Adapt, 'remove', this.remove);
     this.listenTo(Adapt.contentObjects, {
       'change:_isComplete change:_isLocked': this.onContentObjectComplete
