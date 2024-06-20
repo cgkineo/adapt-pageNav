@@ -43,11 +43,12 @@ class PageNavModel extends ComponentModel {
 
       // Get models, skipping any undefined types (ex. deprecated button types)
       let buttonModel = buttonTypeModels[type];
-      if (!buttonModel) continue;
+      if (!buttonModel && !buttonConfig._customRouteId) continue;
 
       // Find buttonModel from config._customRouteId if not found in defined type
       if (buttonConfig._customRouteId) {
         buttonModel = data.findById(buttonConfig._customRouteId);
+        if (!buttonModel) continue;
       }
 
       // Convert found buttonModel to json if exists or create an 'undefined' json
