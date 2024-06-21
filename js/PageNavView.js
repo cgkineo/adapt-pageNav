@@ -42,9 +42,7 @@ class PageNavView extends ComponentView {
       return;
     }
 
-    // Check if locked
-    const isLocked = item._isHidden || item._isLocked;
-    if (isLocked) return;
+    if (item._isLocked) return;
 
     this.navigateTo(item._id);
   };
@@ -67,7 +65,7 @@ class PageNavView extends ComponentView {
   setupTooltips() {
     const items = this.model.get('_items');
     items.forEach(item => {
-      if (!item._tooltip || item._isHidden) return;
+      if (!item._tooltip) return;
 
       tooltips.register({
         _id: item._tooltipId,

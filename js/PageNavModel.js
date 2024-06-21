@@ -42,14 +42,12 @@ class PageNavModel extends ComponentModel {
       if (!buttonConfig._isEnabled) continue;
 
       // Get models, skipping any undefined types (ex. deprecated button types)
-      let buttonModel = buttonTypeModels[type];
-      if (!buttonModel && !buttonConfig._customRouteId) continue;
-
       // Find buttonModel from config._customRouteId if not found in defined type
-      if (buttonConfig._customRouteId) {
-        buttonModel = data.findById(buttonConfig._customRouteId);
-        if (!buttonModel) continue;
-      }
+      const buttonModel = buttonConfig._customRouteId
+        ? data.findById(buttonConfig._customRouteId)
+        : buttonTypeModels[type];
+
+      if (!buttonModel) continue;
 
       // Convert found buttonModel to json if exists or create an 'undefined' json
       item = buttonModel ? buttonModel.toJSON() : { _isHidden: true };
@@ -107,8 +105,8 @@ class PageNavModel extends ComponentModel {
     let hasFoundCurrentPage = false;
 
     for (const page of pages.reverse()) {
-      const isNotAvailable = !page.get('_isAvailable');
-      if (isNotAvailable) continue;
+      const isNotShown = !page.get('_isAvailable') || page.get('_isHidden');
+      if (isNotShown) continue;
 
       if (!hasFoundCurrentPage) {
         hasFoundCurrentPage = page.get('_id') === currentPageId;
@@ -128,8 +126,8 @@ class PageNavModel extends ComponentModel {
     let hasFoundCurrentPage = false;
 
     for (const page of pages) {
-      const isNotAvailable = !page.get('_isAvailable');
-      if (isNotAvailable) continue;
+      const isNotShown = !page.get('_isAvailable') || page.get('_isHidden');
+      if (isNotShown) continue;
 
       if (!hasFoundCurrentPage) {
         hasFoundCurrentPage = page.get('_id') === currentPageId;
