@@ -44,7 +44,7 @@ class PageNavModel extends ComponentModel {
       // Get models, skipping any undefined types (ex. deprecated button types)
       // Find buttonModel from config._customRouteId if not found in defined type
       const buttonModel = buttonConfig._customRouteId
-        ? data.findById(buttonConfig._customRouteId)
+        ? this.getCustomRoutePage(buttonConfig._customRouteId)
         : buttonTypeModels[type];
 
       if (!buttonModel) continue;
@@ -138,6 +138,12 @@ class PageNavModel extends ComponentModel {
         return page;
       }
     }
+  }
+
+  getCustomRoutePage(id) {
+    const buttonModel = data.findById(id);
+    if (!buttonModel || !buttonModel.get('_isAvailable')) return;
+    return buttonModel;
   }
 
   getPages() {
