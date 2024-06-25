@@ -11,7 +11,6 @@ export default function PageNavItem(props) {
     _iconClass,
     _id,
     _index,
-    _isHidden,
     _tooltipId,
     ariaLabel,
     locked,
@@ -27,9 +26,8 @@ export default function PageNavItem(props) {
         _iconClass && 'btn-icon has-icon',
         _iconAlignment && `has-icon-${_iconAlignment}`,
         text && 'btn-text has-text',
-        _isHidden && 'is-hidden',
         locked && 'is-locked',
-        (_isHidden || locked) && 'is-disabled',
+        locked && 'is-disabled',
         _classes
       ])}
       role="link"
@@ -37,7 +35,7 @@ export default function PageNavItem(props) {
       data-id={_id}
       data-item-index={_index}
       data-tooltip-id={_tooltipId}
-      disabled={_isHidden || locked}
+      disabled={locked}
       aria-label={`${locked ? globals._accessibility._ariaLabels.locked + '. ' : ''}${compile(ariaLabel, props)}`}
       onClick={onButtonClick}
     >
