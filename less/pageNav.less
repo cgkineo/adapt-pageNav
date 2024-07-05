@@ -20,22 +20,45 @@
 // --------------------------------------------------
 .pagenav__btn {
   margin: @item-margin;
-  .btn-color;
 
-  .no-touch &:not(.is-disabled):not(.is-locked):hover {
-    .btn-color-hover;
+  & when (@btn-color-style = filled) {
+    .btn-color;
+
+    .no-touch &:not(.is-disabled):not(.is-locked):hover {
+      .btn-color-hover;
+    }
+
+    html:not(.a11y-disable-focusoutline) &:focus-visible {
+      .btn-color-focus;
+    }
+
+    &[aria-current="page"] {
+      .btn-color-selected;
+    }
+
+    &__btn.is-disabled {
+      .btn-color-disabled;
+    }
   }
 
-  html:not(.a11y-disable-focusoutline) &:focus-visible {
-    .btn-color-focus;
-  }
+  & when (@btn-color-style = outline) {
+    .btn-color-outline;
 
-  &[aria-current="page"] {
-    .btn-color-selected;
-  }
+    .no-touch &:not(.is-disabled):not(.is-locked):hover {
+      .btn-color-outline-hover;
+    }
 
-  &__btn.is-disabled {
-    .btn-color-disabled;
+    html:not(.a11y-disable-focusoutline) &:focus-visible {
+      .btn-color-outline-focus;
+    }
+
+    &[aria-current="page"] {
+      .btn-color-outline-selected;
+    }
+
+    &__btn.is-disabled {
+      .btn-color-outline-disabled;
+    }
   }
 
   &-icon .icon {
