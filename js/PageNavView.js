@@ -25,6 +25,17 @@ class PageNavView extends ComponentView {
     this.setupTooltips();
   };
 
+  onInview(event, visible, visiblePartX, visiblePartY) {
+    if (!visible) return;
+    if (visiblePartY === 'top') this.hasSeenTop = true;
+    if (!this.hasSeenTop) return;
+
+    this.inviewCallback();
+
+    if (!this.model.get('_isComplete')) return;
+    this.removeInviewListener();
+  }
+
   onContentObjectComplete() {
     // Update model so that _lockUntilPageComplete works properly
     this.model.setupItemsModel();
