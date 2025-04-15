@@ -26,12 +26,8 @@ class PageNavView extends ComponentView {
   };
 
   onInview(event, visible, visiblePartX, visiblePartY) {
-    if (!visible) return;
-    if (visiblePartY === 'top') this.hasSeenTop = true;
-    if (!this.hasSeenTop) return;
-
+    if (!visible || visiblePartY === 'none') return;
     this.inviewCallback();
-
     if (!this.model.get('_isComplete')) return;
     this.removeInviewListener();
   }
