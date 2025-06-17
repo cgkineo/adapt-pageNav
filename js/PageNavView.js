@@ -25,8 +25,8 @@ class PageNavView extends ComponentView {
     this.setupTooltips();
   };
 
-  onInview(event, visible, visiblePartX, visiblePartY) {
-    if (!visible || visiblePartY === 'none') return;
+  onInview(event, visible) {
+    if (!visible) return;
     this.inviewCallback();
     if (!this.model.get('_isComplete')) return;
     this.removeInviewListener();
