@@ -133,7 +133,7 @@
                     "text": {
                       "type": "string",
                       "title": "",
-                      "default": "Home",
+                      "default": "Previous",
                       "_adapt": {
                         "translatable": true
                       }
@@ -225,7 +225,7 @@
                     "text": {
                       "type": "string",
                       "title": "",
-                      "default": "Home",
+                      "default": "Menu",
                       "_adapt": {
                         "translatable": true
                       }
@@ -317,7 +317,7 @@
                     "text": {
                       "type": "string",
                       "title": "",
-                      "default": "Home",
+                      "default": "Back to menu",
                       "_adapt": {
                         "translatable": true
                       }
@@ -409,7 +409,7 @@
                     "text": {
                       "type": "string",
                       "title": "",
-                      "default": "Return to previous location",
+                      "default": "Return",
                       "_adapt": {
                         "translatable": true
                       }
@@ -494,7 +494,7 @@
                     "text": {
                       "type": "string",
                       "title": "",
-                      "default": "Home",
+                      "default": "Next",
                       "_adapt": {
                         "translatable": true
                       }
@@ -586,7 +586,7 @@
                     "text": {
                       "type": "string",
                       "title": "",
-                      "default": "Home",
+                      "default": "Close",
                       "_adapt": {
                         "translatable": true
                       }
