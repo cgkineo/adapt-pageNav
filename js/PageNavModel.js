@@ -16,6 +16,12 @@ class PageNavModel extends ComponentModel {
   }
 
   setupItemsModel() {
+    // Guard against null currentModel during language changes
+    if (!location._currentModel) {
+      this.set('_items', []);
+      return;
+    }
+
     this.set('_items', this.getNavigationData());
   }
 
@@ -57,7 +63,7 @@ class PageNavModel extends ComponentModel {
         index: 0,
         order: order++,
         _tooltipId: `pagenav_btn${type}`,
-        locked: !currentPageOptional && (item._isLocked || (buttonConfig._lockUntilPageComplete && !currentPageComplete)) 
+        locked: !currentPageOptional && (item._isLocked || (buttonConfig._lockUntilPageComplete && !currentPageComplete))
       });
       unsortedItems.push(item);
     }
