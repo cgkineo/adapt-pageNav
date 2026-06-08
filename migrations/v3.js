@@ -203,7 +203,7 @@ describe('Page Nav - v3.0.0 to v3.0.1', async () => {
   });
 });
 
-describe('Page Nav - v3.0.1 to v3.1.0', async () => {
+describe('Page Nav - v3.0.1 to v3.1.10', async () => {
   const TOOLTIP_TEXT_FIXES = {
     _previous: { from: 'Home', to: 'Previous' },
     _root: { from: 'Home', to: 'Menu' },
@@ -215,7 +215,7 @@ describe('Page Nav - v3.0.1 to v3.1.0', async () => {
   const TOOLTIP_KEYS = ['_tooltip', '_navTooltip'];
   let pageNavs;
 
-  whereFromPlugin('Page Nav - from >=3.0.1 <3.1.0', { name: 'adapt-pageNav', version: '>=3.0.1 <3.1.0' });
+  whereFromPlugin('Page Nav - from >=3.0.1 <3.1.10', { name: 'adapt-pageNav', version: '>=3.0.1 <3.1.10' });
 
   whereContent('Page Nav - where pageNavs', async () => {
     pageNavs = getComponents('pageNav');
@@ -252,7 +252,7 @@ describe('Page Nav - v3.0.1 to v3.1.0', async () => {
     return true;
   });
 
-  updatePlugin('Page Nav - update to v3.1.0', { name: 'adapt-pageNav', version: '3.1.0', framework: '>=5.30.2' });
+  updatePlugin('Page Nav - update to v3.1.10', { name: 'adapt-pageNav', version: '3.1.10', framework: '>=5.30.2' });
 
   testSuccessWhere('v3.0.1 pageNav with stale Home tooltip defaults', {
     fromPlugins: [{ name: 'adapt-pageNav', version: '3.0.1' }],
@@ -283,7 +283,7 @@ describe('Page Nav - v3.0.1 to v3.1.0', async () => {
   });
 
   testStopWhere('incorrect version', {
-    fromPlugins: [{ name: 'adapt-pageNav', version: '3.1.0' }]
+    fromPlugins: [{ name: 'adapt-pageNav', version: '3.1.10' }]
   });
 
   testStopWhere('no pageNav components', {
