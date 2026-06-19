@@ -291,3 +291,61 @@ describe('Page Nav - v3.0.1 to v3.1.10', async () => {
     content: [{ _id: 'c-100', _component: 'text' }]
   });
 });
+
+describe('Page Nav - v3.1.10 to v3.1.11', async () => {
+  const BUTTON_KEYS = ['_returnToPreviousLocation', '_previous', '_root', '_up', '_next', '_close'];
+  let pageNavs;
+
+  whereFromPlugin('Page Nav - from >=3.1.10 <3.1.11', { name: 'adapt-pageNav', version: '>=3.1.10 <3.1.11' });
+
+  whereContent('Page Nav - where pageNavs', async () => {
+    pageNavs = getComponents('pageNav');
+    return pageNavs.length;
+  });
+
+  mutateContent('Page Nav - rename _navTooltip to _tooltip on buttons', async () => {
+    pageNavs.forEach(pageNav => {
+      BUTTON_KEYS.forEach(key => {
+        const button = _.get(pageNav, `_buttons.${key}`);
+        if (!button || !_.has(button, '_navTooltip')) return;
+        if (!_.has(button, '_tooltip')) button._tooltip = button._navTooltip;
+        _.unset(button, '_navTooltip');
+      });
+    });
+    return true;
+  });
+
+  checkContent('Page Nav - check no _navTooltip remains on buttons', async () => {
+    const isValid = pageNavs.every(pageNav => BUTTON_KEYS.every(key => {
+      const button = _.get(pageNav, `_buttons.${key}`);
+      return !button || !_.has(button, '_navTooltip');
+    }));
+    if (!isValid) throw new Error('Page Nav - _navTooltip not renamed to _tooltip');
+    return true;
+  });
+
+  updatePlugin('Page Nav - update to v3.1.11', { name: 'adapt-pageNav', version: '3.1.11', framework: '>=5.30.2' });
+
+  testSuccessWhere('v3.1.10 pageNav with _navTooltip authored buttons', {
+    fromPlugins: [{ name: 'adapt-pageNav', version: '3.1.10' }],
+    content: [
+      {
+        _id: 'c-100',
+        _component: 'pageNav',
+        _buttons: {
+          _root: { _isEnabled: true, _navTooltip: { _isEnabled: true, text: 'Menu time!' } },
+          _next: { _isEnabled: true, _tooltip: { _isEnabled: false, text: '{{displayTitle}}' } }
+        }
+      }
+    ]
+  });
+
+  testStopWhere('incorrect version', {
+    fromPlugins: [{ name: 'adapt-pageNav', version: '3.1.11' }]
+  });
+
+  testStopWhere('no pageNav components', {
+    fromPlugins: [{ name: 'adapt-pageNav', version: '3.1.10' }],
+    content: [{ _id: 'c-100', _component: 'text' }]
+  });
+});

@@ -1,9 +1,8 @@
 import { describe, whereContent, whereFromPlugin, whereToPlugin, mutateContent, checkContent, removePlugin, addPlugin, getComponents, testSuccessWhere, testStopWhere } from 'adapt-migrations';
 import _ from 'lodash';
 
-describe('Quick Nav to Page Nav - quicknav <=v4.0.0 to pageNav v3.1.10', async () => {
+describe('Quick Nav to Page Nav - quicknav <=v4.0.0 to pageNav v3.1.11', async () => {
   const BUTTON_KEYS = ['_returnToPreviousLocation', '_previous', '_root', '_up', '_next', '_close'];
-  const CUSTOM_ROUTE_BUTTONS = ['_previous', '_root', '_up', '_next'];
   const DEFAULT_ICON_CLASSES = {
     _returnToPreviousLocation: 'icon-controls-left',
     _previous: 'icon-controls-left',
@@ -145,11 +144,11 @@ describe('Quick Nav to Page Nav - quicknav <=v4.0.0 to pageNav v3.1.10', async (
 
   removePlugin('Quick Nav - remove adapt-quicknav', { name: 'adapt-quicknav' });
 
-  addPlugin('Page Nav - add adapt-pageNav', { name: 'adapt-pageNav', version: '3.1.10' });
+  addPlugin('Page Nav - add adapt-pageNav', { name: 'adapt-pageNav', version: '3.1.11' });
 
   testSuccessWhere('adapt-quicknav v3.0.3 structure', {
     fromPlugins: [{ name: 'adapt-quicknav', version: '3.0.3' }],
-    toPlugins: [{ name: 'adapt-pageNav', version: '3.1.10' }],
+    toPlugins: [{ name: 'adapt-pageNav', version: '3.1.11' }],
     content: [
       {
         _id: 'c-100',
@@ -169,7 +168,7 @@ describe('Quick Nav to Page Nav - quicknav <=v4.0.0 to pageNav v3.1.10', async (
 
   testSuccessWhere('adapt-quicknav v4.0.0 structure with _returnToPreviousLocation', {
     fromPlugins: [{ name: 'adapt-quicknav', version: '4.0.0' }],
-    toPlugins: [{ name: 'adapt-pageNav', version: '3.1.10' }],
+    toPlugins: [{ name: 'adapt-pageNav', version: '3.1.11' }],
     content: [
       {
         _id: 'c-100',
@@ -186,12 +185,12 @@ describe('Quick Nav to Page Nav - quicknav <=v4.0.0 to pageNav v3.1.10', async (
   });
 
   testStopWhere('incorrect plugin', {
-    fromPlugins: [{ name: 'adapt-pageNav', version: '3.1.10' }]
+    fromPlugins: [{ name: 'adapt-pageNav', version: '3.1.11' }]
   });
 
   testStopWhere('no quicknav components', {
     fromPlugins: [{ name: 'adapt-quicknav', version: '3.0.3' }],
-    toPlugins: [{ name: 'adapt-pageNav', version: '3.1.10' }],
+    toPlugins: [{ name: 'adapt-pageNav', version: '3.1.11' }],
     content: [{ _id: 'c-100', _component: 'text' }]
   });
 });
