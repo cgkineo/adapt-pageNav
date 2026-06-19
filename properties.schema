@@ -130,7 +130,7 @@
               "validators": [],
               "translatable": true
             },
-            "_navTooltip": {
+            "_tooltip": {
               "type": "object",
               "title": "Navigation tooltip",
               "properties": {
@@ -144,7 +144,7 @@
                 "text": {
                   "type": "string",
                   "title": "",
-                  "default": "Home",
+                  "default": "Previous",
                   "help": "The tooltip text to display on hover over this item",
                   "inputType": "Text",
                   "validators": [],
@@ -235,7 +235,7 @@
               "validators": [],
               "translatable": true
             },
-            "_navTooltip": {
+            "_tooltip": {
               "type": "object",
               "title": "Navigation tooltip",
               "properties": {
@@ -249,7 +249,7 @@
                 "text": {
                   "type": "string",
                   "title": "",
-                  "default": "Home",
+                  "default": "Menu",
                   "help": "The tooltip text to display on hover over this item",
                   "inputType": "Text",
                   "validators": [],
@@ -340,7 +340,7 @@
               "validators": [],
               "translatable": true
             },
-            "_navTooltip": {
+            "_tooltip": {
               "type": "object",
               "title": "Navigation tooltip",
               "properties": {
@@ -354,7 +354,7 @@
                 "text": {
                   "type": "string",
                   "title": "",
-                  "default": "Home",
+                  "default": "Back to menu",
                   "help": "The tooltip text to display on hover over this item",
                   "inputType": "Text",
                   "validators": [],
@@ -445,7 +445,7 @@
               "validators": [],
               "translatable": true
             },
-            "_navTooltip": {
+            "_tooltip": {
               "type": "object",
               "title": "Navigation tooltip",
               "properties": {
@@ -459,7 +459,7 @@
                 "text": {
                   "type": "string",
                   "title": "",
-                  "default": "Return to previous location",
+                  "default": "Return",
                   "help": "The tooltip text to display on hover over this item",
                   "inputType": "Text",
                   "validators": [],
@@ -542,7 +542,7 @@
               "validators": [],
               "translatable": true
             },
-            "_navTooltip": {
+            "_tooltip": {
               "type": "object",
               "title": "Navigation tooltip",
               "properties": {
@@ -556,7 +556,7 @@
                 "text": {
                   "type": "string",
                   "title": "",
-                  "default": "Home",
+                  "default": "Next",
                   "help": "The tooltip text to display on hover over this item",
                   "inputType": "Text",
                   "validators": [],
@@ -647,7 +647,7 @@
               "validators": [],
               "translatable": true
             },
-            "_navTooltip": {
+            "_tooltip": {
               "type": "object",
               "title": "Navigation tooltip",
               "properties": {
@@ -661,7 +661,7 @@
                 "text": {
                   "type": "string",
                   "title": "",
-                  "default": "Home",
+                  "default": "Close",
                   "help": "The tooltip text to display on hover over this item",
                   "inputType": "Text",
                   "validators": [],
