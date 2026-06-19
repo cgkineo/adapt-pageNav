@@ -130,7 +130,7 @@
               "validators": [],
               "translatable": true
             },
-            "_navTooltip": {
+            "_tooltip": {
               "type": "object",
               "title": "Navigation tooltip",
               "properties": {
@@ -235,7 +235,7 @@
               "validators": [],
               "translatable": true
             },
-            "_navTooltip": {
+            "_tooltip": {
               "type": "object",
               "title": "Navigation tooltip",
               "properties": {
@@ -340,7 +340,7 @@
               "validators": [],
               "translatable": true
             },
-            "_navTooltip": {
+            "_tooltip": {
               "type": "object",
               "title": "Navigation tooltip",
               "properties": {
@@ -445,7 +445,7 @@
               "validators": [],
               "translatable": true
             },
-            "_navTooltip": {
+            "_tooltip": {
               "type": "object",
               "title": "Navigation tooltip",
               "properties": {
@@ -542,7 +542,7 @@
               "validators": [],
               "translatable": true
             },
-            "_navTooltip": {
+            "_tooltip": {
               "type": "object",
               "title": "Navigation tooltip",
               "properties": {
@@ -647,7 +647,7 @@
               "validators": [],
               "translatable": true
             },
-            "_navTooltip": {
+            "_tooltip": {
               "type": "object",
               "title": "Navigation tooltip",
               "properties": {
