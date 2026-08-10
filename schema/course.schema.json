@@ -12,15 +12,24 @@
           "type": "object",
           "default": {},
           "properties": {
-            "_pageNav": {
+            "_components": {
               "type": "object",
-              "title": "PageNav",
               "default": {},
               "properties": {
-                "ariaRegion": {
-                  "type": "string",
-                  "title": "Aria region",
-                  "default": "Course navigation."
+                "_pageNav": {
+                  "type": "object",
+                  "title": "PageNav",
+                  "default": {},
+                  "properties": {
+                    "ariaRegion": {
+                      "type": "string",
+                      "title": "Aria region",
+                      "default": "Course navigation.",
+                      "_adapt": {
+                        "translatable": true
+                      }
+                    }
+                  }
                 }
               }
             }

@@ -1,4 +1,4 @@
-import { describe, whereContent, whereFromPlugin, mutateContent, checkContent, updatePlugin, getComponents, testSuccessWhere, testStopWhere } from 'adapt-migrations';
+import { describe, whereContent, whereFromPlugin, mutateContent, checkContent, updatePlugin, getComponents, getCourse, testSuccessWhere, testStopWhere } from 'adapt-migrations';
 import _ from 'lodash';
 
 describe('Page Nav - v2.4.0 to v3.0.0', async () => {
@@ -362,5 +362,74 @@ describe('Page Nav - v3.1.10 to v3.1.11', async () => {
   testStopWhere('no pageNav components', {
     fromPlugins: [{ name: 'adapt-pageNav', version: '3.1.10' }],
     content: [{ _id: 'c-100', _component: 'text' }]
+  });
+});
+
+describe('Page Nav - v@@CURRENT_VERSION to v@@RELEASE_VERSION', async () => {
+  // The course schema declared _globals._pageNav from v2.2.0 while the template has always
+  // read _globals._components._pageNav, so any value authored against the schema was ignored.
+  const LEGACY_ARIA_REGION_PATH = '_globals._pageNav.ariaRegion';
+  const ARIA_REGION_PATH = '_globals._components._pageNav.ariaRegion';
+  let course;
+
+  whereFromPlugin('Page Nav - from >=@@CURRENT_VERSION <@@RELEASE_VERSION', { name: 'adapt-pageNav', version: '>=@@CURRENT_VERSION <@@RELEASE_VERSION' });
+
+  whereContent('Page Nav - where course has a legacy _globals._pageNav ariaRegion', async () => {
+    course = getCourse();
+    return _.has(course, LEGACY_ARIA_REGION_PATH);
+  });
+
+  mutateContent('Page Nav - move ariaRegion to _globals._components._pageNav', async () => {
+    if (!_.has(course, ARIA_REGION_PATH)) {
+      _.set(course, ARIA_REGION_PATH, _.get(course, LEGACY_ARIA_REGION_PATH));
+    }
+    _.unset(course, LEGACY_ARIA_REGION_PATH);
+    if (_.isEmpty(_.get(course, '_globals._pageNav'))) _.unset(course, '_globals._pageNav');
+    return true;
+  });
+
+  checkContent('Page Nav - check ariaRegion moved to _globals._components._pageNav', async () => {
+    const isValid = _.has(course, ARIA_REGION_PATH) && !_.has(course, LEGACY_ARIA_REGION_PATH);
+    if (!isValid) throw new Error('Page Nav - ariaRegion not moved to _globals._components._pageNav');
+    return true;
+  });
+
+  updatePlugin('Page Nav - update to v@@RELEASE_VERSION', { name: 'adapt-pageNav', version: '@@RELEASE_VERSION', framework: '>=5.30.2' });
+
+  testSuccessWhere('course with a customised legacy ariaRegion', {
+    fromPlugins: [{ name: 'adapt-pageNav', version: '@@CURRENT_VERSION' }],
+    content: [
+      {
+        _type: 'course',
+        _globals: { _pageNav: { ariaRegion: 'Page navigation.' } }
+      }
+    ]
+  });
+
+  testSuccessWhere('course with both legacy and current ariaRegion', {
+    fromPlugins: [{ name: 'adapt-pageNav', version: '@@CURRENT_VERSION' }],
+    content: [
+      {
+        _type: 'course',
+        _globals: {
+          _pageNav: { ariaRegion: 'Stale value.' },
+          _components: { _pageNav: { ariaRegion: 'Course navigation.' } }
+        }
+      }
+    ]
+  });
+
+  testStopWhere('incorrect version', {
+    fromPlugins: [{ name: 'adapt-pageNav', version: '@@RELEASE_VERSION' }]
+  });
+
+  testStopWhere('course without a legacy ariaRegion', {
+    fromPlugins: [{ name: 'adapt-pageNav', version: '@@CURRENT_VERSION' }],
+    content: [
+      {
+        _type: 'course',
+        _globals: { _components: { _pageNav: { ariaRegion: 'Course navigation.' } } }
+      }
+    ]
   });
 });

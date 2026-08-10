@@ -68,7 +68,7 @@ describe('Page Nav - v2.0.5 to v2.1.1', async () => {
 
 describe('Page Nav - v2.1.2 to v2.2.0', async () => {
   let course;
-  const ariaRegionPath = '_globals._pageNav.ariaRegion';
+  const ariaRegionPath = '_globals._components._pageNav.ariaRegion';
 
   whereFromPlugin('Page Nav - from <v2.2.0', { name: 'adapt-pageNav', version: '<2.2.0' });
 
@@ -77,14 +77,14 @@ describe('Page Nav - v2.1.2 to v2.2.0', async () => {
     return !_.has(course, ariaRegionPath);
   });
 
-  mutateContent('Page Nav - add _globals._pageNav.ariaRegion', async () => {
+  mutateContent('Page Nav - add _globals._components._pageNav.ariaRegion', async () => {
     _.set(course, ariaRegionPath, 'Course navigation.');
     return true;
   });
 
-  checkContent('Page Nav - check _globals._pageNav.ariaRegion added', async () => {
+  checkContent('Page Nav - check _globals._components._pageNav.ariaRegion added', async () => {
     const isValid = _.has(course, ariaRegionPath);
-    if (!isValid) throw new Error('Page Nav - _globals._pageNav.ariaRegion not added');
+    if (!isValid) throw new Error('Page Nav - _globals._components._pageNav.ariaRegion not added');
     return true;
   });
 
@@ -100,7 +100,7 @@ describe('Page Nav - v2.1.2 to v2.2.0', async () => {
     content: [
       {
         _type: 'course',
-        _globals: { _pageNav: {} }
+        _globals: { _components: { _pageNav: {} } }
       }
     ]
   });
