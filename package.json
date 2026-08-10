@@ -27,7 +27,7 @@
     "@semantic-release/release-notes-generator": "^10.0.3",
     "conventional-changelog-eslint": "^3.0.9",
     "semantic-release": "^19.0.3",
-    "semantic-release-replace-plugin": "^1.2.7"
+    "semantic-release-replace-plugin": "1.2.6"
   },
   "scripts": {
     "postversion": "cp package.json bower.json"
