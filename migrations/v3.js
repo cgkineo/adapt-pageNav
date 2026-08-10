@@ -100,6 +100,16 @@ describe('Page Nav - v2.4.0 to v3.0.0', async () => {
     return true;
   });
 
+  checkContent('Page Nav - check empty _iconClass replaced with pageNav defaults', async () => {
+    const isValid = pageNavs.every(pageNav => REMAINING_BUTTONS.every(key => {
+      const button = _.get(pageNav, `_buttons.${key}`);
+      if (!button || !_.has(button, '_iconClass')) return true;
+      return button._iconClass !== '';
+    }));
+    if (!isValid) throw new Error('Page Nav - empty _iconClass not replaced with pageNav default');
+    return true;
+  });
+
   updatePlugin('Page Nav - update to v3.0.0', { name: 'adapt-pageNav', version: '3.0.0', framework: '>=5.30.2' });
 
   testSuccessWhere('v2.4.0 pageNav with deprecated fields and all buttons', {
@@ -158,7 +168,7 @@ describe('Page Nav - v3.0.0 to v3.0.1', async () => {
   mutateContent('Page Nav - restore _buttons._returnToPreviousLocation', async () => {
     pageNavs.forEach(pageNav => {
       if (_.has(pageNav, '_buttons._returnToPreviousLocation')) return;
-      pageNav._buttons._returnToPreviousLocation = {
+      _.set(pageNav, '_buttons._returnToPreviousLocation', {
         _isEnabled: false,
         _lockUntilPageComplete: false,
         _order: 1,
@@ -168,7 +178,7 @@ describe('Page Nav - v3.0.0 to v3.0.1', async () => {
         text: 'Return',
         ariaLabel: 'Return to previous location',
         _tooltip: { _isEnabled: true, text: '{{displayTitle}}' }
-      };
+      });
     });
     return true;
   });
@@ -200,6 +210,11 @@ describe('Page Nav - v3.0.0 to v3.0.1', async () => {
 
   testStopWhere('incorrect version', {
     fromPlugins: [{ name: 'adapt-pageNav', version: '3.0.1' }]
+  });
+
+  testStopWhere('no pageNav components', {
+    fromPlugins: [{ name: 'adapt-pageNav', version: '3.0.0' }],
+    content: [{ _id: 'c-100', _component: 'text' }]
   });
 });
 

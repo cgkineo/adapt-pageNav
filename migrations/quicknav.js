@@ -109,7 +109,7 @@ describe('Quick Nav to Page Nav - quicknav <=v4.0.0 to pageNav v3.1.11', async (
   mutateContent('Quick Nav - add _buttons._returnToPreviousLocation where missing', async () => {
     quickNavs.forEach(quickNav => {
       if (_.has(quickNav, '_buttons._returnToPreviousLocation')) return;
-      quickNav._buttons._returnToPreviousLocation = _.cloneDeep(RETURN_TO_PREVIOUS_LOCATION);
+      _.set(quickNav, '_buttons._returnToPreviousLocation', _.cloneDeep(RETURN_TO_PREVIOUS_LOCATION));
     });
     return true;
   });
@@ -117,6 +117,12 @@ describe('Quick Nav to Page Nav - quicknav <=v4.0.0 to pageNav v3.1.11', async (
   checkContent('Quick Nav - check _component renamed to pageNav', async () => {
     const isValid = quickNavs.every(quickNav => quickNav._component === 'pageNav');
     if (!isValid) throw new Error('Quick Nav - _component not renamed to pageNav');
+    return true;
+  });
+
+  checkContent('Quick Nav - check _shouldSkipOptionalPages added', async () => {
+    const isValid = quickNavs.every(quickNav => _.has(quickNav, '_shouldSkipOptionalPages'));
+    if (!isValid) throw new Error('Quick Nav - _shouldSkipOptionalPages not added');
     return true;
   });
 
@@ -133,6 +139,22 @@ describe('Quick Nav to Page Nav - quicknav <=v4.0.0 to pageNav v3.1.11', async (
       return _.has(button, '_lockUntilPageComplete') && _.has(button, '_iconAlignment') && _.has(button, '_tooltip') && !_.has(button, '_alignIconRight') && !_.has(button, '_showTooltip') && !_.has(button, 'tooltip');
     }));
     if (!isValid) throw new Error('Quick Nav - buttons not fully converted to pageNav structure');
+    return true;
+  });
+
+  checkContent('Quick Nav - check empty _iconClass replaced with pageNav defaults', async () => {
+    const isValid = quickNavs.every(quickNav => BUTTON_KEYS.every(key => {
+      const button = _.get(quickNav, `_buttons.${key}`);
+      if (!button || !_.has(button, '_iconClass')) return true;
+      return button._iconClass !== '';
+    }));
+    if (!isValid) throw new Error('Quick Nav - empty _iconClass not replaced with pageNav default');
+    return true;
+  });
+
+  checkContent('Quick Nav - check _customRouteId removed from _close', async () => {
+    const isValid = quickNavs.every(quickNav => !_.has(quickNav, '_buttons._close._customRouteId'));
+    if (!isValid) throw new Error('Quick Nav - _buttons._close._customRouteId not removed');
     return true;
   });
 
