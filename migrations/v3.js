@@ -13,7 +13,9 @@ describe('Page Nav - v2.4.0 to v3.0.0', async () => {
   const DEFAULT_TOOLTIP_TEXT = { _close: 'Close window' };
   let pageNavs;
 
-  whereFromPlugin('Page Nav - from <v3.0.0', { name: 'adapt-pageNav', version: '<3.0.0' });
+  // Lower bound is the rename: this plugin was adapt-bottomNavigation up to v2.0.0 and became
+  // adapt-pageNav at v2.0.2, so no adapt-pageNav exists below 2.0.2.
+  whereFromPlugin('Page Nav - from >=v2.0.2 <v3.0.0', { name: 'adapt-pageNav', version: '>=2.0.2 <3.0.0' });
 
   whereContent('Page Nav - where pageNavs', async () => {
     pageNavs = getComponents('pageNav');
@@ -147,6 +149,20 @@ describe('Page Nav - v2.4.0 to v3.0.0', async () => {
 
   testStopWhere('incorrect version', {
     fromPlugins: [{ name: 'adapt-pageNav', version: '3.0.0' }]
+  });
+
+  testStopWhere('bottomNavigation era version', {
+    fromPlugins: [{ name: 'adapt-pageNav', version: '2.0.0' }],
+    content: [
+      {
+        _id: 'c-100',
+        _component: 'pageNav',
+        _buttons: {
+          _previous: { _isEnabled: true },
+          _next: { _isEnabled: true }
+        }
+      }
+    ]
   });
 
   testStopWhere('no pageNav components', {

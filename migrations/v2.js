@@ -4,7 +4,9 @@ import _ from 'lodash';
 describe('Page Nav - v2.0.5 to v2.1.1', async () => {
   let pageNavs;
 
-  whereFromPlugin('Page Nav - from <v2.1.1', { name: 'adapt-pageNav', version: '<2.1.1' });
+  // Lower bound is the rename: this plugin was adapt-bottomNavigation up to v2.0.0 and became
+  // adapt-pageNav at v2.0.2, so no adapt-pageNav exists below 2.0.2.
+  whereFromPlugin('Page Nav - from >=v2.0.2 <v2.1.1', { name: 'adapt-pageNav', version: '>=2.0.2 <2.1.1' });
 
   whereContent('Page Nav - where pageNavs', async () => {
     pageNavs = getComponents('pageNav');
@@ -60,6 +62,20 @@ describe('Page Nav - v2.0.5 to v2.1.1', async () => {
     fromPlugins: [{ name: 'adapt-pageNav', version: '2.1.1' }]
   });
 
+  testStopWhere('bottomNavigation era version', {
+    fromPlugins: [{ name: 'adapt-pageNav', version: '2.0.0' }],
+    content: [
+      {
+        _id: 'c-100',
+        _component: 'pageNav',
+        _buttons: {
+          _previous: { _isEnabled: true },
+          _next: { _isEnabled: true }
+        }
+      }
+    ]
+  });
+
   testStopWhere('no pageNav components', {
     fromPlugins: [{ name: 'adapt-pageNav', version: '2.0.5' }],
     content: [{ _id: 'c-100', _component: 'text' }]
@@ -70,7 +86,9 @@ describe('Page Nav - v2.1.2 to v2.2.0', async () => {
   let course;
   const ariaRegionPath = '_globals._components._pageNav.ariaRegion';
 
-  whereFromPlugin('Page Nav - from <v2.2.0', { name: 'adapt-pageNav', version: '<2.2.0' });
+  // Lower bound is the rename: this plugin was adapt-bottomNavigation up to v2.0.0 and became
+  // adapt-pageNav at v2.0.2, so no adapt-pageNav exists below 2.0.2.
+  whereFromPlugin('Page Nav - from >=v2.0.2 <v2.2.0', { name: 'adapt-pageNav', version: '>=2.0.2 <2.2.0' });
 
   whereContent('Page Nav - where missing _globals ariaRegion', async () => {
     course = getCourse();
@@ -107,5 +125,10 @@ describe('Page Nav - v2.1.2 to v2.2.0', async () => {
 
   testStopWhere('incorrect version', {
     fromPlugins: [{ name: 'adapt-pageNav', version: '2.2.0' }]
+  });
+
+  testStopWhere('bottomNavigation era version', {
+    fromPlugins: [{ name: 'adapt-pageNav', version: '2.0.0' }],
+    content: [{ _type: 'course' }]
   });
 });
