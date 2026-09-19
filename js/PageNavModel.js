@@ -111,8 +111,8 @@ class PageNavModel extends ComponentModel {
     let hasFoundCurrentPage = false;
 
     for (const page of pages.reverse()) {
-      const isNotShown = !page.get('_isAvailable') || page.get('_isHidden');
-      if (isNotShown) continue;
+      const isNotAvailable = !page.get('_isAvailable');
+      if (isNotAvailable) continue;
 
       if (!hasFoundCurrentPage) {
         hasFoundCurrentPage = page.get('_id') === currentPageId;
@@ -132,8 +132,8 @@ class PageNavModel extends ComponentModel {
     let hasFoundCurrentPage = false;
 
     for (const page of pages) {
-      const isNotShown = !page.get('_isAvailable') || page.get('_isHidden');
-      if (isNotShown) continue;
+      const isNotAvailable = !page.get('_isAvailable');
+      if (isNotAvailable) continue;
 
       if (!hasFoundCurrentPage) {
         hasFoundCurrentPage = page.get('_id') === currentPageId;
