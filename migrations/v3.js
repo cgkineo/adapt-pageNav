@@ -381,14 +381,14 @@ describe('Page Nav - v3.1.10 to v3.1.11', async () => {
   });
 });
 
-describe('Page Nav - v@@CURRENT_VERSION to v@@RELEASE_VERSION', async () => {
+describe('Page Nav - v3.1.11 to v3.2.0', async () => {
   // The course schema declared _globals._pageNav from v2.2.0 while the template has always
   // read _globals._components._pageNav, so any value authored against the schema was ignored.
   const LEGACY_ARIA_REGION_PATH = '_globals._pageNav.ariaRegion';
   const ARIA_REGION_PATH = '_globals._components._pageNav.ariaRegion';
   let course;
 
-  whereFromPlugin('Page Nav - from >=@@CURRENT_VERSION <@@RELEASE_VERSION', { name: 'adapt-pageNav', version: '>=@@CURRENT_VERSION <@@RELEASE_VERSION' });
+  whereFromPlugin('Page Nav - from >=3.1.11 <3.2.0', { name: 'adapt-pageNav', version: '>=3.1.11 <3.2.0' });
 
   whereContent('Page Nav - where course has a legacy _globals._pageNav ariaRegion', async () => {
     course = getCourse();
@@ -410,10 +410,10 @@ describe('Page Nav - v@@CURRENT_VERSION to v@@RELEASE_VERSION', async () => {
     return true;
   });
 
-  updatePlugin('Page Nav - update to v@@RELEASE_VERSION', { name: 'adapt-pageNav', version: '@@RELEASE_VERSION', framework: '>=5.30.2' });
+  updatePlugin('Page Nav - update to v3.2.0', { name: 'adapt-pageNav', version: '3.2.0', framework: '>=5.30.2' });
 
   testSuccessWhere('course with a customised legacy ariaRegion', {
-    fromPlugins: [{ name: 'adapt-pageNav', version: '@@CURRENT_VERSION' }],
+    fromPlugins: [{ name: 'adapt-pageNav', version: '3.1.11' }],
     content: [
       {
         _type: 'course',
@@ -423,7 +423,7 @@ describe('Page Nav - v@@CURRENT_VERSION to v@@RELEASE_VERSION', async () => {
   });
 
   testSuccessWhere('course with both legacy and current ariaRegion', {
-    fromPlugins: [{ name: 'adapt-pageNav', version: '@@CURRENT_VERSION' }],
+    fromPlugins: [{ name: 'adapt-pageNav', version: '3.1.11' }],
     content: [
       {
         _type: 'course',
@@ -436,11 +436,11 @@ describe('Page Nav - v@@CURRENT_VERSION to v@@RELEASE_VERSION', async () => {
   });
 
   testStopWhere('incorrect version', {
-    fromPlugins: [{ name: 'adapt-pageNav', version: '@@RELEASE_VERSION' }]
+    fromPlugins: [{ name: 'adapt-pageNav', version: '3.2.0' }]
   });
 
   testStopWhere('course without a legacy ariaRegion', {
-    fromPlugins: [{ name: 'adapt-pageNav', version: '@@CURRENT_VERSION' }],
+    fromPlugins: [{ name: 'adapt-pageNav', version: '3.1.11' }],
     content: [
       {
         _type: 'course',
