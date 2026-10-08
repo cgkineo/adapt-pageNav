@@ -11,6 +11,15 @@ describe('Page Nav - v2.4.0 to v3.0.0', async () => {
     _close: 'icon-cross'
   };
   const DEFAULT_TOOLTIP_TEXT = { _close: 'Close window' };
+  // v2's schema defaults, which the legacy authoring tool filled in at build time: every button
+  // was disabled, so a pageNav saved without _buttons showed none
+  const V2_BUTTON_DEFAULTS = {
+    _previous: { text: 'Previous', ariaLabel: 'Previous Page' },
+    _root: { text: 'Menu', ariaLabel: 'Go to main menu' },
+    _up: { text: 'Back to menu', ariaLabel: 'Back to menu' },
+    _next: { text: 'Next', ariaLabel: 'Next Page', _alignIconRight: true },
+    _close: { text: 'Close', ariaLabel: 'Close window', tooltip: 'Close window' }
+  };
   let pageNavs;
 
   // Lower bound is the rename: this plugin was adapt-bottomNavigation up to v2.0.0 and became
@@ -20,6 +29,23 @@ describe('Page Nav - v2.4.0 to v3.0.0', async () => {
   whereContent('Page Nav - where pageNavs', async () => {
     pageNavs = getComponents('pageNav');
     return pageNavs.length;
+  });
+
+  mutateContent('Page Nav - add any missing _buttons with their v2 defaults', async () => {
+    pageNavs.forEach(pageNav => {
+      REMAINING_BUTTONS.forEach(key => {
+        if (_.has(pageNav, `_buttons.${key}`)) return;
+        _.set(pageNav, `_buttons.${key}`, {
+          _isEnabled: false,
+          _iconClass: '',
+          _alignIconRight: false,
+          _showTooltip: false,
+          tooltip: '{{displayTitle}}',
+          ...V2_BUTTON_DEFAULTS[key]
+        });
+      });
+    });
+    return true;
   });
 
   mutateContent('Page Nav - remove _buttons._returnToPreviousLocation', async () => {
@@ -67,6 +93,12 @@ describe('Page Nav - v2.4.0 to v3.0.0', async () => {
         button._iconClass = DEFAULT_ICON_CLASSES[key];
       });
     });
+    return true;
+  });
+
+  checkContent('Page Nav - check every remaining button exists', async () => {
+    const isValid = pageNavs.every(pageNav => REMAINING_BUTTONS.every(key => _.has(pageNav, `_buttons.${key}`)));
+    if (!isValid) throw new Error('Page Nav - missing _buttons not added');
     return true;
   });
 
@@ -144,6 +176,20 @@ describe('Page Nav - v2.4.0 to v3.0.0', async () => {
           _next: { _isEnabled: true, _iconClass: '', _alignIconRight: true, _showTooltip: false, tooltip: '{{displayTitle}}' }
         }
       }
+    ]
+  });
+
+  testSuccessWhere('v2.3.2 pageNav saved without _buttons', {
+    fromPlugins: [{ name: 'adapt-pageNav', version: '2.3.2' }],
+    content: [
+      { _id: 'c-100', _component: 'pageNav', _type: 'component' }
+    ]
+  });
+
+  testSuccessWhere('v2.3.2 pageNav with empty _buttons', {
+    fromPlugins: [{ name: 'adapt-pageNav', version: '2.3.2' }],
+    content: [
+      { _id: 'c-100', _component: 'pageNav', _type: 'component', _buttons: {} }
     ]
   });
 
