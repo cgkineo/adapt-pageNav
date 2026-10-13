@@ -26,6 +26,51 @@
   }
 }
 
+// Button colours, using the vanilla button colour mixins
+// Scoped to .pagenav to take precedence over the generic .btn-text/.btn-icon colours
+// --------------------------------------------------
+.pagenav .pagenav__btn {
+  & when (@btn-color-style = filled) {
+    .btn-color;
+
+    .no-touch &:not(.is-disabled):not(.is-locked):hover {
+      .btn-color-hover;
+    }
+
+    html:not(.a11y-disable-focusoutline) &:focus-visible {
+      .btn-color-focus;
+    }
+
+    &.is-disabled {
+      .btn-color-disabled;
+    }
+
+    &.is-locked {
+      .btn-color-locked;
+    }
+  }
+
+  & when (@btn-color-style = outline) {
+    .btn-color-outline;
+
+    .no-touch &:not(.is-disabled):not(.is-locked):hover {
+      .btn-color-outline-hover;
+    }
+
+    html:not(.a11y-disable-focusoutline) &:focus-visible {
+      .btn-color-outline-focus;
+    }
+
+    &.is-disabled {
+      .btn-color-outline-disabled;
+    }
+
+    &.is-locked {
+      .btn-color-outline-locked;
+    }
+  }
+}
+
 // Buttons with text and icon
 // --------------------------------------------------
 .pagenav__btn.btn-icon.btn-text {
@@ -104,23 +149,8 @@
   .icon-padlock-locked;
 }
 
-// Consistent with nav icon button styling
+// Icon only buttons
 // --------------------------------------------------
 .pagenav__btn.btn-icon:not(.btn-text) {
   padding: @icon-padding;
-  background-color: @btn-icon-color;
-  color: @btn-icon-color-inverted;
-  border-radius: @btn-border-radius;
-
-  .no-touch &:not(.is-disabled):not(.is-locked):hover {
-    background-color: @btn-icon-color-hover;
-    color: @btn-icon-color-inverted-hover;
-    .transition(background-color @duration ease-in, color @duration ease-in;);
-  }
-
-  &.is-locked,
-  &.is-disabled {
-    background-color: @disabled;
-    color: @disabled-inverted;
-  }
 }
